@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Point Reyes Lighthouse</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.998145, -123.012344);
+    var center_latlng = new google.maps.LatLng(37.998145, -123.012344);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.998145,-123.012344),new google.maps.LatLng(37.998171,-123.012407),new google.maps.LatLng(37.998091,-123.012594),new google.maps.LatLng(37.998131,-123.012809),new google.maps.LatLng(37.998311,-123.012887),new google.maps.LatLng(37.998464,-123.013013),new google.maps.LatLng(37.998647,-123.013217),new google.maps.LatLng(37.998831,-123.013281),new google.maps.LatLng(37.998887,-123.013360),new google.maps.LatLng(37.998970,-123.013471),new google.maps.LatLng(37.999012,-123.013591),new google.maps.LatLng(37.999023,-123.013638),new google.maps.LatLng(37.999063,-123.013641),new google.maps.LatLng(37.999037,-123.013665),new google.maps.LatLng(37.999031,-123.013671),new google.maps.LatLng(37.999055,-123.013619),new google.maps.LatLng(37.999048,-123.013616),new google.maps.LatLng(37.998983,-123.013544),new google.maps.LatLng(37.998910,-123.013380),new google.maps.LatLng(37.998794,-123.013273),new google.maps.LatLng(37.998695,-123.013227),new google.maps.LatLng(37.998663,-123.013239),new google.maps.LatLng(37.998520,-123.013065),new google.maps.LatLng(37.998459,-123.013003),new google.maps.LatLng(37.998449,-123.013012),new google.maps.LatLng(37.998385,-123.012927),new google.maps.LatLng(37.998306,-123.012897),new google.maps.LatLng(37.998172,-123.012858),new google.maps.LatLng(37.998104,-123.012713),new google.maps.LatLng(37.998109,-123.012639),new google.maps.LatLng(37.998171,-123.012490),new google.maps.LatLng(37.998184,-123.012461),new google.maps.LatLng(37.998187,-123.012437),new google.maps.LatLng(37.998197,-123.012396),new google.maps.LatLng(37.998126,-123.012326),new google.maps.LatLng(37.998095,-123.012302),new google.maps.LatLng(37.997970,-123.012344),new google.maps.LatLng(37.997920,-123.012475),new google.maps.LatLng(37.997883,-123.012608),new google.maps.LatLng(37.997783,-123.012834),new google.maps.LatLng(37.997667,-123.013103),new google.maps.LatLng(37.997555,-123.013367),new google.maps.LatLng(37.997453,-123.013575),new google.maps.LatLng(37.997385,-123.013677),new google.maps.LatLng(37.997350,-123.013772),new google.maps.LatLng(37.997244,-123.014012),new google.maps.LatLng(37.997114,-123.014285),new google.maps.LatLng(37.997027,-123.014540),new google.maps.LatLng(37.997004,-123.014701),new google.maps.LatLng(37.997004,-123.014755),new google.maps.LatLng(37.996993,-123.014799),new google.maps.LatLng(37.997000,-123.014968),new google.maps.LatLng(37.997024,-123.015280),new google.maps.LatLng(37.997078,-123.015629),new google.maps.LatLng(37.997090,-123.015951),new google.maps.LatLng(37.997114,-123.016002),new google.maps.LatLng(37.997099,-123.016074),new google.maps.LatLng(37.997097,-123.016215),new google.maps.LatLng(37.997098,-123.016450),new google.maps.LatLng(37.997098,-123.016676),new google.maps.LatLng(37.997092,-123.016778),new google.maps.LatLng(37.997065,-123.016961),new google.maps.LatLng(37.997033,-123.017175),new google.maps.LatLng(37.997079,-123.017235),new google.maps.LatLng(37.997083,-123.017234),new google.maps.LatLng(37.997110,-123.017204),new google.maps.LatLng(37.997044,-123.017322),new google.maps.LatLng(37.997057,-123.017473),new google.maps.LatLng(37.997101,-123.017614),new google.maps.LatLng(37.997121,-123.017692),new google.maps.LatLng(37.997101,-123.017847),new google.maps.LatLng(37.997068,-123.017950),new google.maps.LatLng(37.997024,-123.018013),new google.maps.LatLng(37.996975,-123.018140),new google.maps.LatLng(37.996940,-123.018246),new google.maps.LatLng(37.996908,-123.018367),new google.maps.LatLng(37.996886,-123.018473),new google.maps.LatLng(37.996916,-123.018730),new google.maps.LatLng(37.996919,-123.018875),new google.maps.LatLng(37.996846,-123.019096),new google.maps.LatLng(37.996741,-123.019248),new google.maps.LatLng(37.996634,-123.019377),new google.maps.LatLng(37.996564,-123.019671),new google.maps.LatLng(37.996580,-123.019927),new google.maps.LatLng(37.996544,-123.020140),new google.maps.LatLng(37.996493,-123.020274),new google.maps.LatLng(37.996459,-123.020356),new google.maps.LatLng(37.996466,-123.020420),new google.maps.LatLng(37.996503,-123.020457),new google.maps.LatLng(37.996507,-123.020502),new google.maps.LatLng(37.996539,-123.020466),new google.maps.LatLng(37.996536,-123.020497),new google.maps.LatLng(37.996514,-123.020529),new google.maps.LatLng(37.996545,-123.020512),new google.maps.LatLng(37.996516,-123.020468),new google.maps.LatLng(37.996508,-123.020521),new google.maps.LatLng(37.996500,-123.020471),new google.maps.LatLng(37.996556,-123.020442),new google.maps.LatLng(37.996548,-123.020430),new google.maps.LatLng(37.996528,-123.020469),new google.maps.LatLng(37.996532,-123.020475),new google.maps.LatLng(37.996519,-123.020465),new google.maps.LatLng(37.996538,-123.020452),new google.maps.LatLng(37.996510,-123.020479),new google.maps.LatLng(37.996523,-123.020500),new google.maps.LatLng(37.996538,-123.020483),new google.maps.LatLng(37.996552,-123.020481),new google.maps.LatLng(37.996540,-123.020483),new google.maps.LatLng(37.996509,-123.020479),new google.maps.LatLng(37.996514,-123.020505),new google.maps.LatLng(37.996483,-123.020475),new google.maps.LatLng(37.996404,-123.020532),new google.maps.LatLng(37.996373,-123.020646),new google.maps.LatLng(37.996376,-123.020750),new google.maps.LatLng(37.996424,-123.020854),new google.maps.LatLng(37.996423,-123.020930),new google.maps.LatLng(37.996406,-123.020955),new google.maps.LatLng(37.996393,-123.020989),new google.maps.LatLng(37.996368,-123.021070),new google.maps.LatLng(37.996339,-123.021177),new google.maps.LatLng(37.996315,-123.021266),new google.maps.LatLng(37.996297,-123.021332),new google.maps.LatLng(37.996259,-123.021473),new google.maps.LatLng(37.996238,-123.021560),new google.maps.LatLng(37.996210,-123.021634),new google.maps.LatLng(37.996177,-123.021778),new google.maps.LatLng(37.996151,-123.021812),new google.maps.LatLng(37.996145,-123.021866),new google.maps.LatLng(37.996131,-123.021983),new google.maps.LatLng(37.996105,-123.022137),new google.maps.LatLng(37.996068,-123.022268),new google.maps.LatLng(37.996026,-123.022442),new google.maps.LatLng(37.996032,-123.022512),new google.maps.LatLng(37.996005,-123.022672),new google.maps.LatLng(37.995987,-123.022734),new google.maps.LatLng(37.995968,-123.022789),new google.maps.LatLng(37.995901,-123.022934),new google.maps.LatLng(37.995786,-123.023050),new google.maps.LatLng(37.995762,-123.023087),new google.maps.LatLng(37.995748,-123.023136),new google.maps.LatLng(37.995742,-123.023122),new google.maps.LatLng(37.995750,-123.023152),new google.maps.LatLng(37.995696,-123.023133),new google.maps.LatLng(37.995694,-123.023117),new google.maps.LatLng(37.995652,-123.023150),new google.maps.LatLng(37.995620,-123.023161),new google.maps.LatLng(37.995650,-123.023107),new google.maps.LatLng(37.995696,-123.023100),new google.maps.LatLng(37.995729,-123.023099),new google.maps.LatLng(37.995714,-123.023109),new google.maps.LatLng(37.995764,-123.022994),new google.maps.LatLng(37.995716,-123.023019),new google.maps.LatLng(37.995655,-123.023071),new google.maps.LatLng(37.995660,-123.023058),new google.maps.LatLng(37.995661,-123.023078),new google.maps.LatLng(37.995703,-123.023061),new google.maps.LatLng(37.995718,-123.023024),new google.maps.LatLng(37.995738,-123.022997),new google.maps.LatLng(37.995735,-123.023012),new google.maps.LatLng(37.995743,-123.023012),new google.maps.LatLng(37.995781,-123.022967),new google.maps.LatLng(37.995917,-123.022896),new google.maps.LatLng(37.995966,-123.022775),new google.maps.LatLng(37.995984,-123.022736),new google.maps.LatLng(37.996008,-123.022638),new google.maps.LatLng(37.996045,-123.022470),new google.maps.LatLng(37.996080,-123.022327),new google.maps.LatLng(37.996090,-123.022239),new google.maps.LatLng(37.996101,-123.022191),new google.maps.LatLng(37.996135,-123.021988),new google.maps.LatLng(37.996153,-123.021819),new google.maps.LatLng(37.996156,-123.021808),new google.maps.LatLng(37.996189,-123.021651),new google.maps.LatLng(37.996235,-123.021492),new google.maps.LatLng(37.996272,-123.021363),new google.maps.LatLng(37.996285,-123.021359),new google.maps.LatLng(37.996293,-123.021354),new google.maps.LatLng(37.996302,-123.021288),new google.maps.LatLng(37.996344,-123.021129),new google.maps.LatLng(37.996384,-123.020958),new google.maps.LatLng(37.996421,-123.020941),new google.maps.LatLng(37.996483,-123.020955),new google.maps.LatLng(37.996430,-123.020931),new google.maps.LatLng(37.996397,-123.020913),new google.maps.LatLng(37.996395,-123.020941),new google.maps.LatLng(37.996399,-123.020948),new google.maps.LatLng(37.996403,-123.020935),new google.maps.LatLng(37.996404,-123.020803),new google.maps.LatLng(37.996387,-123.020657),new google.maps.LatLng(37.996408,-123.020544),new google.maps.LatLng(37.996508,-123.020398),new google.maps.LatLng(37.996503,-123.020376),new google.maps.LatLng(37.996504,-123.020314),new google.maps.LatLng(37.996501,-123.020311),new google.maps.LatLng(37.996503,-123.020308),new google.maps.LatLng(37.996568,-123.020237),new google.maps.LatLng(37.996549,-123.020252),new google.maps.LatLng(37.996499,-123.020442),new google.maps.LatLng(37.996517,-123.020470),new google.maps.LatLng(37.996583,-123.020507),new google.maps.LatLng(37.996518,-123.020505),new google.maps.LatLng(37.996540,-123.020517),new google.maps.LatLng(37.996512,-123.020504),new google.maps.LatLng(37.996537,-123.020489),new google.maps.LatLng(37.996457,-123.020498),new google.maps.LatLng(37.996479,-123.020509),new google.maps.LatLng(37.996574,-123.020507),new google.maps.LatLng(37.996564,-123.020474),new google.maps.LatLng(37.996568,-123.020476),new google.maps.LatLng(37.996551,-123.020471),new google.maps.LatLng(37.996529,-123.020362),new google.maps.LatLng(37.996585,-123.020206),new google.maps.LatLng(37.996612,-123.020103),new google.maps.LatLng(37.996618,-123.019942),new google.maps.LatLng(37.996599,-123.019672),new google.maps.LatLng(37.996616,-123.019404),new google.maps.LatLng(37.996545,-123.019387),new google.maps.LatLng(37.996522,-123.019466),new google.maps.LatLng(37.996543,-123.019452),new google.maps.LatLng(37.996542,-123.019455),new google.maps.LatLng(37.996605,-123.019414),new google.maps.LatLng(37.996703,-123.019331),new google.maps.LatLng(37.996749,-123.019286),new google.maps.LatLng(37.996785,-123.019235),new google.maps.LatLng(37.996804,-123.019219),new google.maps.LatLng(37.996795,-123.019220),new google.maps.LatLng(37.996825,-123.019180),new google.maps.LatLng(37.996924,-123.019000),new google.maps.LatLng(37.996929,-123.018910),new google.maps.LatLng(37.996911,-123.018886),new google.maps.LatLng(37.996902,-123.018883),new google.maps.LatLng(37.996917,-123.018803),new google.maps.LatLng(37.996916,-123.018769),new google.maps.LatLng(37.996898,-123.018667),new google.maps.LatLng(37.996884,-123.018496),new google.maps.LatLng(37.996925,-123.018323),new google.maps.LatLng(37.996974,-123.018176),new google.maps.LatLng(37.996999,-123.018100),new google.maps.LatLng(37.997074,-123.017911),new google.maps.LatLng(37.997093,-123.017749),new google.maps.LatLng(37.997065,-123.017648),new google.maps.LatLng(37.997039,-123.017379),new google.maps.LatLng(37.997068,-123.017053),new google.maps.LatLng(37.997101,-123.016873),new google.maps.LatLng(37.997106,-123.016744),new google.maps.LatLng(37.997114,-123.016604),new google.maps.LatLng(37.997108,-123.016352),new google.maps.LatLng(37.997102,-123.016092),new google.maps.LatLng(37.997085,-123.015950),new google.maps.LatLng(37.997074,-123.015837),new google.maps.LatLng(37.997049,-123.015648),new google.maps.LatLng(37.997019,-123.015413),new google.maps.LatLng(37.997003,-123.015092),new google.maps.LatLng(37.996991,-123.014884),new google.maps.LatLng(37.997003,-123.014650),new google.maps.LatLng(37.997035,-123.014509),new google.maps.LatLng(37.997076,-123.014362),new google.maps.LatLng(37.997144,-123.014195),new google.maps.LatLng(37.997258,-123.013924),new google.maps.LatLng(37.997331,-123.013767),new google.maps.LatLng(37.997414,-123.013580),new google.maps.LatLng(37.997540,-123.013362),new google.maps.LatLng(37.997635,-123.013112),new google.maps.LatLng(37.997740,-123.012894),new google.maps.LatLng(37.997845,-123.012656),new google.maps.LatLng(37.997884,-123.012507),new google.maps.LatLng(37.997889,-123.012381),new google.maps.LatLng(37.997909,-123.012318),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 411, 382, 429, 473, 506, 482, 457, 443, 404, 256, 143, 272, 400, 429, 467, 468, 507, 491, 445 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Point Reyes Lighthouse</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Point Reyes Lighthouse</div><div style="font-size:20px;">1.7 miles &nbsp;&nbsp;&nbsp; 600 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">20 May 2011</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        Short sweet hike to Point Reyes Lighthouse with expansive views of the Pacific. Requires climbing down 308 steps.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Point_Reyes_National_Seashore.html">Point Reyes National Seashore</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div onclick="location.href='https://gurmeet.net/hiking/hikes/Point_Reyes_Lighthouse.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Point_Reyes_Lighthouse.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.998145%2C-123.012344&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:ko|fFbzxmVEJNd@Gh@c@N]Xc@f@e@L[d@I^G@DDCKLML_@VURID@v@}@h@ML[?OQo@RQVFPr@`AvCRh@LRt@xBPr@Dp@A`@C~@IbAC`ACHBL?jCJnAGJGELVA\Mj@B\FTFJHXP`AEnALj@h@v@Lz@Cp@Fj@Ph@ALGD?HEGBJEADI@J@IKE@A@FBACABBADECHAADDENJDT?TIR?NJZd@jCBFH~@N|@ALD^Rr@VVFN?AADJC?CLHEKMA@@IUTNAC?BGAEMABGIYMM_@SqASeCQy@CAQoAGAK@PG?DA[B]CUS]?OKOBBHd@CDMDL?E@DACCN@W@@E@?DUQs@?_@Bu@Cu@LCBNOI[YKMWi@?QBEAWDu@Ga@]qACa@DSDu@E_AGc@Au@@eBPgCBiBAm@My@c@wA_@cAYk@Qq@i@{AG]?WCM"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Point_Reyes_Lighthouse.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.nps.gov/pore/index.htm">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/point-reyes-national-seashore-point-reyes-station-2">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0514">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.nps.gov/pore/planyourvisit/maps.htm">Many many maps by National Park Service</a>: Good quality maps showing various trails in different parts of Point Reyes.</p>
+<p>&raquo; <a href="http://www.rei.com/product/673458">Tom Harrison Trail Map</a>: High quality contoured map showing various trails and mileages for different sections.</p>
+<div class="mini_header">Route</div>
+    <p><b>Route</b>: At the trail head, you may first visit the Whalewatching Overlook, which adds about 0.2 miles round-trip to the hike. Then follow a paved road to Lighthouse Visitor Center. Beyond the visitor center, you have to descend along stairs with more than 300 steps, which is the equivalent of a 30-storeyed building.
+    <p><b>Notes</b>: See Yelp reviews for <a href="http://www.yelp.com/biz/point-reyes-lighthouse-point-reyes">Point Reyes Lighthouse</a>. Great views of Point Reyes Beach in the north and some wildflowers close to trail head in spring.
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://g.co/maps/udvkd">
+    (Point Reyes Lighthouse Parking Lot) at the eastern end of Sir Francis Drake Blvd, Inverness, CA 94937
+    </a>. No street address. Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From US-101 North, take exit 450B towards San Anselmo, then merge onto Sir Francis Drake Blvd. Continue 41.5 miles along Sir Francis Drake Blvd to reach the parking lot for Point Reyes Lighthouse.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    (Point Reyes Lighthouse Parking Lot) at the eastern end of Sir Francis Drake Blvd, Inverness, CA 94937
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: None (last visited: May 2011)</p>
+<p><b>Capacity</b>: About 40 cars.</p>
+<p><b>Latitude</b>: 37.997909 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -123.011990</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Paved Trail to Lighthouse
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-Ho3ntcRrR10/Tw91GvxvivI/AAAAAAACiso/ck9Ixp1_eWE/IMG_8454.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-Ho3ntcRrR10/Tw91GvxvivI/AAAAAAACiso/ck9Ixp1_eWE/s144/IMG_8454.JPG" alt="Lighthouse Visitor Center" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-Hth3KqGZZq4/Tw91ARzN_zI/AAAAAAACisY/XPNvWcVEoqE/IMG_8437.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-Hth3KqGZZq4/Tw91ARzN_zI/AAAAAAACisY/XPNvWcVEoqE/s144/IMG_8437.JPG" alt="Point Reyes Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-19UqUShJ-b8/Tw91B_goO5I/AAAAAAACisc/f_7-KW5H4Ps/IMG_8449.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-19UqUShJ-b8/Tw91B_goO5I/AAAAAAACisc/f_7-KW5H4Ps/s144/IMG_8449.JPG" alt="Paved trail to Lighthouse" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-hUU5hmRB05M/Tw91Dk5x0CI/AAAAAAACisg/p-JPyVIcskg/IMG_8451.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-hUU5hmRB05M/Tw91Dk5x0CI/AAAAAAACisg/p-JPyVIcskg/s144/IMG_8451.JPG" alt="Bench offering great views of Point Reyes Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.20.Point.Reyes.Lighthouse/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 20 May 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Lighthouse
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-DL6DGkaL150/Tw91TuyKYLI/AAAAAAACitI/8JJaH0aUgLc/IMG_8465.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/-DL6DGkaL150/Tw91TuyKYLI/AAAAAAACitI/8JJaH0aUgLc/s144/IMG_8465.JPG" alt="Benches along stairs to let you rest and enjoy great views." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-efZIAtWgz10/Tw91YLFiOCI/AAAAAAACitc/S0rwVnPQ1hU/IMG_8483.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh6.googleusercontent.com/-efZIAtWgz10/Tw91YLFiOCI/AAAAAAACitc/S0rwVnPQ1hU/s144/IMG_8483.JPG" alt="Point Reyes Lighthoue" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-xvuI5207h08/Tw91OJvtKYI/AAAAAAACis8/wXNcQv_tUXo/IMG_8461.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh5.googleusercontent.com/-xvuI5207h08/Tw91OJvtKYI/AAAAAAACis8/wXNcQv_tUXo/s144/IMG_8461.JPG" alt="Stairs to Lighthouse" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-q0OBzVlqHEg/Tw91VEo-suI/AAAAAAACitU/dgU2abexQ2k/IMG_8473.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh6.googleusercontent.com/-q0OBzVlqHEg/Tw91VEo-suI/AAAAAAACitU/dgU2abexQ2k/s144/IMG_8473.JPG" alt="Point Reyes Lighthouse" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.20.Point.Reyes.Lighthouse/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 20 May 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Nature
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-AgfeGMEaaKk/Tw91d3rKfHI/AAAAAAACit0/oOp10Xaad_Y/IMG_8424.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-AgfeGMEaaKk/Tw91d3rKfHI/AAAAAAACit0/oOp10Xaad_Y/s48-c/IMG_8424.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-2pbKXoFMT1E/Tw91gG9ZsnI/AAAAAAACit8/6wIoL36B5Fo/IMG_8431.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-2pbKXoFMT1E/Tw91gG9ZsnI/AAAAAAACit8/6wIoL36B5Fo/s48-c/IMG_8431.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-ZjQLH5dIsns/Tw91jG2kKFI/AAAAAAACiuE/und2JvtqRBw/IMG_8442.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-ZjQLH5dIsns/Tw91jG2kKFI/AAAAAAACiuE/und2JvtqRBw/s48-c/IMG_8442.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-k0_FcciNNoE/Tw91g1vWYGI/AAAAAAACiuA/_bVZ_iHpBlk/IMG_8438.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-k0_FcciNNoE/Tw91g1vWYGI/AAAAAAACiuA/_bVZ_iHpBlk/s48-c/IMG_8438.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-kUtSXH1Qf1w/Tw91kigbNUI/AAAAAAACiuI/3E5ghZzcfYM/IMG_8433.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-kUtSXH1Qf1w/Tw91kigbNUI/AAAAAAACiuI/3E5ghZzcfYM/s48-c/IMG_8433.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-GlhxaoL8fNQ/Tw91mS-Gh5I/AAAAAAACiuM/xvr1CqjNHNg/IMG_8443.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-GlhxaoL8fNQ/Tw91mS-Gh5I/AAAAAAACiuM/xvr1CqjNHNg/s48-c/IMG_8443.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-h3VmQcaBfVI/Tw91R76UMzI/AAAAAAACitE/4dzFXsC3nhY/IMG_8463.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-h3VmQcaBfVI/Tw91R76UMzI/AAAAAAACitE/4dzFXsC3nhY/s48-c/IMG_8463.JPG" alt="This furry alga (Trentopohlia) on the shadier north faces of rocks. Although it contains green chlorophyll, red pigments dominate. Algae such as these, called &quot;rock violets&quot;, need no soil." title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-MHyLDV2SS7M/Tw91fGZ-orI/AAAAAAACit4/mRfWy9A2tpI/IMG_8428.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-MHyLDV2SS7M/Tw91fGZ-orI/AAAAAAACit4/mRfWy9A2tpI/s48-c/IMG_8428.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-t2fAxFjdPUo/Tw91dCbrMlI/AAAAAAACits/4o9Yahzdsmc/IMG_8426.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-t2fAxFjdPUo/Tw91dCbrMlI/AAAAAAACits/4o9Yahzdsmc/s48-c/IMG_8426.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.20.Point.Reyes.Lighthouse/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 20 May 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

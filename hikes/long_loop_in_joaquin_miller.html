@@ -1,0 +1,584 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Long Loop in Joaquin Miller Park</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.810603, -122.193356);
+    var center_latlng = new google.maps.LatLng(37.810603, -122.193356);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.810603,-122.193356),new google.maps.LatLng(37.810813,-122.193609),new google.maps.LatLng(37.811099,-122.193921),new google.maps.LatLng(37.811429,-122.193895),new google.maps.LatLng(37.811275,-122.193694),new google.maps.LatLng(37.811166,-122.193398),new google.maps.LatLng(37.811346,-122.193332),new google.maps.LatLng(37.811462,-122.193263),new google.maps.LatLng(37.811664,-122.193381),new google.maps.LatLng(37.811856,-122.193595),new google.maps.LatLng(37.811968,-122.193788),new google.maps.LatLng(37.812159,-122.193958),new google.maps.LatLng(37.812322,-122.193989),new google.maps.LatLng(37.812595,-122.194169),new google.maps.LatLng(37.812743,-122.194452),new google.maps.LatLng(37.812831,-122.194459),new google.maps.LatLng(37.812853,-122.194243),new google.maps.LatLng(37.812792,-122.194009),new google.maps.LatLng(37.812800,-122.193947),new google.maps.LatLng(37.812795,-122.193978),new google.maps.LatLng(37.812854,-122.194267),new google.maps.LatLng(37.813079,-122.194223),new google.maps.LatLng(37.812978,-122.193958),new google.maps.LatLng(37.813003,-122.193638),new google.maps.LatLng(37.813034,-122.193305),new google.maps.LatLng(37.813057,-122.192844),new google.maps.LatLng(37.813131,-122.192618),new google.maps.LatLng(37.813135,-122.192251),new google.maps.LatLng(37.813060,-122.191976),new google.maps.LatLng(37.813115,-122.191760),new google.maps.LatLng(37.813268,-122.191670),new google.maps.LatLng(37.813219,-122.191578),new google.maps.LatLng(37.813223,-122.191407),new google.maps.LatLng(37.813248,-122.191279),new google.maps.LatLng(37.813255,-122.190969),new google.maps.LatLng(37.813152,-122.190739),new google.maps.LatLng(37.813350,-122.190636),new google.maps.LatLng(37.813606,-122.190383),new google.maps.LatLng(37.813732,-122.190216),new google.maps.LatLng(37.813706,-122.190039),new google.maps.LatLng(37.813675,-122.189875),new google.maps.LatLng(37.813623,-122.189582),new google.maps.LatLng(37.813559,-122.189467),new google.maps.LatLng(37.813499,-122.189418),new google.maps.LatLng(37.813484,-122.189468),new google.maps.LatLng(37.813486,-122.189461),new google.maps.LatLng(37.813525,-122.189533),new google.maps.LatLng(37.813516,-122.189392),new google.maps.LatLng(37.813429,-122.189153),new google.maps.LatLng(37.813308,-122.188771),new google.maps.LatLng(37.813139,-122.188400),new google.maps.LatLng(37.812970,-122.188134),new google.maps.LatLng(37.812800,-122.187712),new google.maps.LatLng(37.812780,-122.187302),new google.maps.LatLng(37.812577,-122.186963),new google.maps.LatLng(37.812354,-122.186729),new google.maps.LatLng(37.812211,-122.186609),new google.maps.LatLng(37.812127,-122.186341),new google.maps.LatLng(37.812030,-122.186007),new google.maps.LatLng(37.811987,-122.185593),new google.maps.LatLng(37.812013,-122.185282),new google.maps.LatLng(37.812032,-122.185169),new google.maps.LatLng(37.812193,-122.184841),new google.maps.LatLng(37.812171,-122.184767),new google.maps.LatLng(37.811833,-122.184546),new google.maps.LatLng(37.811695,-122.184324),new google.maps.LatLng(37.811625,-122.184001),new google.maps.LatLng(37.811467,-122.183678),new google.maps.LatLng(37.811207,-122.183444),new google.maps.LatLng(37.810892,-122.183154),new google.maps.LatLng(37.810772,-122.182893),new google.maps.LatLng(37.810932,-122.182576),new google.maps.LatLng(37.810795,-122.182573),new google.maps.LatLng(37.810929,-122.182385),new google.maps.LatLng(37.811135,-122.182167),new google.maps.LatLng(37.811258,-122.181994),new google.maps.LatLng(37.811418,-122.181773),new google.maps.LatLng(37.811551,-122.181620),new google.maps.LatLng(37.811203,-122.181577),new google.maps.LatLng(37.810981,-122.181635),new google.maps.LatLng(37.810982,-122.181719),new google.maps.LatLng(37.810697,-122.181973),new google.maps.LatLng(37.810547,-122.182059),new google.maps.LatLng(37.810534,-122.182065),new google.maps.LatLng(37.810332,-122.182062),new google.maps.LatLng(37.809963,-122.182036),new google.maps.LatLng(37.809741,-122.181736),new google.maps.LatLng(37.809590,-122.181439),new google.maps.LatLng(37.809385,-122.181038),new google.maps.LatLng(37.809284,-122.180594),new google.maps.LatLng(37.809347,-122.180059),new google.maps.LatLng(37.809217,-122.179714),new google.maps.LatLng(37.809119,-122.179512),new google.maps.LatLng(37.808981,-122.179267),new google.maps.LatLng(37.808747,-122.178945),new google.maps.LatLng(37.808646,-122.178613),new google.maps.LatLng(37.808643,-122.178182),new google.maps.LatLng(37.808708,-122.177904),new google.maps.LatLng(37.808866,-122.177664),new google.maps.LatLng(37.808905,-122.177386),new google.maps.LatLng(37.809017,-122.177001),new google.maps.LatLng(37.809149,-122.176866),new google.maps.LatLng(37.809308,-122.176580),new google.maps.LatLng(37.809397,-122.176522),new google.maps.LatLng(37.809395,-122.176612),new google.maps.LatLng(37.809186,-122.176974),new google.maps.LatLng(37.809114,-122.177351),new google.maps.LatLng(37.809225,-122.177862),new google.maps.LatLng(37.809206,-122.178427),new google.maps.LatLng(37.809423,-122.178515),new google.maps.LatLng(37.809543,-122.178462),new google.maps.LatLng(37.809799,-122.178296),new google.maps.LatLng(37.810058,-122.178031),new google.maps.LatLng(37.810281,-122.177753),new google.maps.LatLng(37.810552,-122.177503),new google.maps.LatLng(37.810769,-122.177420),new google.maps.LatLng(37.810742,-122.177538),new google.maps.LatLng(37.810617,-122.177782),new google.maps.LatLng(37.810605,-122.177999),new google.maps.LatLng(37.810494,-122.178355),new google.maps.LatLng(37.810349,-122.178768),new google.maps.LatLng(37.810506,-122.179240),new google.maps.LatLng(37.810793,-122.179140),new google.maps.LatLng(37.811079,-122.178914),new google.maps.LatLng(37.811199,-122.178970),new google.maps.LatLng(37.811547,-122.179064),new google.maps.LatLng(37.811779,-122.179123),new google.maps.LatLng(37.811504,-122.179341),new google.maps.LatLng(37.811254,-122.179644),new google.maps.LatLng(37.811021,-122.180009),new google.maps.LatLng(37.810965,-122.180482),new google.maps.LatLng(37.811339,-122.180563),new google.maps.LatLng(37.811523,-122.180609),new google.maps.LatLng(37.811717,-122.180443),new google.maps.LatLng(37.812015,-122.180194),new google.maps.LatLng(37.812350,-122.180254),new google.maps.LatLng(37.812566,-122.180528),new google.maps.LatLng(37.812894,-122.180822),new google.maps.LatLng(37.813209,-122.180886),new google.maps.LatLng(37.813523,-122.180755),new google.maps.LatLng(37.813654,-122.180707),new google.maps.LatLng(37.813862,-122.180722),new google.maps.LatLng(37.814072,-122.180528),new google.maps.LatLng(37.814003,-122.180461),new google.maps.LatLng(37.814111,-122.180508),new google.maps.LatLng(37.814100,-122.180504),new google.maps.LatLng(37.814299,-122.180588),new google.maps.LatLng(37.814532,-122.180696),new google.maps.LatLng(37.814755,-122.180756),new google.maps.LatLng(37.814826,-122.180952),new google.maps.LatLng(37.814832,-122.180899),new google.maps.LatLng(37.814815,-122.180858),new google.maps.LatLng(37.814898,-122.180908),new google.maps.LatLng(37.815117,-122.180959),new google.maps.LatLng(37.815404,-122.180969),new google.maps.LatLng(37.815629,-122.181116),new google.maps.LatLng(37.815860,-122.181253),new google.maps.LatLng(37.815929,-122.181313),new google.maps.LatLng(37.815937,-122.181511),new google.maps.LatLng(37.816319,-122.181542),new google.maps.LatLng(37.816508,-122.181885),new google.maps.LatLng(37.816374,-122.182015),new google.maps.LatLng(37.816215,-122.182328),new google.maps.LatLng(37.816105,-122.182587),new google.maps.LatLng(37.816174,-122.182994),new google.maps.LatLng(37.816369,-122.183245),new google.maps.LatLng(37.816611,-122.183349),new google.maps.LatLng(37.816686,-122.183725),new google.maps.LatLng(37.816816,-122.183935),new google.maps.LatLng(37.816939,-122.184209),new google.maps.LatLng(37.817036,-122.184646),new google.maps.LatLng(37.817179,-122.184927),new google.maps.LatLng(37.817135,-122.185167),new google.maps.LatLng(37.817091,-122.185435),new google.maps.LatLng(37.817093,-122.185798),new google.maps.LatLng(37.817084,-122.186066),new google.maps.LatLng(37.817016,-122.186332),new google.maps.LatLng(37.816944,-122.186573),new google.maps.LatLng(37.816969,-122.186761),new google.maps.LatLng(37.816966,-122.186957),new google.maps.LatLng(37.816985,-122.187398),new google.maps.LatLng(37.816985,-122.187654),new google.maps.LatLng(37.816895,-122.187917),new google.maps.LatLng(37.816715,-122.188118),new google.maps.LatLng(37.816560,-122.188225),new google.maps.LatLng(37.816485,-122.188280),new google.maps.LatLng(37.816241,-122.188593),new google.maps.LatLng(37.815985,-122.188756),new google.maps.LatLng(37.815732,-122.188934),new google.maps.LatLng(37.815497,-122.189130),new google.maps.LatLng(37.815380,-122.189272),new google.maps.LatLng(37.815119,-122.189297),new google.maps.LatLng(37.814973,-122.189529),new google.maps.LatLng(37.814796,-122.189714),new google.maps.LatLng(37.814678,-122.190182),new google.maps.LatLng(37.814566,-122.190324),new google.maps.LatLng(37.814548,-122.190166),new google.maps.LatLng(37.814458,-122.189931),new google.maps.LatLng(37.814322,-122.189820),new google.maps.LatLng(37.814200,-122.190140),new google.maps.LatLng(37.814246,-122.190444),new google.maps.LatLng(37.814172,-122.190720),new google.maps.LatLng(37.814105,-122.191073),new google.maps.LatLng(37.814042,-122.191168),new google.maps.LatLng(37.813936,-122.191680),new google.maps.LatLng(37.813882,-122.191959),new google.maps.LatLng(37.813909,-122.192318),new google.maps.LatLng(37.813865,-122.192637),new google.maps.LatLng(37.813843,-122.192869),new google.maps.LatLng(37.813805,-122.193277),new google.maps.LatLng(37.813766,-122.193680),new google.maps.LatLng(37.813839,-122.193998),new google.maps.LatLng(37.813936,-122.194427),new google.maps.LatLng(37.813979,-122.194736),new google.maps.LatLng(37.813922,-122.195096),new google.maps.LatLng(37.814017,-122.195359),new google.maps.LatLng(37.814021,-122.195683),new google.maps.LatLng(37.814002,-122.195944),new google.maps.LatLng(37.813953,-122.196200),new google.maps.LatLng(37.813956,-122.196198),new google.maps.LatLng(37.813902,-122.196102),new google.maps.LatLng(37.813901,-122.196045),new google.maps.LatLng(37.814002,-122.196264),new google.maps.LatLng(37.813958,-122.196530),new google.maps.LatLng(37.814122,-122.196841),new google.maps.LatLng(37.814350,-122.197007),new google.maps.LatLng(37.814499,-122.197350),new google.maps.LatLng(37.814711,-122.197447),new google.maps.LatLng(37.814924,-122.197729),new google.maps.LatLng(37.815017,-122.197754),new google.maps.LatLng(37.815038,-122.198057),new google.maps.LatLng(37.815053,-122.198334),new google.maps.LatLng(37.815037,-122.198821),new google.maps.LatLng(37.815068,-122.199351),new google.maps.LatLng(37.815353,-122.199503),new google.maps.LatLng(37.815494,-122.199734),new google.maps.LatLng(37.815605,-122.199959),new google.maps.LatLng(37.815704,-122.200229),new google.maps.LatLng(37.815792,-122.200552),new google.maps.LatLng(37.815745,-122.200654),new google.maps.LatLng(37.815624,-122.200877),new google.maps.LatLng(37.815671,-122.201120),new google.maps.LatLng(37.815694,-122.201446),new google.maps.LatLng(37.815755,-122.201494),new google.maps.LatLng(37.815687,-122.201337),new google.maps.LatLng(37.815654,-122.201092),new google.maps.LatLng(37.815670,-122.200821),new google.maps.LatLng(37.815796,-122.200678),new google.maps.LatLng(37.815778,-122.200445),new google.maps.LatLng(37.815725,-122.200117),new google.maps.LatLng(37.815637,-122.199833),new google.maps.LatLng(37.815655,-122.199603),new google.maps.LatLng(37.815563,-122.199329),new google.maps.LatLng(37.815603,-122.199144),new google.maps.LatLng(37.815469,-122.198938),new google.maps.LatLng(37.815265,-122.198677),new google.maps.LatLng(37.815153,-122.198443),new google.maps.LatLng(37.815088,-122.198137),new google.maps.LatLng(37.815090,-122.197708),new google.maps.LatLng(37.814971,-122.197511),new google.maps.LatLng(37.814847,-122.197367),new google.maps.LatLng(37.814576,-122.197149),new google.maps.LatLng(37.814504,-122.196986),new google.maps.LatLng(37.814210,-122.196755),new google.maps.LatLng(37.814034,-122.196585),new google.maps.LatLng(37.814026,-122.196298),new google.maps.LatLng(37.813969,-122.195993),new google.maps.LatLng(37.814017,-122.195676),new google.maps.LatLng(37.814019,-122.195417),new google.maps.LatLng(37.813921,-122.195082),new google.maps.LatLng(37.813998,-122.194775),new google.maps.LatLng(37.813949,-122.194498),new google.maps.LatLng(37.813900,-122.194279),new google.maps.LatLng(37.813850,-122.194035),new google.maps.LatLng(37.813747,-122.193675),new google.maps.LatLng(37.813746,-122.193364),new google.maps.LatLng(37.813806,-122.193113),new google.maps.LatLng(37.813817,-122.192812),new google.maps.LatLng(37.813814,-122.192542),new google.maps.LatLng(37.813901,-122.192245),new google.maps.LatLng(37.813872,-122.191866),new google.maps.LatLng(37.813839,-122.191545),new google.maps.LatLng(37.813902,-122.191277),new google.maps.LatLng(37.813994,-122.190991),new google.maps.LatLng(37.814016,-122.190724),new google.maps.LatLng(37.814064,-122.190480),new google.maps.LatLng(37.814073,-122.190204),new google.maps.LatLng(37.814143,-122.189951),new google.maps.LatLng(37.814155,-122.189895),new google.maps.LatLng(37.814025,-122.190044),new google.maps.LatLng(37.814132,-122.190394),new google.maps.LatLng(37.814105,-122.190640),new google.maps.LatLng(37.813959,-122.190819),new google.maps.LatLng(37.813940,-122.191109),new google.maps.LatLng(37.813787,-122.191348),new google.maps.LatLng(37.813615,-122.191832),new google.maps.LatLng(37.813595,-122.192199),new google.maps.LatLng(37.813387,-122.192255),new google.maps.LatLng(37.813165,-122.192401),new google.maps.LatLng(37.812992,-122.192902),new google.maps.LatLng(37.812917,-122.193079),new google.maps.LatLng(37.813108,-122.193067),new google.maps.LatLng(37.813096,-122.193240),new google.maps.LatLng(37.812995,-122.193520),new google.maps.LatLng(37.812913,-122.193771),new google.maps.LatLng(37.812964,-122.194067),new google.maps.LatLng(37.813032,-122.194260),new google.maps.LatLng(37.812870,-122.194399),new google.maps.LatLng(37.812729,-122.194274),new google.maps.LatLng(37.812564,-122.194035),new google.maps.LatLng(37.812358,-122.193943),new google.maps.LatLng(37.812175,-122.193850),new google.maps.LatLng(37.811935,-122.193644),new google.maps.LatLng(37.811754,-122.193470),new google.maps.LatLng(37.811620,-122.193295),new google.maps.LatLng(37.811348,-122.193275),new google.maps.LatLng(37.811194,-122.193379),new google.maps.LatLng(37.811226,-122.193617),new google.maps.LatLng(37.811370,-122.193857),new google.maps.LatLng(37.811223,-122.193940),new google.maps.LatLng(37.810962,-122.193749),new google.maps.LatLng(37.810788,-122.193521),new google.maps.LatLng(37.810664,-122.193310),new google.maps.LatLng(37.810590,-122.193073),new google.maps.LatLng(37.810471,-122.192746),new google.maps.LatLng(37.810347,-122.192478),new google.maps.LatLng(37.810236,-122.192236),new google.maps.LatLng(37.810102,-122.192005),new google.maps.LatLng(37.809966,-122.191743),new google.maps.LatLng(37.809931,-122.191738),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 814, 899, 952, 959, 1017, 1049, 1091, 1076, 1032, 1040, 1068, 1138, 1133, 1084, 1137, 1216, 1275, 1260, 1284, 1294, 1322, 1305, 1326, 1331, 1379, 1412, 1419, 1330, 1215, 1154, 1075, 982, 936, 906, 852, 781, 744, 669, 608, 567, 580, 637, 695, 759, 821, 882, 930, 926, 958, 955, 933, 844, 815, 846 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Long Loop in Joaquin Miller Park</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Long Loop in Joaquin Miller Park</div><div style="font-size:20px;">5.4 miles &nbsp;&nbsp;&nbsp; 1100 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">17 Dec 2011</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        Pretty, shaded hike through Joaquin Miller Park. Palos Colorados Trail is exceptionally beautiful.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Joaquin_Miller_Park.html">Joaquin Miller Park</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div onclick="location.href='https://gurmeet.net/hiking/hikes/Long_Loop_In_Joaquin_Miller.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Long_Loop_In_Joaquin_Miller.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.810603%2C-122.193356&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:g{weFl{xhVaBpBaAE\g@T{@c@KWMg@Ve@h@Ud@e@`@a@Du@b@]x@Q?Ci@Jo@AK@DKx@k@GRu@O}EOm@?gALw@Ii@]QHSAa@CYA}@Rm@g@Sq@q@Ya@T}BLWJI@HGL@[h@{B`@iA^u@`@sADqAf@cAj@o@ZWb@wBHqAE}@CW_@_ABObAk@Zk@L_A^aApBgBVs@_@_AZ?Ye@i@k@w@mA[]dAIj@J?Nx@r@^PpBEj@{@fAkCRwAKkBXcARg@Xq@n@_ARaA?uAKw@_@o@Gw@UkAY[_@w@QK?Ph@fALjAUdBBnBk@PWIq@a@s@s@m@w@u@q@i@OBTXp@@h@r@xC_@~Ay@Sw@m@WJsB\t@j@p@z@l@fAJ~AoBVaBqAcAJi@t@aAz@}@JyAc@i@Bi@g@LKiBl@k@JMf@AKBGOHk@Hy@@{Ax@KJAf@kADe@bAXX^|@Tr@MpAe@p@q@RMjAYh@Wt@SvA[v@NdB@|BZdBCd@CpDPr@b@f@l@`@n@|@dBbAn@f@VZr@BZl@b@d@V|ATZB_@Pm@XUV~@Gz@Lv@LdAJP^|CCfAF~@RpEa@rCG|@HfAQr@A`ABr@Hr@HS?KSj@Ht@a@|@k@^]dAk@Pi@v@QDGrBB`BEhBy@\[l@Uj@St@Q`A`@~@Ip@C~@KHL_@Do@Au@Y]Bm@HaAPw@Cm@Pw@Gc@Zi@f@s@Tm@L}@AuAVe@X]t@k@L_@x@m@b@a@@y@J{@I_A?s@PaAM}@ZsCTgA?}@Kq@AqBQ{@LkCMu@Qw@Cu@Io@Aw@O}@X\UdADp@\`@@x@^n@`@`BBfAh@Jj@\p@dCe@A@b@b@hBIx@Mf@`@XZW^o@lAc@rAkAXc@v@C\REn@[n@ZPr@g@b@k@Vi@d@qBn@eBt@aBDA"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Long_Loop_In_Joaquin_Miller.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.oaklandnet.com/joaquinmillerpark/">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/joaquin-miller-park-oakland">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0791">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.documents.sausalcreek.org/Sausal_Trails_Map.pdf">Official Trail Map by SausalCreek.org</a>: Great contoured map showing major trails on shaded relief. Mileage information of trail segments is missing. The map is also missing some unnamed trails that we encountered during our hike in Dec 2011. Still, the map is pretty good - we never felt lost.
+    </p>
+<p>&raquo; <a href="http://www2.oaklandnet.com/oakca1/groups/opr/documents/image/oak041704.pdf">Official Trail Map by City of Oakland</a>: Great map. However, contours are missing. Sausal Creek map is better.
+    </p>
+<p>&raquo; <a href="http://museumca.org/creeks/Book10SausWalk.html">Trail Map from the book Guide to East Bay Creeks</a>: Nice description of various landmarks along Sausal Creek and Dimond Park.</p>
+<div class="mini_header">Route</div>
+<p><b>0.0 miles</b>: We parked on Joaquin Miller Rd. There is ample street parking all along Joaquin Miler Rd. Dozens of cars may be parked here. We started hiking along Bishops Walk trail, which is close to the intersection of Joaquin Miller Road and Butters Drive. Bishops Walk Trail was fairly steep uphill.
+<p><b>0.3 miles</b>: We reached the "Lookout Point" which offers great views of Oakland. From the "Lookout Point", we turned right onto Sinawik Trail.
+<p><b>0.4 miles</b>: At a fork, we took the trail on the right, Sinawik Loop Trail, which was one of the most beautiful trails along our route.
+<p><b>0.9 miles</b>: We reached an intersection near Palo Seco Creek where many trails meet on both sides of the creek. Study the map carefully to know which trail to follow. We crossed the creek and followed Sunset Trail, continuing in the same general direction as the Sinawik Loop Trail. There were several intersections along Sunset Trail. At each one, we had to consult our map to make sure we were going along Sunset Trail. At the 1.1 mile mark, we saw a beautiful picnic area which is located near the restrooms and phone symbols in the trail map.
+<p><b>1.6 miles</b>: We reached the intersection of Sunset Trail and Sequoia Bayview Trail. There is a large signpost at this intersection. Along the Sequoia Bayview Trail, we got glimpses of Oakland. Soon, the trail became forested and cool. The intersection with Big Trees Trail was unmarked. However, the intersection with Fern Ravine Trail was well marked.
+<p><b>2.4 miles</b>: We hopped onto Fern Ravine Trail. Along this trail, when it crosses over a creek shown on the trail map, we noticed a tire hanging off a long rope on the left. It was a pretty awesome swing, carefully set up so that you don't hit any tree or the sloping ground when swinging. We had a great time here.
+<p><b>2.6 miles</b>: Fern Trail reached a paved road. On the other side of the paved road, we had to figure out which trail to follow. A few steps along the trail, we reached an unmarked junction. To hop onto Cinderella Trail, we took left at the junction. Once we were on the trail, we saw a sign marking this as Cinderella Trail - it would have been better if this sign were placed at the intersection instead of along the trail. Cinderella Trail was particularly steep, going downhill. We ran into sets of bikers who came zipping down along this trail.
+<p><b>3.2 miles</b>: We reached an unsigned intersection with Sunset Trail. Thanks to the trail map, we knew we had to turn right. Within 0.5 miles, we saw an unsigned single-path trail going left. Thanks to the trail map, we knew we had to turn left.
+<p><b>3.3 miles</b>: We reached a five-way intersection where Palos Colorados Trail (unmarked), Sinawik Trail and Sunset Trail meet.
+<p><b>4.0 miles</b>: Palos Colorados Trail ended in a small parking lot close to "JM Court" (see trail map). We walked along J M Court, crossed Mountain Road, went through a tunnel underneath Highway 13 to reach Monterey Blvd. We turned right on Monterey Blvd and walked 0.25 miles to reach the trailhead for Dimond Canyon / Bridgeview Trails.
+<p><b>4.7 miles</b>: Retraced our steps along Palos Colorados Trail to reach a five-way intersection among Palos Colorados Trail, Sinawik Trail and Sunset Trail.
+<p><b>5.4 miles</b>: On Joaquin Miller Rd via Bishops Walk.
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://maps.google.com/maps?q=3450+Joaquin+Miller+Rd+Oakland,+CA+94602&hl=en&ll=37.809479,-122.185779&spn=0.012359,0.017402&sll=37.413214,-122.081267&sspn=0.189794,0.228653&vpsrc=6&hnear=3450+Joaquin+Miller+Rd,+Oakland,+California+94602&t=h&z=16">
+    3450 Joaquin Miller Rd, Oakland, CA 94602
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From south bay, take 880 North &rarr; 580 West &rarr; 13 North. In 2.2 miles, take Joaquin Miller Road exit. Turn right along Joaquin Miller Rd. The park is on the left.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    3450 Joaquin Miller Rd, Oakland, CA 94602
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: None (last visited: Dec 2011)</p>
+<p><b>Capacity</b>: Plenty of free parking all along Joaquin Miller Road</p>
+<p><b>Latitude</b>: 37.809886 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -122.185779</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Section I
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>Lookout Point offered us great views of Oakland. and Sinawik Loop Trail was cool and gorgeous, shaded by tall trees.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-GEMAyi3aS8Y/Tu1b_kG2xcI/AAAAAAACW9c/86w1fgWrY9o/P2010225.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-GEMAyi3aS8Y/Tu1b_kG2xcI/AAAAAAACW9c/86w1fgWrY9o/s144/P2010225.JPG" alt="Sinawik Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-28FTpndP5p0/Tu1a2ORcwjI/AAAAAAACW8U/l8Mw1pV6wps/P2010208.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-28FTpndP5p0/Tu1a2ORcwjI/AAAAAAACW8U/l8Mw1pV6wps/s144/P2010208.JPG" alt="Views from &quot;Lookout Point&quot; on Bishop's Walk Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-45UAX0l3qvc/Tu1chDZzi7I/AAAAAAACW94/YvKvgx88t8c/P2010233.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-45UAX0l3qvc/Tu1chDZzi7I/AAAAAAACW94/YvKvgx88t8c/s144/P2010233.JPG" alt="Sinawik Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-3ULL7QElXVw/Tu1bvvo8TqI/AAAAAAACW9M/bynytWXKSSo/P2010221.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-3ULL7QElXVw/Tu1bvvo8TqI/AAAAAAACW9M/bynytWXKSSo/s144/P2010221.JPG" alt="Sinawik Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.12.17.Joaquin.Miller.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 17 December 2011</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Joaquin_Miller_Dimond_Canyon_Loop.html">Joaquin Miller and Dimond Canyon Loop</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Section II
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>Sequoia Bayview Trail &mdash; Fern Ravine Trail &mdash; Cinderella Trail. Mostly shaded. We discovered a tire swing on Fern Ravine Trail, as it goes over a creek (see map for exact location).</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-65Gmp62ZNWg/Tu1dr1pXeII/AAAAAAACW_A/xmHxOqqrG5M/P2010247.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/-65Gmp62ZNWg/Tu1dr1pXeII/AAAAAAACW_A/xmHxOqqrG5M/s144/P2010247.JPG" alt="Sunset Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-KdBerlbS5W4/Tu1eGIJmB7I/AAAAAAACW_Y/d4tS0T4sju4/P2010255.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/-KdBerlbS5W4/Tu1eGIJmB7I/AAAAAAACW_Y/d4tS0T4sju4/s144/P2010255.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-0cE1HH3fJwY/Tu1fC_vA18I/AAAAAAACXAI/zcVfqoj8Mfk/P2010271.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh5.googleusercontent.com/-0cE1HH3fJwY/Tu1fC_vA18I/AAAAAAACXAI/zcVfqoj8Mfk/s144/P2010271.JPG" alt="Tire swing located along Fern Ravine Trail when it goes over the creek" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-jGEiLhuHsKE/Tu1dHTNxWUI/AAAAAAACW-c/4Umv2X7GPvs/P2010240.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/-jGEiLhuHsKE/Tu1dHTNxWUI/AAAAAAACW-c/4Umv2X7GPvs/s144/P2010240.JPG" alt="Beautiful party area close to intersection of Sinawik and Sunset trails" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.12.17.Joaquin.Miller.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 17 December 2011</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Joaquin_Miller_Dimond_Canyon_Loop.html">Joaquin Miller and Dimond Canyon Loop</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Section III
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>Palos Colorados Trail: A gorgeous trail next to a redwood canyon. This was the most pleasant section of the entire hike.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-7Nne7SWmEag/Tu1f81V8RwI/AAAAAAACXBA/S_uBHli0sgw/P2010283.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh5.googleusercontent.com/-7Nne7SWmEag/Tu1f81V8RwI/AAAAAAACXBA/S_uBHli0sgw/s144/P2010283.JPG" alt="Palos Colorados Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-_rAFILAxeh8/Tu1hMVKfkaI/AAAAAAACXCM/pSIxdk3MHls/P2010303.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh6.googleusercontent.com/-_rAFILAxeh8/Tu1hMVKfkaI/AAAAAAACXCM/pSIxdk3MHls/s144/P2010303.JPG" alt="Palos Colorados Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-G_6SmDWfRl8/Tu1gcCWYsLI/AAAAAAACXBg/dDZ4C3ODOJM/P2010292.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh6.googleusercontent.com/-G_6SmDWfRl8/Tu1gcCWYsLI/AAAAAAACXBg/dDZ4C3ODOJM/s144/P2010292.JPG" alt="Palo Seco Creek next to Palos Colorados Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-fb_AELvEI30/Tu1f3hzn_bI/AAAAAAACXA8/r33MTrQORys/P2010282.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-fb_AELvEI30/Tu1f3hzn_bI/AAAAAAACXA8/r33MTrQORys/s144/P2010282.JPG" alt="Palos Colorados Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.12.17.Joaquin.Miller.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 17 December 2011</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Joaquin_Miller_Dimond_Canyon_Loop.html">Joaquin Miller and Dimond Canyon Loop</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

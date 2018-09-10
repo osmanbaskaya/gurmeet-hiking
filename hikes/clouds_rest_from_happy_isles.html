@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Cloud's Rest from Happy Isles</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.734496, -119.565180);
+    var center_latlng = new google.maps.LatLng(37.734496, -119.565180);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.734496,-119.565180),new google.maps.LatLng(37.733797,-119.564082),new google.maps.LatLng(37.733220,-119.563287),new google.maps.LatLng(37.732492,-119.562225),new google.maps.LatLng(37.731811,-119.561202),new google.maps.LatLng(37.731755,-119.559978),new google.maps.LatLng(37.732371,-119.559642),new google.maps.LatLng(37.732750,-119.557937),new google.maps.LatLng(37.731872,-119.558112),new google.maps.LatLng(37.730792,-119.558151),new google.maps.LatLng(37.729975,-119.557893),new google.maps.LatLng(37.728947,-119.557974),new google.maps.LatLng(37.728182,-119.558287),new google.maps.LatLng(37.727409,-119.558610),new google.maps.LatLng(37.726781,-119.558531),new google.maps.LatLng(37.726530,-119.557591),new google.maps.LatLng(37.726290,-119.556421),new google.maps.LatLng(37.726085,-119.555423),new google.maps.LatLng(37.726460,-119.554240),new google.maps.LatLng(37.726275,-119.553586),new google.maps.LatLng(37.726308,-119.552528),new google.maps.LatLng(37.725993,-119.551515),new google.maps.LatLng(37.725990,-119.551591),new google.maps.LatLng(37.725711,-119.551296),new google.maps.LatLng(37.726077,-119.550687),new google.maps.LatLng(37.726176,-119.549712),new google.maps.LatLng(37.726410,-119.548926),new google.maps.LatLng(37.726288,-119.548320),new google.maps.LatLng(37.726341,-119.547373),new google.maps.LatLng(37.726412,-119.546495),new google.maps.LatLng(37.726579,-119.545977),new google.maps.LatLng(37.726761,-119.545510),new google.maps.LatLng(37.727268,-119.544445),new google.maps.LatLng(37.728010,-119.543700),new google.maps.LatLng(37.727414,-119.543325),new google.maps.LatLng(37.726612,-119.542919),new google.maps.LatLng(37.727117,-119.543044),new google.maps.LatLng(37.727249,-119.543061),new google.maps.LatLng(37.727191,-119.542396),new google.maps.LatLng(37.726872,-119.542237),new google.maps.LatLng(37.726972,-119.542170),new google.maps.LatLng(37.726963,-119.541690),new google.maps.LatLng(37.726565,-119.541423),new google.maps.LatLng(37.726199,-119.541006),new google.maps.LatLng(37.726377,-119.540324),new google.maps.LatLng(37.726653,-119.539389),new google.maps.LatLng(37.727219,-119.538832),new google.maps.LatLng(37.727744,-119.538272),new google.maps.LatLng(37.727232,-119.537948),new google.maps.LatLng(37.726375,-119.537672),new google.maps.LatLng(37.726456,-119.537084),new google.maps.LatLng(37.726329,-119.536519),new google.maps.LatLng(37.726239,-119.533769),new google.maps.LatLng(37.726271,-119.533539),new google.maps.LatLng(37.726405,-119.533155),new google.maps.LatLng(37.726437,-119.532710),new google.maps.LatLng(37.726419,-119.532365),new google.maps.LatLng(37.726346,-119.531989),new google.maps.LatLng(37.726221,-119.531358),new google.maps.LatLng(37.726266,-119.530858),new google.maps.LatLng(37.726423,-119.530570),new google.maps.LatLng(37.726288,-119.530471),new google.maps.LatLng(37.726406,-119.530198),new google.maps.LatLng(37.726833,-119.529662),new google.maps.LatLng(37.727406,-119.529203),new google.maps.LatLng(37.727528,-119.528819),new google.maps.LatLng(37.728412,-119.528448),new google.maps.LatLng(37.728997,-119.527716),new google.maps.LatLng(37.729358,-119.527299),new google.maps.LatLng(37.729800,-119.526701),new google.maps.LatLng(37.730249,-119.525615),new google.maps.LatLng(37.730262,-119.524354),new google.maps.LatLng(37.730685,-119.523089),new google.maps.LatLng(37.731262,-119.521980),new google.maps.LatLng(37.731952,-119.520684),new google.maps.LatLng(37.732981,-119.519557),new google.maps.LatLng(37.733528,-119.518421),new google.maps.LatLng(37.733902,-119.517202),new google.maps.LatLng(37.734343,-119.515993),new google.maps.LatLng(37.734830,-119.514746),new google.maps.LatLng(37.735267,-119.514237),new google.maps.LatLng(37.735421,-119.514564),new google.maps.LatLng(37.735797,-119.514595),new google.maps.LatLng(37.736150,-119.514734),new google.maps.LatLng(37.736649,-119.514959),new google.maps.LatLng(37.737582,-119.514960),new google.maps.LatLng(37.738029,-119.514416),new google.maps.LatLng(37.738579,-119.514815),new google.maps.LatLng(37.739478,-119.515239),new google.maps.LatLng(37.740192,-119.515314),new google.maps.LatLng(37.740654,-119.514764),new google.maps.LatLng(37.740859,-119.514068),new google.maps.LatLng(37.740607,-119.513018),new google.maps.LatLng(37.740784,-119.512192),new google.maps.LatLng(37.741065,-119.512148),new google.maps.LatLng(37.741480,-119.511230),new google.maps.LatLng(37.742013,-119.511919),new google.maps.LatLng(37.742421,-119.512689),new google.maps.LatLng(37.742639,-119.512362),new google.maps.LatLng(37.742748,-119.511915),new google.maps.LatLng(37.743257,-119.512453),new google.maps.LatLng(37.743623,-119.512687),new google.maps.LatLng(37.743841,-119.512180),new google.maps.LatLng(37.744297,-119.512480),new google.maps.LatLng(37.744954,-119.512819),new google.maps.LatLng(37.745143,-119.512740),new google.maps.LatLng(37.745052,-119.512593),new google.maps.LatLng(37.745073,-119.512632),new google.maps.LatLng(37.745025,-119.512656),new google.maps.LatLng(37.745012,-119.512589),new google.maps.LatLng(37.745070,-119.512574),new google.maps.LatLng(37.744878,-119.511452),new google.maps.LatLng(37.744571,-119.509783),new google.maps.LatLng(37.744248,-119.508779),new google.maps.LatLng(37.744281,-119.508022),new google.maps.LatLng(37.744018,-119.507155),new google.maps.LatLng(37.743716,-119.505836),new google.maps.LatLng(37.743937,-119.505042),new google.maps.LatLng(37.744039,-119.503876),new google.maps.LatLng(37.744686,-119.503680),new google.maps.LatLng(37.745565,-119.503527),new google.maps.LatLng(37.746186,-119.503046),new google.maps.LatLng(37.746829,-119.502637),new google.maps.LatLng(37.747082,-119.503631),new google.maps.LatLng(37.747553,-119.504461),new google.maps.LatLng(37.748139,-119.504999),new google.maps.LatLng(37.748907,-119.505496),new google.maps.LatLng(37.749486,-119.505863),new google.maps.LatLng(37.749928,-119.505713),new google.maps.LatLng(37.750625,-119.505436),new google.maps.LatLng(37.751339,-119.505326),new google.maps.LatLng(37.751987,-119.505201),new google.maps.LatLng(37.752506,-119.504869),new google.maps.LatLng(37.753035,-119.504373),new google.maps.LatLng(37.753445,-119.504103),new google.maps.LatLng(37.754036,-119.503633),new google.maps.LatLng(37.754600,-119.503157),new google.maps.LatLng(37.754921,-119.503916),new google.maps.LatLng(37.755363,-119.504151),new google.maps.LatLng(37.755733,-119.503177),new google.maps.LatLng(37.755826,-119.502366),new google.maps.LatLng(37.756021,-119.501579),new google.maps.LatLng(37.756082,-119.500816),new google.maps.LatLng(37.756197,-119.499875),new google.maps.LatLng(37.756253,-119.499280),new google.maps.LatLng(37.756555,-119.499611),new google.maps.LatLng(37.756980,-119.500618),new google.maps.LatLng(37.757135,-119.499893),new google.maps.LatLng(37.757391,-119.500543),new google.maps.LatLng(37.757490,-119.500460),new google.maps.LatLng(37.757474,-119.499443),new google.maps.LatLng(37.757934,-119.500406),new google.maps.LatLng(37.758010,-119.500574),new google.maps.LatLng(37.758217,-119.500566),new google.maps.LatLng(37.758357,-119.500173),new google.maps.LatLng(37.758780,-119.501059),new google.maps.LatLng(37.758868,-119.500306),new google.maps.LatLng(37.758842,-119.500322),new google.maps.LatLng(37.759155,-119.500600),new google.maps.LatLng(37.759399,-119.500564),new google.maps.LatLng(37.759151,-119.499491),new google.maps.LatLng(37.758939,-119.498599),new google.maps.LatLng(37.758852,-119.497611),new google.maps.LatLng(37.758764,-119.497378),new google.maps.LatLng(37.758691,-119.496400),new google.maps.LatLng(37.758505,-119.495599),new google.maps.LatLng(37.758150,-119.494803),new google.maps.LatLng(37.758913,-119.494584),new google.maps.LatLng(37.759394,-119.494723),new google.maps.LatLng(37.759675,-119.494641),new google.maps.LatLng(37.760146,-119.493809),new google.maps.LatLng(37.760901,-119.493089),new google.maps.LatLng(37.761523,-119.492756),new google.maps.LatLng(37.762290,-119.492401),new google.maps.LatLng(37.762929,-119.492063),new google.maps.LatLng(37.763097,-119.491908),new google.maps.LatLng(37.763676,-119.491300),new google.maps.LatLng(37.764078,-119.490765),new google.maps.LatLng(37.764231,-119.490138),new google.maps.LatLng(37.764332,-119.489461),new google.maps.LatLng(37.764705,-119.489677),new google.maps.LatLng(37.765018,-119.489949),new google.maps.LatLng(37.765314,-119.489414),new google.maps.LatLng(37.765526,-119.490500),new google.maps.LatLng(37.765554,-119.491048),new google.maps.LatLng(37.765724,-119.491519),new google.maps.LatLng(37.766068,-119.491399),new google.maps.LatLng(37.766305,-119.490828),new google.maps.LatLng(37.766576,-119.490366),new google.maps.LatLng(37.766755,-119.490110),new google.maps.LatLng(37.766851,-119.489795),new google.maps.LatLng(37.766837,-119.489803),new google.maps.LatLng(37.766853,-119.489791),new google.maps.LatLng(37.767072,-119.489820),new google.maps.LatLng(37.767278,-119.489705),new google.maps.LatLng(37.767494,-119.489475),new google.maps.LatLng(37.767712,-119.489350),new google.maps.LatLng(37.767745,-119.489334),new google.maps.LatLng(37.767742,-119.489322),new google.maps.LatLng(37.767825,-119.489295),new google.maps.LatLng(37.768120,-119.489101),new google.maps.LatLng(37.768487,-119.488811),new google.maps.LatLng(37.768690,-119.488736),new google.maps.LatLng(37.768850,-119.488655),new google.maps.LatLng(37.769001,-119.488551),new google.maps.LatLng(37.768796,-119.488665),new google.maps.LatLng(37.768359,-119.488937),new google.maps.LatLng(37.767790,-119.489280),new google.maps.LatLng(37.767754,-119.489325),new google.maps.LatLng(37.767767,-119.489296),new google.maps.LatLng(37.767773,-119.489293),new google.maps.LatLng(37.767757,-119.489318),new google.maps.LatLng(37.767762,-119.489307),new google.maps.LatLng(37.767757,-119.489331),new google.maps.LatLng(37.767530,-119.489499),new google.maps.LatLng(37.767223,-119.489660),new google.maps.LatLng(37.766996,-119.489850),new google.maps.LatLng(37.766750,-119.490142),new google.maps.LatLng(37.766431,-119.490546),new google.maps.LatLng(37.766142,-119.491371),new google.maps.LatLng(37.765609,-119.491450),new google.maps.LatLng(37.765503,-119.490437),new google.maps.LatLng(37.765168,-119.489383),new google.maps.LatLng(37.764799,-119.489857),new google.maps.LatLng(37.764336,-119.489353),new google.maps.LatLng(37.764102,-119.490478),new google.maps.LatLng(37.763596,-119.491400),new google.maps.LatLng(37.762754,-119.492152),new google.maps.LatLng(37.761732,-119.492636),new google.maps.LatLng(37.760694,-119.493211),new google.maps.LatLng(37.759929,-119.494175),new google.maps.LatLng(37.759193,-119.494515),new google.maps.LatLng(37.758511,-119.494698),new google.maps.LatLng(37.757664,-119.495167),new google.maps.LatLng(37.758076,-119.495262),new google.maps.LatLng(37.758572,-119.495897),new google.maps.LatLng(37.758711,-119.497061),new google.maps.LatLng(37.758823,-119.498309),new google.maps.LatLng(37.759110,-119.499607),new google.maps.LatLng(37.759353,-119.501106),new google.maps.LatLng(37.758813,-119.500297),new google.maps.LatLng(37.758623,-119.500838),new google.maps.LatLng(37.758233,-119.500182),new google.maps.LatLng(37.757957,-119.500525),new google.maps.LatLng(37.757465,-119.499721),new google.maps.LatLng(37.757341,-119.500217),new google.maps.LatLng(37.757069,-119.500409),new google.maps.LatLng(37.756671,-119.499852),new google.maps.LatLng(37.756230,-119.499230),new google.maps.LatLng(37.756098,-119.500394),new google.maps.LatLng(37.756096,-119.501057),new google.maps.LatLng(37.755934,-119.502119),new google.maps.LatLng(37.755560,-119.503609),new google.maps.LatLng(37.755065,-119.503951),new google.maps.LatLng(37.754496,-119.503146),new google.maps.LatLng(37.753602,-119.503906),new google.maps.LatLng(37.752880,-119.504440),new google.maps.LatLng(37.752054,-119.505092),new google.maps.LatLng(37.751028,-119.505223),new google.maps.LatLng(37.750149,-119.505552),new google.maps.LatLng(37.749349,-119.505838),new google.maps.LatLng(37.748745,-119.505236),new google.maps.LatLng(37.747740,-119.504635),new google.maps.LatLng(37.747123,-119.503619),new google.maps.LatLng(37.746768,-119.502608),new google.maps.LatLng(37.745898,-119.503219),new google.maps.LatLng(37.745009,-119.503662),new google.maps.LatLng(37.744087,-119.503708),new google.maps.LatLng(37.743925,-119.504909),new google.maps.LatLng(37.743739,-119.505959),new google.maps.LatLng(37.744046,-119.507220),new google.maps.LatLng(37.744277,-119.507907),new google.maps.LatLng(37.744240,-119.508526),new google.maps.LatLng(37.744565,-119.509769),new google.maps.LatLng(37.744849,-119.511179),new google.maps.LatLng(37.745031,-119.512355),new google.maps.LatLng(37.745079,-119.512799),new google.maps.LatLng(37.744911,-119.512776),new google.maps.LatLng(37.744357,-119.512483),new google.maps.LatLng(37.743784,-119.512010),new google.maps.LatLng(37.743592,-119.512780),new google.maps.LatLng(37.743188,-119.512298),new google.maps.LatLng(37.742554,-119.511691),new google.maps.LatLng(37.742449,-119.512633),new google.maps.LatLng(37.742142,-119.512191),new google.maps.LatLng(37.741701,-119.511403),new google.maps.LatLng(37.741241,-119.511796),new google.maps.LatLng(37.740853,-119.512238),new google.maps.LatLng(37.740582,-119.512871),new google.maps.LatLng(37.740870,-119.514064),new google.maps.LatLng(37.740609,-119.514696),new google.maps.LatLng(37.739941,-119.515356),new google.maps.LatLng(37.739198,-119.515081),new google.maps.LatLng(37.738335,-119.514445),new google.maps.LatLng(37.737511,-119.514809),new google.maps.LatLng(37.736415,-119.514851),new google.maps.LatLng(37.735912,-119.514752),new google.maps.LatLng(37.735683,-119.514364),new google.maps.LatLng(37.735528,-119.514040),new google.maps.LatLng(37.734930,-119.514550),new google.maps.LatLng(37.734322,-119.515755),new google.maps.LatLng(37.733926,-119.517018),new google.maps.LatLng(37.733525,-119.518159),new google.maps.LatLng(37.733110,-119.519389),new google.maps.LatLng(37.732312,-119.520151),new google.maps.LatLng(37.731635,-119.521119),new google.maps.LatLng(37.731014,-119.522336),new google.maps.LatLng(37.730491,-119.523645),new google.maps.LatLng(37.730142,-119.524930),new google.maps.LatLng(37.730071,-119.526068),new google.maps.LatLng(37.729633,-119.526854),new google.maps.LatLng(37.729099,-119.527585),new google.maps.LatLng(37.728439,-119.528223),new google.maps.LatLng(37.727800,-119.528764),new google.maps.LatLng(37.727196,-119.528977),new google.maps.LatLng(37.727218,-119.529346),new google.maps.LatLng(37.726487,-119.529950),new google.maps.LatLng(37.726551,-119.530433),new google.maps.LatLng(37.725953,-119.530551),new google.maps.LatLng(37.725616,-119.531505),new google.maps.LatLng(37.725077,-119.532647),new google.maps.LatLng(37.724517,-119.533103),new google.maps.LatLng(37.723671,-119.533664),new google.maps.LatLng(37.723204,-119.534259),new google.maps.LatLng(37.722458,-119.534966),new google.maps.LatLng(37.722139,-119.536029),new google.maps.LatLng(37.721899,-119.536876),new google.maps.LatLng(37.721828,-119.537559),new google.maps.LatLng(37.721949,-119.538375),new google.maps.LatLng(37.722203,-119.539448),new google.maps.LatLng(37.722108,-119.540769),new google.maps.LatLng(37.722319,-119.540615),new google.maps.LatLng(37.722687,-119.539623),new google.maps.LatLng(37.722636,-119.540632),new google.maps.LatLng(37.722681,-119.541727),new google.maps.LatLng(37.723039,-119.542650),new google.maps.LatLng(37.723430,-119.543566),new google.maps.LatLng(37.723847,-119.544315),new google.maps.LatLng(37.723870,-119.543540),new google.maps.LatLng(37.724314,-119.544549),new google.maps.LatLng(37.724656,-119.544897),new google.maps.LatLng(37.724924,-119.545220),new google.maps.LatLng(37.725094,-119.545478),new google.maps.LatLng(37.724491,-119.546342),new google.maps.LatLng(37.723877,-119.546000),new google.maps.LatLng(37.723964,-119.546438),new google.maps.LatLng(37.723512,-119.546577),new google.maps.LatLng(37.723592,-119.546818),new google.maps.LatLng(37.723935,-119.546867),new google.maps.LatLng(37.723681,-119.547287),new google.maps.LatLng(37.723426,-119.548057),new google.maps.LatLng(37.723210,-119.548459),new google.maps.LatLng(37.722790,-119.549194),new google.maps.LatLng(37.722645,-119.549601),new google.maps.LatLng(37.723487,-119.549152),new google.maps.LatLng(37.724067,-119.548475),new google.maps.LatLng(37.723805,-119.548480),new google.maps.LatLng(37.724148,-119.548942),new google.maps.LatLng(37.724917,-119.548223),new google.maps.LatLng(37.724650,-119.549102),new google.maps.LatLng(37.725087,-119.549000),new google.maps.LatLng(37.725551,-119.548730),new google.maps.LatLng(37.725274,-119.549548),new google.maps.LatLng(37.725723,-119.549227),new google.maps.LatLng(37.725931,-119.549909),new google.maps.LatLng(37.725576,-119.550792),new google.maps.LatLng(37.725354,-119.551725),new google.maps.LatLng(37.725645,-119.551926),new google.maps.LatLng(37.725347,-119.552300),new google.maps.LatLng(37.724769,-119.553188),new google.maps.LatLng(37.724469,-119.554081),new google.maps.LatLng(37.724231,-119.555100),new google.maps.LatLng(37.724734,-119.555991),new google.maps.LatLng(37.724410,-119.556627),new google.maps.LatLng(37.724487,-119.557531),new google.maps.LatLng(37.724994,-119.557961),new google.maps.LatLng(37.725418,-119.558411),new google.maps.LatLng(37.726261,-119.558823),new google.maps.LatLng(37.726865,-119.559501),new google.maps.LatLng(37.727217,-119.559918),new google.maps.LatLng(37.727867,-119.560052),new google.maps.LatLng(37.729101,-119.559972),new google.maps.LatLng(37.729998,-119.559633),new google.maps.LatLng(37.730891,-119.559904),new google.maps.LatLng(37.731745,-119.559885),new google.maps.LatLng(37.731973,-119.560623),new google.maps.LatLng(37.731949,-119.561676),new google.maps.LatLng(37.732761,-119.562782),new google.maps.LatLng(37.733409,-119.563533),new google.maps.LatLng(37.733976,-119.564673),new google.maps.LatLng(37.734746,-119.565753),new google.maps.LatLng(37.735002,-119.566305),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 3990, 4019, 4018, 4020, 4010, 4026, 4044, 4072, 4139, 4154, 4251, 4396, 4412, 4478, 4412, 4473, 4532, 4587, 4648, 4928, 5047, 5050, 5059, 5110, 5197, 5290, 5275, 5283, 5598, 5867, 5983, 6037, 6132, 6197, 6169, 6163, 6141, 6148, 6159, 6110, 6125, 6127, 6151, 6212, 6309, 6374, 6406, 6457, 6523, 6607, 6686, 6770, 6848, 6929, 7009, 7041, 7068, 7093, 7133, 7173, 7206, 7311, 7360, 7404, 7480, 7541, 7610, 7719, 7800, 7913, 7994, 8104, 8158, 8252, 8323, 8401, 8498, 8594, 8717, 8793, 8878, 8914, 8959, 9049, 9105, 9175, 9260, 9343, 9411, 9506, 9594, 9672, 9807, 9893, 9849, 9900, 9769, 9648, 9553, 9450, 9377, 9286, 9202, 9142, 9095, 9019, 8942, 8909, 8824, 8777, 8700, 8595, 8479, 8347, 8215, 8152, 8055, 7986, 7883, 7771, 7651, 7564, 7509, 7435, 7387, 7334, 7253, 7183, 7155, 7121, 7085, 7069, 7033, 6989, 6908, 6837, 6762, 6662, 6575, 6522, 6443, 6396, 6365, 6242, 6159, 6141, 6125, 6111, 6138, 6156, 6146, 6135, 6160, 6170, 6175, 6113, 6040, 5943, 5943, 5936, 5953, 5979, 5923, 5871, 5828, 5746, 5725, 5664, 5591, 5531, 5451, 5442, 5246, 5082, 5038, 4905, 4901, 4791, 4664, 4542, 4491, 4366, 4226, 4204, 4193, 4186, 4151, 4098, 4085, 4047, 4028, 4022, 4019, 4018, 3996, 3977 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Cloud's Rest from Happy Isles</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Cloud's Rest from Happy Isles</div><div style="font-size:20px;">20.1 miles &nbsp;&nbsp;&nbsp; 6000 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">29 Aug 2010</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        Spectacular hike in Yosemite to awesome 360-degree views.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Yosemite_National_Park.html">Yosemite National Park</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://g.co/maps/72bff">
+    Happy Isles Trailhead in Yosemite, CA
+    </a>. No street address. Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    Please study Trail Maps for Yosemite. Regular buses take you from Curry Village to Happy Isles trailhead. Alternately, you may walk to the trailhead - it is only about one mile away.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    Happy Isles Trailhead in Yosemite, CA
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: See <a href="http://www.nps.gov/yose/planyourvisit/feesandreservations.htm">Fees and Reservations at Yosemite</a>. (last visited: August 2010)</p>
+<p><b>Capacity</b>: Hundreds of cars may be parked at Curry Village</p>
+<p><b>Latitude</b>: 37.732652 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -119.558405</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.yosemite.ca.us/maps/yosemite_valley_maps.html">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/yosemite-national-park-yosemite">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA1269">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.yosemite.ca.us/maps/yosemite_valley_hiking_map_2006.pdf">Official Trail Map</a>: Good map showing various hiking trails.</p>
+<div class="mini_header">Route</div>
+    <p>On 29 August 2010, I hiked to Clouds Rest from Happy Isles trail head in Yosemite National Park. At 20-miles round-trip and 6000 ft total elevation gain, it was a challenging day hike. It took me 6 hours to reach the top and 4.5 hours to descend.
+    <p><b>Traihead</b>: Happy Isles trailhead, close to Curry Village.
+
+    <ol>
+    <li><u>9.6 miles to Clouds Rest via Mist Trail</u>: From Happy Isles trail head (4,035 ft) &rarr; 0.8 miles to Vernal Falls Bridge &rarr; 0.7 miles to top of Vernal Falls (5,044 ft) &rarr; 1.3 miles to restrooms near Nevada Falls (5,908 ft) &rarr; 2.5 miles to fork (2.0 miles to Half Dome on left; 4.3 miles to Clouds Rest on right) &rarr; 4.3 miles to Clouds Rest.</li>
+    <li><u>10.5 miles to Happy Isles via John Muir Trail</u>: Follow the above route back until you reach the restrooms near Nevada Falls. Then hike 0.2 miles to Nevada Falls, cross the bridge and continue 3.5 miles along John Muir Trail to reach Happy Isles trailhead.</li>
+    </ol>
+    
+    <p><b>Notes</b>: There are two routes for reaching the restrooms near Nevada Falls. The shorter (2.8 miles) but steeper route is through Mist Trail, which offers amazing views of Vernal Falls. In spring, soon after rains, water is aplenty, making the stony trial wet and slipper (caution is warranted) and there's always a rainbow. The longer (3.7 miles) route avoids Vernal Falls completely. It has a series of switchbacks and should be preferred for the return journey &mdash; gentler gradient is better for your knees.
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      1. Happy Isles Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>We started from Happy Isles at 7:15am. We parked our car at a parking lot that was about half a mile away from the trail head. We followed an unnamed trail to reach a paved road. The road soon crossed Merced river via a bridge. Immediately after the bridge, we took a right towards Happy Isles trail head. From the trail head, Clouds Rest is 10.5 miles away if you go by John Muir Trail. It is only 9.5 miles away if you go by the shorter but steeper Mist Trail.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-1aBvqV_YfFk/TwmGu8rub7I/AAAAAAACes8/-vGewu80mSM/IMG_8152.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-1aBvqV_YfFk/TwmGu8rub7I/AAAAAAACes8/-vGewu80mSM/s144/IMG_8152.JPG" alt="Unnamed trail from Happy Isles parking lot to Happy Isles trailhead." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-T28BUb-9OgE/TwmG6H38WyI/AAAAAAACetI/nszzhMNuR-Y/IMG_8159.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-T28BUb-9OgE/TwmG6H38WyI/AAAAAAACetI/nszzhMNuR-Y/s144/IMG_8159.JPG" alt="Happy Isles Trailhead: Clouds Rest is 10.5 miles away." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      2. Vernal Falls Bridge
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>About 0.8 miles into the hike, we reached Vernal Falls Bridge, which has drinking water and restrooms:</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-I617Ychl8IY/TwmHYn_qWqI/AAAAAAACetg/0ajMYcGlC3o/IMG_8172.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh6.googleusercontent.com/-I617Ychl8IY/TwmHYn_qWqI/AAAAAAACetg/0ajMYcGlC3o/s144/IMG_8172.JPG" alt="The restroom next to Vernal Falls Bridge." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-KKTQ2MxfcLk/TwmHGxLLpiI/AAAAAAACetQ/KUNNKRW4aXg/IMG_8162.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/-KKTQ2MxfcLk/TwmHGxLLpiI/AAAAAAACetQ/KUNNKRW4aXg/s144/IMG_8162.JPG" alt="Vernal Fall Bridge - 0.8 miles away from trail head. Has restrooms and drinking water." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      3. Vernal Falls
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>About 1.5 miles into the hike, we reached Vernal Falls. In late August, the falls were not as spectacular as in April, soon after rains. About half a mile after Vernal Falls, we crossed a bridge.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-rPLLzjJE4ZM/TwmHrc4RHbI/AAAAAAACetw/rJ5hl0grgJ0/IMG_8185.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh4.googleusercontent.com/-rPLLzjJE4ZM/TwmHrc4RHbI/AAAAAAACetw/rJ5hl0grgJ0/s144/IMG_8185.JPG" alt="Vernal Falls in late August - not much water." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-QJQ1R3_2t3M/TwmHlK32pgI/AAAAAAACeto/TYg5p0_Ny10/IMG_8178.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh4.googleusercontent.com/-QJQ1R3_2t3M/TwmHlK32pgI/AAAAAAACeto/TYg5p0_Ny10/s144/IMG_8178.JPG" alt="Series of steps along Mist Trail. Vernal Falls in the background." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div onclick="location.href='https://gurmeet.net/hiking/hikes/Clouds_Rest_From_Happy_Isles.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Clouds_Rest_From_Happy_Isles.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.734496%2C-119.565180&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:q_ieFjqwxUjC{EpB_DxG_LJuF{BaAkAuInDb@vEFbDs@lENrH~BzBOr@{DvAqLkAkFd@cCEsE|@iE?Nv@{@gAyBSaEo@}CXwBK}DMoD_@gBe@{AcBuEsCsCtBkA~CqAcBXYBHeC~@_@SK@_BnAu@hAsAc@gCw@{DoBmBiBoBdBaAjDu@OuBXqBPePGm@YkAEwABeAd@iEGcB_@w@ZSWw@uAiBqB{AWmAqDiAsBqCgAsAwAuByAyEC{FsA}F}F_NmEaFkBaFkAsFwAqFaByFuAeB_@`AiADgAZaBj@{D@wAmBmBnAsDrAoCN{AmBg@kCp@qEc@cDw@IsAuDiBfCqAxCi@_AUyAeBjBiAl@k@cByAz@cC`Ae@MP]CFHB@MKAbBmP`AiEGuCt@mDz@gGk@}CSiFaCe@oD_@{B_B_CqAs@fE}AdDsBhBmGlDwA]kCw@mCUaCWgBcAiBaBqAu@uB}AqB_B_AvCwAn@iAcEQaDg@}CKwCU{DKuB{@`AuAfE]oCs@`CQO@kEkB`Fg@A[mAuAnDOuCBB}@v@o@GzAiKNcEPo@LaEd@aDdA}CwCk@_BZw@O}AgDwCoC{BaAyCeA}BcAa@_@sBwBoAkB_@}BSeCiAh@}@t@{@iBi@xEEjBa@|AcAWo@qBu@{Ac@q@S_AB@CAk@Dg@Wk@m@q@[?AOE{@e@gAy@i@O_@O]SpFpCFFAE@Fj@^|@`@l@d@nBhCx@dDjBNRkEbAqEhA|AzAcBl@~EdBxDfDtCjE~AnErBxC~DpCbAfCb@hD|AqARcB|B[hFUvFy@bGo@jHjBaDd@jBlAaCv@bA`B_DV`Bv@d@dDiFZfF?bC^rEhAhHbBdApBaDpDvCpCjBbD`ClEXnIxBvBwBfEwBzBkEfAiElDxBpDxAvDF^nFd@pE}@|Fm@fCDzB_AvFw@xGe@jFGvA^CnBy@pB}Ad@xCpAaB|BwBTzDz@wAvA}CzAlAlAvAt@~By@lFt@|BbCbCtCu@jD_CbDfAzEHbBSl@mA^_AtBdBxBnFnAzF`DxM~CxCfC~DzBrFfBdGdA`GL`FvA|CjBpCbC~B|BjBxBh@ChApCxBM~AvBVbA|DjBbFnBzAfDnB|AtBtClCnB|JLfCWbDs@tERfGi@]iAeEHhEIxEeAxDoAtDqAtCEyCwAfEcAdAu@`Aa@p@vBlDzBcAQtAxAZOn@cAHp@rAr@xC|BbF\pAgDyAsBgCr@@cAzAyCoCt@nDwAS}Au@v@`DyA_Ai@fCfApDj@xDy@f@z@jArBnDz@rDl@jEcBpD~@|BMtDeBtAsAxAiDpA}DxEaCZwFOqDcAsDt@iDCm@rCDpEcD|E_CtCqBbFyCvEs@lB"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Clouds_Rest_From_Happy_Isles.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      4. Nevada Falls
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>About 2.8 miles into the hike, we reached Nevada Falls. The last portion of the hike involves a series of switchbacks with stony steps. There's a restroom at Nevada Falls. A sign reminded us that Clouds Rest was 6.8 miles ahead.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-rV4ED-WJJ-Y/TwmIGB9nT5I/AAAAAAACeuE/K5IzcZg72hI/IMG_8206.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group3' })">
+    
+      <img src="https://lh5.googleusercontent.com/-rV4ED-WJJ-Y/TwmIGB9nT5I/AAAAAAACeuE/K5IzcZg72hI/s144/IMG_8206.JPG" alt="Steps along switchbacks leading to Nevada Falls." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-7_iqS8REjsY/TwmILDq4osI/AAAAAAACeuI/wJa4FmreVzQ/IMG_8207.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group3' })">
+    
+      <img src="https://lh6.googleusercontent.com/-7_iqS8REjsY/TwmILDq4osI/AAAAAAACeuI/wJa4FmreVzQ/s144/IMG_8207.JPG" alt="Nevada Falls - not much water in late August." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      5. Fork to Half Dome
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>5.3 miles into the hike, we reached a fork. Half Dome is two miles away. Clouds Rest is 4.3 miles away. Many people take rest at this junction:</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-b_vlLDfLTQ0/TwmI--GaBeI/AAAAAAACeu0/61S61aERM1c/IMG_8243.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group4' })">
+    
+      <img src="https://lh3.googleusercontent.com/-b_vlLDfLTQ0/TwmI--GaBeI/AAAAAAACeu0/61S61aERM1c/s144/IMG_8243.JPG" alt="Many people take rest at this junction where the trail to Half Dome meets John Muir Trail." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-4Q4j6ww2YPs/TwmI4cIJwEI/AAAAAAACeuw/5IQ8-9eR1l0/IMG_8242.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group4' })">
+    
+      <img src="https://lh4.googleusercontent.com/-4Q4j6ww2YPs/TwmI4cIJwEI/AAAAAAACeuw/5IQ8-9eR1l0/s144/IMG_8242.JPG" alt="Half Dome is 2 miles away. Permits became necessary in 2010 on weekends and federal holidays." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      6. To Cloud's Rest
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>The remainder of the hike was forested. The forest became greener as we gained elevation.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-93hHz6mEzN4/TwmKCpNtAHI/AAAAAAACewY/3T62zXOCZeE/IMG_8285.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh5.googleusercontent.com/-93hHz6mEzN4/TwmKCpNtAHI/AAAAAAACewY/3T62zXOCZeE/s144/IMG_8285.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-Ijj0XjbQjrc/TwmJWgEbS1I/AAAAAAACevI/sAyRqUblt9k/IMG_8257.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh3.googleusercontent.com/-Ijj0XjbQjrc/TwmJWgEbS1I/AAAAAAACevI/sAyRqUblt9k/s144/IMG_8257.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      7. Top of Cloud's Rest
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>Half Dome is seen quite clearly along John Muir Trail. Views from atop Clouds Rest are spectacular. You can see the entire Yosemite Valley. There's a ridge next to Clouds Rest. It's not really a "knife edge" &mdash; it's several feet wide everywhere.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-YElrtuAjgDI/TwmLHy0kozI/AAAAAAACexg/5SBJlcAG5yQ/IMG_8321.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh5.googleusercontent.com/-YElrtuAjgDI/TwmLHy0kozI/AAAAAAACexg/5SBJlcAG5yQ/s144/IMG_8321.JPG" alt="Views from Clouds Rest (9,930 ft)." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-tpgPfUgjpvA/TwmKrHbsrCI/AAAAAAACexE/5zDo2bO1USQ/IMG_8307.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh6.googleusercontent.com/-tpgPfUgjpvA/TwmKrHbsrCI/AAAAAAACexE/5zDo2bO1USQ/s144/IMG_8307.JPG" alt="The knife-edge that takes you along a trail to Tenaya Lake." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-46Oh78UEI5Q/TwmLXut18OI/AAAAAAACexw/Zsv-rs0y4mY/IMG_8331.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh5.googleusercontent.com/-46Oh78UEI5Q/TwmLXut18OI/AAAAAAACexw/Zsv-rs0y4mY/s144/IMG_8331.JPG" alt="Another view of Half Dome, on the way back." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-KfpJYYO91Iw/TwmK4G5vrCI/AAAAAAACexQ/3-bEcgcyrdc/IMG_8316.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh5.googleusercontent.com/-KfpJYYO91Iw/TwmK4G5vrCI/AAAAAAACexQ/3-bEcgcyrdc/s144/IMG_8316.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      8. Return Trip
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p>Awesome panoramic views of Yosemite Valley and trails next to River Merced on the way back.</p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-mwQF2dm-yHg/TwmLsVJbwcI/AAAAAAACeyE/rdVSVozpuak/IMG_8350.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group7' })">
+    
+      <img src="https://lh6.googleusercontent.com/-mwQF2dm-yHg/TwmLsVJbwcI/AAAAAAACeyE/rdVSVozpuak/s144/IMG_8350.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-iYiNWW0uay4/TwmL6APCGTI/AAAAAAACeyM/ME8LpvEqK58/IMG_8357.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group7' })">
+    
+      <img src="https://lh4.googleusercontent.com/-iYiNWW0uay4/TwmL6APCGTI/AAAAAAACeyM/ME8LpvEqK58/s144/IMG_8357.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-GZcFOMJdOso/TwmLdlBjOGI/AAAAAAACex0/RtMVyVEunAU/IMG_8342.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group7' })">
+    
+      <img src="https://lh3.googleusercontent.com/-GZcFOMJdOso/TwmLdlBjOGI/AAAAAAACex0/RtMVyVEunAU/s144/IMG_8342.JPG" alt="Merced River." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-7r62Bg2ROA0/TwmLn08ePdI/AAAAAAACeyA/dwx99ajzp6s/IMG_8347.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group7' })">
+    
+      <img src="https://lh3.googleusercontent.com/-7r62Bg2ROA0/TwmLn08ePdI/AAAAAAACeyA/dwx99ajzp6s/s144/IMG_8347.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Nature
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-T1Q1RzxeXg0/TwmMTRYN-cI/AAAAAAACeys/zxmzJJVsnsI/IMG_8335.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-T1Q1RzxeXg0/TwmMTRYN-cI/AAAAAAACeys/zxmzJJVsnsI/s48-c/IMG_8335.JPG" alt="A deer." title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-SN3DHrZAyz0/TwmMPtHIBgI/AAAAAAACeyk/zPqFHUw_DiE/IMG_8248.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-SN3DHrZAyz0/TwmMPtHIBgI/AAAAAAACeyk/zPqFHUw_DiE/s48-c/IMG_8248.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-_TGSI8igIvU/TwmMHlwXBPI/AAAAAAACeyc/wWsxmhKOnDo/IMG_8349.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-_TGSI8igIvU/TwmMHlwXBPI/AAAAAAACeyc/wWsxmhKOnDo/s48-c/IMG_8349.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-K-Z_oZzPPOs/TwmMEru-5zI/AAAAAAACeyY/u4b7912Ygks/IMG_8273.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-K-Z_oZzPPOs/TwmMEru-5zI/AAAAAAACeyY/u4b7912Ygks/s48-c/IMG_8273.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-vZR42gG6wbM/TwmMBy3LGeI/AAAAAAACeyU/6W4RyRURXwA/IMG_8271.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-vZR42gG6wbM/TwmMBy3LGeI/AAAAAAACeyU/6W4RyRURXwA/s48-c/IMG_8271.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-Do6s0hZ1Yzo/TwmMLuxOwTI/AAAAAAACeyg/JyxczJ_F048/IMG_8216.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-Do6s0hZ1Yzo/TwmMLuxOwTI/AAAAAAACeyg/JyxczJ_F048/s48-c/IMG_8216.JPG" alt="Not afraid of humans!" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.29.Clouds.Rest.from.Happy.Isles.in.Yosemite.National.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 29 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

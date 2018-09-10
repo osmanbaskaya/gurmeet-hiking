@@ -1,0 +1,686 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Perimeter Road Around Angel Island</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.868168, -122.434589);
+    var center_latlng = new google.maps.LatLng(37.868168, -122.434589);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.868168,-122.434589),new google.maps.LatLng(37.867964,-122.434532),new google.maps.LatLng(37.867742,-122.434344),new google.maps.LatLng(37.867456,-122.434246),new google.maps.LatLng(37.867146,-122.434380),new google.maps.LatLng(37.866858,-122.434730),new google.maps.LatLng(37.866525,-122.434844),new google.maps.LatLng(37.866192,-122.434955),new google.maps.LatLng(37.865932,-122.434856),new google.maps.LatLng(37.865579,-122.434743),new google.maps.LatLng(37.865442,-122.434572),new google.maps.LatLng(37.865272,-122.434279),new google.maps.LatLng(37.865072,-122.433829),new google.maps.LatLng(37.864989,-122.433598),new google.maps.LatLng(37.864912,-122.433195),new google.maps.LatLng(37.864813,-122.432787),new google.maps.LatLng(37.864885,-122.432602),new google.maps.LatLng(37.864669,-122.432681),new google.maps.LatLng(37.864551,-122.432830),new google.maps.LatLng(37.864503,-122.432933),new google.maps.LatLng(37.864502,-122.433080),new google.maps.LatLng(37.864387,-122.433592),new google.maps.LatLng(37.864346,-122.434057),new google.maps.LatLng(37.864208,-122.434591),new google.maps.LatLng(37.864264,-122.435051),new google.maps.LatLng(37.864491,-122.435588),new google.maps.LatLng(37.864723,-122.436044),new google.maps.LatLng(37.864906,-122.436546),new google.maps.LatLng(37.865198,-122.437239),new google.maps.LatLng(37.865340,-122.437550),new google.maps.LatLng(37.865361,-122.437570),new google.maps.LatLng(37.865349,-122.437569),new google.maps.LatLng(37.865361,-122.437555),new google.maps.LatLng(37.865403,-122.437680),new google.maps.LatLng(37.865747,-122.437908),new google.maps.LatLng(37.866020,-122.438025),new google.maps.LatLng(37.866234,-122.438162),new google.maps.LatLng(37.866380,-122.438315),new google.maps.LatLng(37.866617,-122.438714),new google.maps.LatLng(37.866320,-122.439105),new google.maps.LatLng(37.865977,-122.439298),new google.maps.LatLng(37.865738,-122.439342),new google.maps.LatLng(37.865520,-122.439282),new google.maps.LatLng(37.865206,-122.439216),new google.maps.LatLng(37.864801,-122.439301),new google.maps.LatLng(37.864501,-122.439332),new google.maps.LatLng(37.864011,-122.439357),new google.maps.LatLng(37.863541,-122.439440),new google.maps.LatLng(37.863174,-122.439511),new google.maps.LatLng(37.862989,-122.439621),new google.maps.LatLng(37.862838,-122.439527),new google.maps.LatLng(37.862335,-122.439554),new google.maps.LatLng(37.862012,-122.439717),new google.maps.LatLng(37.861449,-122.439888),new google.maps.LatLng(37.861072,-122.439820),new google.maps.LatLng(37.861080,-122.439933),new google.maps.LatLng(37.861130,-122.439898),new google.maps.LatLng(37.861166,-122.439876),new google.maps.LatLng(37.861210,-122.439777),new google.maps.LatLng(37.861025,-122.439867),new google.maps.LatLng(37.861029,-122.439889),new google.maps.LatLng(37.860828,-122.439957),new google.maps.LatLng(37.860982,-122.439815),new google.maps.LatLng(37.860964,-122.439873),new google.maps.LatLng(37.860913,-122.439911),new google.maps.LatLng(37.860993,-122.439912),new google.maps.LatLng(37.860865,-122.439959),new google.maps.LatLng(37.860589,-122.440239),new google.maps.LatLng(37.860355,-122.440205),new google.maps.LatLng(37.860212,-122.440355),new google.maps.LatLng(37.860147,-122.441037),new google.maps.LatLng(37.859977,-122.441954),new google.maps.LatLng(37.859934,-122.442166),new google.maps.LatLng(37.859899,-122.442689),new google.maps.LatLng(37.859751,-122.442942),new google.maps.LatLng(37.859572,-122.443357),new google.maps.LatLng(37.859492,-122.443434),new google.maps.LatLng(37.859541,-122.443383),new google.maps.LatLng(37.859507,-122.443355),new google.maps.LatLng(37.859583,-122.443380),new google.maps.LatLng(37.859615,-122.443356),new google.maps.LatLng(37.859635,-122.443374),new google.maps.LatLng(37.859739,-122.443457),new google.maps.LatLng(37.859624,-122.443394),new google.maps.LatLng(37.859313,-122.443175),new google.maps.LatLng(37.859126,-122.442887),new google.maps.LatLng(37.859187,-122.442695),new google.maps.LatLng(37.859307,-122.442472),new google.maps.LatLng(37.859299,-122.442467),new google.maps.LatLng(37.859308,-122.442359),new google.maps.LatLng(37.859384,-122.441990),new google.maps.LatLng(37.859465,-122.441657),new google.maps.LatLng(37.859560,-122.441228),new google.maps.LatLng(37.859616,-122.441085),new google.maps.LatLng(37.859701,-122.440801),new google.maps.LatLng(37.859759,-122.440516),new google.maps.LatLng(37.859769,-122.440170),new google.maps.LatLng(37.859502,-122.440070),new google.maps.LatLng(37.859360,-122.440189),new google.maps.LatLng(37.859333,-122.440290),new google.maps.LatLng(37.858932,-122.440528),new google.maps.LatLng(37.858781,-122.440685),new google.maps.LatLng(37.858412,-122.440936),new google.maps.LatLng(37.858206,-122.441168),new google.maps.LatLng(37.857941,-122.441412),new google.maps.LatLng(37.857634,-122.441432),new google.maps.LatLng(37.857314,-122.441401),new google.maps.LatLng(37.857105,-122.441384),new google.maps.LatLng(37.856688,-122.441144),new google.maps.LatLng(37.856590,-122.441124),new google.maps.LatLng(37.856408,-122.441284),new google.maps.LatLng(37.856393,-122.441568),new google.maps.LatLng(37.856395,-122.441610),new google.maps.LatLng(37.856568,-122.441765),new google.maps.LatLng(37.856544,-122.441833),new google.maps.LatLng(37.856591,-122.441743),new google.maps.LatLng(37.856556,-122.441691),new google.maps.LatLng(37.856392,-122.441561),new google.maps.LatLng(37.856377,-122.441571),new google.maps.LatLng(37.856373,-122.441570),new google.maps.LatLng(37.856374,-122.441373),new google.maps.LatLng(37.856443,-122.441223),new google.maps.LatLng(37.856495,-122.440959),new google.maps.LatLng(37.856435,-122.440732),new google.maps.LatLng(37.856551,-122.440790),new google.maps.LatLng(37.856608,-122.440697),new google.maps.LatLng(37.856715,-122.440290),new google.maps.LatLng(37.856764,-122.439997),new google.maps.LatLng(37.856693,-122.439971),new google.maps.LatLng(37.856559,-122.439769),new google.maps.LatLng(37.856146,-122.439320),new google.maps.LatLng(37.856277,-122.438974),new google.maps.LatLng(37.856250,-122.438554),new google.maps.LatLng(37.855971,-122.438251),new google.maps.LatLng(37.855567,-122.438165),new google.maps.LatLng(37.855327,-122.438222),new google.maps.LatLng(37.855300,-122.438194),new google.maps.LatLng(37.855183,-122.438326),new google.maps.LatLng(37.855078,-122.438077),new google.maps.LatLng(37.854900,-122.437699),new google.maps.LatLng(37.854757,-122.437311),new google.maps.LatLng(37.854626,-122.437257),new google.maps.LatLng(37.854613,-122.437291),new google.maps.LatLng(37.854784,-122.437341),new google.maps.LatLng(37.854735,-122.437444),new google.maps.LatLng(37.854869,-122.437794),new google.maps.LatLng(37.854999,-122.438030),new google.maps.LatLng(37.855159,-122.438338),new google.maps.LatLng(37.855242,-122.438298),new google.maps.LatLng(37.855404,-122.438202),new google.maps.LatLng(37.855750,-122.438294),new google.maps.LatLng(37.856093,-122.438405),new google.maps.LatLng(37.856232,-122.438712),new google.maps.LatLng(37.856162,-122.439165),new google.maps.LatLng(37.856202,-122.439451),new google.maps.LatLng(37.856455,-122.439604),new google.maps.LatLng(37.856658,-122.439959),new google.maps.LatLng(37.856743,-122.440014),new google.maps.LatLng(37.856742,-122.440013),new google.maps.LatLng(37.856757,-122.439998),new google.maps.LatLng(37.856742,-122.440063),new google.maps.LatLng(37.856788,-122.439863),new google.maps.LatLng(37.856844,-122.439680),new google.maps.LatLng(37.856946,-122.439270),new google.maps.LatLng(37.857033,-122.438613),new google.maps.LatLng(37.857077,-122.438232),new google.maps.LatLng(37.857154,-122.437475),new google.maps.LatLng(37.857215,-122.437046),new google.maps.LatLng(37.857306,-122.436653),new google.maps.LatLng(37.857411,-122.436110),new google.maps.LatLng(37.857413,-122.435645),new google.maps.LatLng(37.857317,-122.435513),new google.maps.LatLng(37.857216,-122.435412),new google.maps.LatLng(37.856967,-122.435313),new google.maps.LatLng(37.856685,-122.435413),new google.maps.LatLng(37.856336,-122.435550),new google.maps.LatLng(37.855769,-122.435706),new google.maps.LatLng(37.855211,-122.435518),new google.maps.LatLng(37.854802,-122.435014),new google.maps.LatLng(37.854641,-122.434535),new google.maps.LatLng(37.854807,-122.433974),new google.maps.LatLng(37.855183,-122.433941),new google.maps.LatLng(37.855575,-122.433866),new google.maps.LatLng(37.855804,-122.433335),new google.maps.LatLng(37.855780,-122.432791),new google.maps.LatLng(37.855900,-122.432206),new google.maps.LatLng(37.856285,-122.431820),new google.maps.LatLng(37.856707,-122.431466),new google.maps.LatLng(37.857073,-122.431192),new google.maps.LatLng(37.857267,-122.430823),new google.maps.LatLng(37.857079,-122.430420),new google.maps.LatLng(37.856737,-122.430086),new google.maps.LatLng(37.856556,-122.429488),new google.maps.LatLng(37.856708,-122.428925),new google.maps.LatLng(37.856940,-122.428462),new google.maps.LatLng(37.857168,-122.428031),new google.maps.LatLng(37.857415,-122.427741),new google.maps.LatLng(37.857653,-122.427363),new google.maps.LatLng(37.857439,-122.426970),new google.maps.LatLng(37.857237,-122.426491),new google.maps.LatLng(37.857231,-122.426022),new google.maps.LatLng(37.857227,-122.425575),new google.maps.LatLng(37.857159,-122.425255),new google.maps.LatLng(37.856869,-122.425579),new google.maps.LatLng(37.856618,-122.426153),new google.maps.LatLng(37.856227,-122.426459),new google.maps.LatLng(37.855878,-122.426231),new google.maps.LatLng(37.855701,-122.425665),new google.maps.LatLng(37.855647,-122.425642),new google.maps.LatLng(37.855696,-122.425251),new google.maps.LatLng(37.855606,-122.424578),new google.maps.LatLng(37.855560,-122.423919),new google.maps.LatLng(37.855594,-122.423249),new google.maps.LatLng(37.855677,-122.422565),new google.maps.LatLng(37.855794,-122.421708),new google.maps.LatLng(37.856001,-122.421163),new google.maps.LatLng(37.856381,-122.420953),new google.maps.LatLng(37.856848,-122.421049),new google.maps.LatLng(37.857307,-122.421292),new google.maps.LatLng(37.857680,-122.421588),new google.maps.LatLng(37.858094,-122.421690),new google.maps.LatLng(37.858572,-122.421828),new google.maps.LatLng(37.858943,-122.421865),new google.maps.LatLng(37.859423,-122.421851),new google.maps.LatLng(37.859928,-122.421601),new google.maps.LatLng(37.860135,-122.421453),new google.maps.LatLng(37.860190,-122.421281),new google.maps.LatLng(37.860417,-122.421060),new google.maps.LatLng(37.860628,-122.420738),new google.maps.LatLng(37.860791,-122.420421),new google.maps.LatLng(37.860947,-122.420215),new google.maps.LatLng(37.860992,-122.419963),new google.maps.LatLng(37.860940,-122.419797),new google.maps.LatLng(37.860962,-122.419904),new google.maps.LatLng(37.860981,-122.419989),new google.maps.LatLng(37.860966,-122.419983),new google.maps.LatLng(37.860935,-122.420124),new google.maps.LatLng(37.861061,-122.420176),new google.maps.LatLng(37.861243,-122.420280),new google.maps.LatLng(37.861458,-122.420681),new google.maps.LatLng(37.861682,-122.420888),new google.maps.LatLng(37.861822,-122.421015),new google.maps.LatLng(37.862020,-122.421158),new google.maps.LatLng(37.862225,-122.421216),new google.maps.LatLng(37.862294,-122.421401),new google.maps.LatLng(37.862464,-122.421617),new google.maps.LatLng(37.862591,-122.421819),new google.maps.LatLng(37.862640,-122.421877),new google.maps.LatLng(37.862662,-122.421906),new google.maps.LatLng(37.862791,-122.422106),new google.maps.LatLng(37.862972,-122.422332),new google.maps.LatLng(37.863182,-122.422486),new google.maps.LatLng(37.863428,-122.422542),new google.maps.LatLng(37.863638,-122.422573),new google.maps.LatLng(37.863583,-122.422543),new google.maps.LatLng(37.863673,-122.422572),new google.maps.LatLng(37.863839,-122.422703),new google.maps.LatLng(37.864015,-122.422834),new google.maps.LatLng(37.864267,-122.422978),new google.maps.LatLng(37.864481,-122.422998),new google.maps.LatLng(37.864804,-122.422941),new google.maps.LatLng(37.865178,-122.422989),new google.maps.LatLng(37.865406,-122.423165),new google.maps.LatLng(37.865655,-122.423264),new google.maps.LatLng(37.865950,-122.423285),new google.maps.LatLng(37.866258,-122.423323),new google.maps.LatLng(37.866588,-122.423674),new google.maps.LatLng(37.866946,-122.423833),new google.maps.LatLng(37.867386,-122.424018),new google.maps.LatLng(37.867672,-122.424223),new google.maps.LatLng(37.867751,-122.424644),new google.maps.LatLng(37.867568,-122.425069),new google.maps.LatLng(37.867576,-122.425359),new google.maps.LatLng(37.867705,-122.425595),new google.maps.LatLng(37.867992,-122.425875),new google.maps.LatLng(37.868302,-122.426011),new google.maps.LatLng(37.868510,-122.426409),new google.maps.LatLng(37.868630,-122.426699),new google.maps.LatLng(37.868875,-122.426981),new google.maps.LatLng(37.869058,-122.427195),new google.maps.LatLng(37.869311,-122.427491),new google.maps.LatLng(37.869646,-122.427765),new google.maps.LatLng(37.870037,-122.427871),new google.maps.LatLng(37.870292,-122.427878),new google.maps.LatLng(37.870319,-122.427868),new google.maps.LatLng(37.870325,-122.427874),new google.maps.LatLng(37.870326,-122.427863),new google.maps.LatLng(37.870316,-122.427811),new google.maps.LatLng(37.870271,-122.427901),new google.maps.LatLng(37.870296,-122.427868),new google.maps.LatLng(37.870305,-122.427841),new google.maps.LatLng(37.870302,-122.427850),new google.maps.LatLng(37.870343,-122.427892),new google.maps.LatLng(37.870613,-122.428191),new google.maps.LatLng(37.870744,-122.428355),new google.maps.LatLng(37.870723,-122.428644),new google.maps.LatLng(37.870647,-122.428929),new google.maps.LatLng(37.870843,-122.429206),new google.maps.LatLng(37.871133,-122.429480),new google.maps.LatLng(37.871360,-122.429928),new google.maps.LatLng(37.871514,-122.430162),new google.maps.LatLng(37.871655,-122.430598),new google.maps.LatLng(37.871545,-122.430888),new google.maps.LatLng(37.871445,-122.430992),new google.maps.LatLng(37.871277,-122.431080),new google.maps.LatLng(37.870918,-122.431120),new google.maps.LatLng(37.870524,-122.431161),new google.maps.LatLng(37.870227,-122.431130),new google.maps.LatLng(37.869899,-122.430977),new google.maps.LatLng(37.869565,-122.431090),new google.maps.LatLng(37.869488,-122.431468),new google.maps.LatLng(37.869457,-122.432021),new google.maps.LatLng(37.869534,-122.432392),new google.maps.LatLng(37.869475,-122.432815),new google.maps.LatLng(37.869296,-122.433080),new google.maps.LatLng(37.869383,-122.433150),new google.maps.LatLng(37.869512,-122.433421),new google.maps.LatLng(37.869541,-122.433638),new google.maps.LatLng(37.869502,-122.433912),new google.maps.LatLng(37.869428,-122.434070),new google.maps.LatLng(37.869275,-122.434113),new google.maps.LatLng(37.869052,-122.434158),new google.maps.LatLng(37.868863,-122.434276),new google.maps.LatLng(37.868707,-122.434388),new google.maps.LatLng(37.868492,-122.434539),new google.maps.LatLng(37.868321,-122.434653),new google.maps.LatLng(37.868307,-122.434661),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 11, 30, 83, 158, 149, 143, 171, 188, 193, 200, 198, 211, 168, 90, 48, 30, 71, 137, 153, 166, 163, 159, 79, 35, 21, 109, 174, 167, 198, 198, 198, 200, 207, 206, 193, 188, 183, 223, 251, 247, 232, 167, 143, 120, 102, 31, 23, 66, 113, 130, 163, 162, 143, 113, 121, 125, 149, 165, 158, 155, 44, 11 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Perimeter Road Around Angel Island</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Perimeter Road Around Angel Island</div><div style="font-size:20px;">6.1 miles &nbsp;&nbsp;&nbsp; 800 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">2 Sep 2012</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        An easy hike along Perimeter Road, a paved road that circumnavigates Angel Island.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Angel_Island_State_Park.html">Angel Island State Park</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div onclick="location.href='https://gurmeet.net/hiking/hikes/Perimeter_Road_Around_Angel_Island.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Perimeter_Road_Around_Angel_Island.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.868168%2C-122.434589&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:_ccfFb_hjVf@Ij@e@x@S|@Zx@dAbCj@zBi@Xa@`@{@f@yAPm@LoARqAMc@j@NT\HR?\VdBFzAZjBKzAm@hBm@zAc@bBy@hC]~@CBBACAGXcAj@w@Vi@Z]\m@nAx@lAdAd@n@HhBYnAP|CH|APhALd@T\SbBD~@^pB`@hAKATOKISd@P?Bf@L_@[BJHFO?XFv@v@l@EZ\LfCh@`FFfBZr@b@pANNIIFEODEEWRTK|@k@d@y@Ke@Wk@?Ws@aF[sAIy@AcAr@SZTDTnAl@\^hAp@h@l@r@p@|@BhBIrAo@RCb@^@`Aa@\BLIQFI^YB@?g@M]Iu@Jk@WJISUoAI{@LCZi@pAwAYeABsAv@{@pAQn@JBEVXv@}B\kAXK@Fa@HHRYdAy@jBq@YiCf@[|@LxAGx@q@\g@dAQJAC@Lg@}Cu@}Lg@yD?}ARYRSp@S|Bn@pB\lBe@pAcB^_B_@oBkAEmAOm@iBBkBWuBkAkAsAgAiAu@e@iAd@oAbAcAb@wB]oBo@{Ak@uAq@y@o@kAj@mAf@_B@wDL_Ax@~@p@rBlAz@dAk@`@qBJCImAPgCHcCGeCg@sHi@kBkAi@{AP{Ap@kAx@qDn@iAF_BAcBq@i@]Ka@k@k@i@aAa@}@]i@Iq@Ha@Gd@B?DZYHc@Ti@nAiA`Ag@Zg@JMd@a@h@aA`Bc@l@i@\yAPHEQDcAr@q@Zk@B_AIiAFm@b@q@RwBJaAdA_DbAy@h@OrAd@rAAx@Yn@y@v@}@Zi@lAWx@gC~CaAt@mATy@?@KFPEKwAdBBx@Nv@g@v@y@v@m@vA]n@[tATx@RT`@PtCNz@E`A_@`AVNhADnBOhAJrAb@t@QLYt@Eh@Fv@N^hANtCdB"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Perimeter_Road_Around_Angel_Island.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://goo.gl/maps/aj4Q7">
+    21 Main St, Belvedere Tiburon, CA 94920
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    <a href="http://www.angelislandferry.com/about/directions.aspx">Excellent directions</a>. There is a map at the bottom of this page that shows locations of parking locations. The parking near the ferry terminal is expensive ($16 for 5 hours). There are other parking lots near Beach Street which offer $5 parking for the whole day.
+    <p>From San Francisco, follow 101 North. Take exit 447 for CA-131 toward Tiburon Blvd / E Blithedale Blvd and turn right onto CA-131 East. Drive for 4.2 miles, turn right onto Main Street. Ferry terminal is on the left.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    21 Main St, Belvedere Tiburon, CA 94920
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: $5 per day at select parking lots (last visited: September 2012)</p>
+<p><b>Capacity</b>: Hundreds of cars may be parked at various parking lots in downtown Tiburon. Many of them offer $5 parking for the whole day.</p>
+<p><b>Latitude</b>: 37.873264 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -122.456276</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.parks.ca.gov/default.asp?page_id=468">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/angel-island-state-park-san-francisco">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA1032">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.parks.ca.gov/pages/468/files/AngelIsland2.pdf">Official Trail Map</a>: Good map showing various trails.</p>
+<p>&raquo; <a href="http://www.parks.ca.gov/pages/468/files/AngelIslandCamping.pdf">Official Camping Map</a>: Good map showing various trails.</p>
+<p>&raquo; <a href="http://www.peasepress.com/Catalog%20SF%20map.html">Walker's Map of San Francisco by Pease Press</a>: Excellent quality maps showing many parks and trails in the San Francisco area. Many of these parks do not have free trail maps online. Cost was $7.95 in April 2011.
+    </p>
+<div class="mini_header">Route</div>
+    <p><b>Parking</b>: <a href="http://www.angelislandferry.com/about/directions.aspx">Excellent directions</a>. There is a map at the bottom of this page that shows locations of parking locations. The parking near the ferry terminal is expensive ($16 for 5 hours). There are other parking lots near Beach Street which offer $5 parking for the whole day.
+    <p><b>To Angel Island</b>: From the Angel Island Ferry terminal in Tiburon, take a ferry to Angel Island. In September 2012, round-trip cost was $13.50 per person. Ferries run every hour. The first ferry was at 10am.
+    <p><b>Route in Brief</b>: Follow an unnamed road leading up to Perimeter Road (0.4 miles) &rarr; right on Perimeter Road (0.9 miles) to reach Camp Reynolds. Turn right and explore Camp Reynolds area and return to Perimeter Road (0.6 miles). Turn right on Perimeter Road and reach Military Battery (0.3 miles). Return to Perimeter Road and take a short detour (0.6 miles round trip) to Perles Beach. Return to Perimeter Road and follow it (1.5 miles) to reach Fort McDowell. Continue along Perimeter Road (1.5 miles) &rarr; right on North Ridge Trail (0.2 miles) to return to ferry terminal.
+    <p><b>Points of interest</b>:
+    <ol>
+    <li><b>Camp Reynolds</b>: This area generates a feeling of expansiveness and provides coastal access too.
+    <li><b>Battery Ledyard</b>: Short side trip down to an abandoned battery.
+    <li><b>Perles Beach</b>: An unmarked trail from Perimeter Road goes down to Perles Beach. Total distance: 0.6 miles round-trip.
+    <li><b>Quarry Beach</b>: A nice long beach near Fort McDowell.
+    <li><b>Fort McDowell</b>: A bunch of abandoned buildings.
+    <li><b>China Cove - Immigration Station (North Garrison)</b>: In the north east section of Angel Island.
+    <li><b>Ayala Cove</b>: Near the ferry terminal at Angel Island.
+    </ol>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Ferry Terminal
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-Vwa_n_mfKfY/UES966UFGXI/AAAAAAADEB4/uX8QfXlNYqA/P2080518.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-Vwa_n_mfKfY/UES966UFGXI/AAAAAAADEB4/uX8QfXlNYqA/s144/P2080518.JPG" alt="Aboard the ferry to Angel Island" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-k-6flW69V6Q/UES95JZtN1I/AAAAAAADEBw/8Lk-zEFYMHQ/P2080516.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-k-6flW69V6Q/UES95JZtN1I/AAAAAAADEBw/8Lk-zEFYMHQ/s144/P2080516.JPG" alt="Angel Island visible through the fog" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-T_1sVCakZ98/UES99peq0II/AAAAAAADECI/AvZg6Wr2vYY/P2080524.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-T_1sVCakZ98/UES99peq0II/AAAAAAADECI/AvZg6Wr2vYY/s144/P2080524.JPG" alt="Angel Island" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2012.09.02.Angel.Island.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 2 September 2012</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Angel_Island.html">Grand Loop in Angel Island</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Camp Reynolds
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-E0lnYAIOau4/UES-qLMrHVI/AAAAAAADEFI/eKEXXUL6UYg/P2080590.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh4.googleusercontent.com/-E0lnYAIOau4/UES-qLMrHVI/AAAAAAADEFI/eKEXXUL6UYg/s144/P2080590.JPG" alt="Camp Reynolds" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-WulYwLiqUIk/UES-gUZXGBI/AAAAAAADEEg/L_bsR0zC3ok/P2080582.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh5.googleusercontent.com/-WulYwLiqUIk/UES-gUZXGBI/AAAAAAADEEg/L_bsR0zC3ok/s144/P2080582.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-vv-0de28pxQ/UES-iUcvydI/AAAAAAADEEo/1qzNXWrmT0E/P2080584.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh5.googleusercontent.com/-vv-0de28pxQ/UES-iUcvydI/AAAAAAADEEo/1qzNXWrmT0E/s144/P2080584.JPG" alt="Camp Reynolds" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-gstVyvT17Ls/UES-o_mzAbI/AAAAAAADEE8/mBR3hL50RD8/P2080587.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-gstVyvT17Ls/UES-o_mzAbI/AAAAAAADEE8/mBR3hL50RD8/s144/P2080587.JPG" alt="Coastline near Camp Reynolds" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2012.09.02.Angel.Island.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 2 September 2012</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Angel_Island.html">Grand Loop in Angel Island</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Battery Ledyard
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-OPl-51Gub5Q/UES-0OwOgwI/AAAAAAADEF4/pvXoxFZFeis/P2080609.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group3' })">
+    
+      <img src="https://lh3.googleusercontent.com/-OPl-51Gub5Q/UES-0OwOgwI/AAAAAAADEF4/pvXoxFZFeis/s144/P2080609.JPG" alt="Battery Ledyard" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-8FmS9D9B4L0/UES-vMvo2jI/AAAAAAADEFg/qhxw1O-Q344/P2080604.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group3' })">
+    
+      <img src="https://lh5.googleusercontent.com/-8FmS9D9B4L0/UES-vMvo2jI/AAAAAAADEFg/qhxw1O-Q344/s144/P2080604.JPG" alt="Battery Ledyard" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2012.09.02.Angel.Island.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 2 September 2012</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Angel_Island.html">Grand Loop in Angel Island</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Perles Beach
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-0nmZVv-G0vU/UES-4xxyTPI/AAAAAAADEGM/GlPteagQNds/P2080623.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group4' })">
+    
+      <img src="https://lh6.googleusercontent.com/-0nmZVv-G0vU/UES-4xxyTPI/AAAAAAADEGM/GlPteagQNds/s144/P2080623.JPG" alt="Perles Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-e37XE_LpJL4/UES--M7ttrI/AAAAAAADEGY/nMnktFxGEvw/P2080627.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group4' })">
+    
+      <img src="https://lh6.googleusercontent.com/-e37XE_LpJL4/UES--M7ttrI/AAAAAAADEGY/nMnktFxGEvw/s144/P2080627.JPG" alt="Perles Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2012.09.02.Angel.Island.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 2 September 2012</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Angel_Island.html">Grand Loop in Angel Island</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Quarry Beach - Fort McDowell
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-1fLKLhPr9d4/UES_W4mE1BI/AAAAAAADEHo/HzfP72kp1jo/P2080639.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh4.googleusercontent.com/-1fLKLhPr9d4/UES_W4mE1BI/AAAAAAADEHo/HzfP72kp1jo/s144/P2080639.JPG" alt="Fort McDowell" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-EzeZ3s-smHI/UES_Rya1G1I/AAAAAAADEHc/TTUofJ0Hxs4/P2080638.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh5.googleusercontent.com/-EzeZ3s-smHI/UES_Rya1G1I/AAAAAAADEHc/TTUofJ0Hxs4/s144/P2080638.JPG" alt="Quarry Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2012.09.02.Angel.Island.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 2 September 2012</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Angel_Island.html">Grand Loop in Angel Island</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Yachts
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-kZXjTpgKH3M/UES-_QXrkwI/AAAAAAADEGg/7Zf93OsXv4o/P2080628.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh5.googleusercontent.com/-kZXjTpgKH3M/UES-_QXrkwI/AAAAAAADEGg/7Zf93OsXv4o/s144/P2080628.JPG" alt="Yacht" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2012.09.02.Angel.Island.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 2 September 2012</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Angel_Island.html">Grand Loop in Angel Island</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

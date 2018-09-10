@@ -1,0 +1,551 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Mt Whitney Day Hike</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(36.586741, -118.239470);
+    var center_latlng = new google.maps.LatLng(36.586741, -118.239470);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(36.586741,-118.239470),new google.maps.LatLng(36.587114,-118.240047),new google.maps.LatLng(36.588106,-118.240402),new google.maps.LatLng(36.589130,-118.239139),new google.maps.LatLng(36.589893,-118.238577),new google.maps.LatLng(36.589215,-118.239703),new google.maps.LatLng(36.589054,-118.241178),new google.maps.LatLng(36.589272,-118.242466),new google.maps.LatLng(36.588025,-118.242997),new google.maps.LatLng(36.587500,-118.244188),new google.maps.LatLng(36.586892,-118.245204),new google.maps.LatLng(36.586263,-118.244644),new google.maps.LatLng(36.585713,-118.244434),new google.maps.LatLng(36.585176,-118.244664),new google.maps.LatLng(36.584854,-118.244944),new google.maps.LatLng(36.584894,-118.245158),new google.maps.LatLng(36.584898,-118.245434),new google.maps.LatLng(36.584917,-118.245612),new google.maps.LatLng(36.584064,-118.246282),new google.maps.LatLng(36.583525,-118.246927),new google.maps.LatLng(36.583027,-118.247800),new google.maps.LatLng(36.582903,-118.248221),new google.maps.LatLng(36.582194,-118.248628),new google.maps.LatLng(36.581708,-118.248461),new google.maps.LatLng(36.581038,-118.248564),new google.maps.LatLng(36.581617,-118.249362),new google.maps.LatLng(36.581578,-118.249742),new google.maps.LatLng(36.581514,-118.250131),new google.maps.LatLng(36.580809,-118.250169),new google.maps.LatLng(36.580131,-118.250304),new google.maps.LatLng(36.581302,-118.250958),new google.maps.LatLng(36.580421,-118.251113),new google.maps.LatLng(36.579280,-118.250871),new google.maps.LatLng(36.580014,-118.251527),new google.maps.LatLng(36.579373,-118.251708),new google.maps.LatLng(36.578379,-118.251444),new google.maps.LatLng(36.577656,-118.251568),new google.maps.LatLng(36.576622,-118.251607),new google.maps.LatLng(36.575601,-118.251505),new google.maps.LatLng(36.575223,-118.250816),new google.maps.LatLng(36.574872,-118.250515),new google.maps.LatLng(36.574746,-118.250512),new google.maps.LatLng(36.574746,-118.250568),new google.maps.LatLng(36.573848,-118.251467),new google.maps.LatLng(36.573474,-118.252176),new google.maps.LatLng(36.572964,-118.252193),new google.maps.LatLng(36.573132,-118.252807),new google.maps.LatLng(36.573533,-118.252905),new google.maps.LatLng(36.573414,-118.253188),new google.maps.LatLng(36.572871,-118.253215),new google.maps.LatLng(36.573098,-118.253754),new google.maps.LatLng(36.573153,-118.254674),new google.maps.LatLng(36.572123,-118.255864),new google.maps.LatLng(36.571227,-118.256847),new google.maps.LatLng(36.571008,-118.258028),new google.maps.LatLng(36.571624,-118.258945),new google.maps.LatLng(36.572008,-118.259538),new google.maps.LatLng(36.572094,-118.259927),new google.maps.LatLng(36.572298,-118.260055),new google.maps.LatLng(36.572102,-118.260479),new google.maps.LatLng(36.571332,-118.261005),new google.maps.LatLng(36.571443,-118.261034),new google.maps.LatLng(36.571143,-118.261325),new google.maps.LatLng(36.570768,-118.261821),new google.maps.LatLng(36.570302,-118.261907),new google.maps.LatLng(36.570267,-118.261451),new google.maps.LatLng(36.569917,-118.261663),new google.maps.LatLng(36.569283,-118.262150),new google.maps.LatLng(36.569303,-118.261143),new google.maps.LatLng(36.568946,-118.261341),new google.maps.LatLng(36.568630,-118.261607),new google.maps.LatLng(36.568087,-118.262466),new google.maps.LatLng(36.567667,-118.263257),new google.maps.LatLng(36.567399,-118.264018),new google.maps.LatLng(36.567218,-118.264494),new google.maps.LatLng(36.567156,-118.265052),new google.maps.LatLng(36.566957,-118.265652),new google.maps.LatLng(36.566794,-118.266876),new google.maps.LatLng(36.566657,-118.268102),new google.maps.LatLng(36.566739,-118.268429),new google.maps.LatLng(36.567033,-118.267852),new google.maps.LatLng(36.567456,-118.267535),new google.maps.LatLng(36.567365,-118.268141),new google.maps.LatLng(36.567187,-118.268646),new google.maps.LatLng(36.566819,-118.269440),new google.maps.LatLng(36.566466,-118.270118),new google.maps.LatLng(36.566396,-118.270120),new google.maps.LatLng(36.566091,-118.270126),new google.maps.LatLng(36.565793,-118.270615),new google.maps.LatLng(36.565627,-118.271257),new google.maps.LatLng(36.565378,-118.271864),new google.maps.LatLng(36.565285,-118.272021),new google.maps.LatLng(36.565165,-118.272379),new google.maps.LatLng(36.564551,-118.273384),new google.maps.LatLng(36.563922,-118.274561),new google.maps.LatLng(36.563555,-118.275943),new google.maps.LatLng(36.563497,-118.276707),new google.maps.LatLng(36.563449,-118.276840),new google.maps.LatLng(36.563448,-118.276876),new google.maps.LatLng(36.563472,-118.276856),new google.maps.LatLng(36.563482,-118.276993),new google.maps.LatLng(36.563603,-118.276723),new google.maps.LatLng(36.563522,-118.276961),new google.maps.LatLng(36.563567,-118.276699),new google.maps.LatLng(36.563462,-118.276847),new google.maps.LatLng(36.563410,-118.277402),new google.maps.LatLng(36.562961,-118.279153),new google.maps.LatLng(36.562575,-118.280574),new google.maps.LatLng(36.562634,-118.281177),new google.maps.LatLng(36.562521,-118.281560),new google.maps.LatLng(36.562452,-118.281737),new google.maps.LatLng(36.561931,-118.282306),new google.maps.LatLng(36.561725,-118.282552),new google.maps.LatLng(36.561610,-118.282782),new google.maps.LatLng(36.561358,-118.282795),new google.maps.LatLng(36.561281,-118.283123),new google.maps.LatLng(36.561380,-118.283651),new google.maps.LatLng(36.561226,-118.284154),new google.maps.LatLng(36.560972,-118.284477),new google.maps.LatLng(36.560840,-118.284906),new google.maps.LatLng(36.561044,-118.285200),new google.maps.LatLng(36.560990,-118.285473),new google.maps.LatLng(36.560964,-118.286440),new google.maps.LatLng(36.560767,-118.286328),new google.maps.LatLng(36.560628,-118.286040),new google.maps.LatLng(36.560495,-118.286387),new google.maps.LatLng(36.560393,-118.286559),new google.maps.LatLng(36.560229,-118.286410),new google.maps.LatLng(36.560125,-118.286881),new google.maps.LatLng(36.559963,-118.286769),new google.maps.LatLng(36.559915,-118.286707),new google.maps.LatLng(36.559852,-118.286966),new google.maps.LatLng(36.559614,-118.286674),new google.maps.LatLng(36.559916,-118.287901),new google.maps.LatLng(36.559805,-118.288339),new google.maps.LatLng(36.559540,-118.288183),new google.maps.LatLng(36.559323,-118.288118),new google.maps.LatLng(36.558880,-118.287468),new google.maps.LatLng(36.558666,-118.287447),new google.maps.LatLng(36.558708,-118.288034),new google.maps.LatLng(36.558837,-118.288681),new google.maps.LatLng(36.558918,-118.289284),new google.maps.LatLng(36.558851,-118.290281),new google.maps.LatLng(36.559240,-118.291441),new google.maps.LatLng(36.559462,-118.291727),new google.maps.LatLng(36.559673,-118.292009),new google.maps.LatLng(36.560127,-118.292538),new google.maps.LatLng(36.560589,-118.293095),new google.maps.LatLng(36.560634,-118.292975),new google.maps.LatLng(36.561505,-118.292501),new google.maps.LatLng(36.562465,-118.292646),new google.maps.LatLng(36.563030,-118.293074),new google.maps.LatLng(36.562514,-118.291998),new google.maps.LatLng(36.562855,-118.292211),new google.maps.LatLng(36.563511,-118.292656),new google.maps.LatLng(36.563515,-118.292649),new google.maps.LatLng(36.563816,-118.292620),new google.maps.LatLng(36.564433,-118.292475),new google.maps.LatLng(36.565124,-118.292474),new google.maps.LatLng(36.565734,-118.292550),new google.maps.LatLng(36.566423,-118.292549),new google.maps.LatLng(36.566937,-118.292701),new google.maps.LatLng(36.567572,-118.293019),new google.maps.LatLng(36.568176,-118.292793),new google.maps.LatLng(36.568828,-118.292670),new google.maps.LatLng(36.569453,-118.292515),new google.maps.LatLng(36.570018,-118.292521),new google.maps.LatLng(36.570762,-118.292457),new google.maps.LatLng(36.571458,-118.291927),new google.maps.LatLng(36.572337,-118.291530),new google.maps.LatLng(36.573082,-118.291559),new google.maps.LatLng(36.573551,-118.291651),new google.maps.LatLng(36.573800,-118.291801),new google.maps.LatLng(36.574618,-118.292529),new google.maps.LatLng(36.575302,-118.293354),new google.maps.LatLng(36.575589,-118.293630),new google.maps.LatLng(36.575593,-118.293608),new google.maps.LatLng(36.575995,-118.294322),new google.maps.LatLng(36.576359,-118.295272),new google.maps.LatLng(36.576487,-118.296006),new google.maps.LatLng(36.576562,-118.296512),new google.maps.LatLng(36.576629,-118.296944),new google.maps.LatLng(36.577203,-118.296877),new google.maps.LatLng(36.577327,-118.296758),new google.maps.LatLng(36.577334,-118.296735),new google.maps.LatLng(36.577639,-118.296451),new google.maps.LatLng(36.578208,-118.295989),new google.maps.LatLng(36.577799,-118.295245),new google.maps.LatLng(36.577777,-118.295171),new google.maps.LatLng(36.577630,-118.294391),new google.maps.LatLng(36.577513,-118.293444),new google.maps.LatLng(36.578171,-118.292864),new google.maps.LatLng(36.578501,-118.292356),new google.maps.LatLng(36.578626,-118.292055),new google.maps.LatLng(36.578604,-118.292042),new google.maps.LatLng(36.578617,-118.292012),new google.maps.LatLng(36.578530,-118.292342),new google.maps.LatLng(36.578309,-118.292621),new google.maps.LatLng(36.577663,-118.293385),new google.maps.LatLng(36.577573,-118.294207),new google.maps.LatLng(36.577746,-118.295011),new google.maps.LatLng(36.577782,-118.295246),new google.maps.LatLng(36.578092,-118.295846),new google.maps.LatLng(36.577785,-118.296392),new google.maps.LatLng(36.577502,-118.296696),new google.maps.LatLng(36.577314,-118.296769),new google.maps.LatLng(36.577294,-118.296764),new google.maps.LatLng(36.576762,-118.297032),new google.maps.LatLng(36.576551,-118.296561),new google.maps.LatLng(36.576515,-118.296112),new google.maps.LatLng(36.576370,-118.295478),new google.maps.LatLng(36.576082,-118.294506),new google.maps.LatLng(36.575615,-118.293667),new google.maps.LatLng(36.575575,-118.293608),new google.maps.LatLng(36.575459,-118.293508),new google.maps.LatLng(36.574803,-118.292639),new google.maps.LatLng(36.573981,-118.291990),new google.maps.LatLng(36.573548,-118.291647),new google.maps.LatLng(36.573297,-118.291646),new google.maps.LatLng(36.572476,-118.291484),new google.maps.LatLng(36.571579,-118.291851),new google.maps.LatLng(36.570977,-118.292425),new google.maps.LatLng(36.570130,-118.292493),new google.maps.LatLng(36.569609,-118.292565),new google.maps.LatLng(36.568973,-118.292657),new google.maps.LatLng(36.568343,-118.292755),new google.maps.LatLng(36.567616,-118.293028),new google.maps.LatLng(36.567031,-118.292850),new google.maps.LatLng(36.566555,-118.292569),new google.maps.LatLng(36.565913,-118.292395),new google.maps.LatLng(36.565301,-118.292566),new google.maps.LatLng(36.564525,-118.292490),new google.maps.LatLng(36.564017,-118.292532),new google.maps.LatLng(36.563498,-118.292635),new google.maps.LatLng(36.563516,-118.292659),new google.maps.LatLng(36.563080,-118.292371),new google.maps.LatLng(36.562535,-118.291980),new google.maps.LatLng(36.562912,-118.292819),new google.maps.LatLng(36.562636,-118.292732),new google.maps.LatLng(36.561751,-118.292510),new google.maps.LatLng(36.560911,-118.292940),new google.maps.LatLng(36.560583,-118.293127),new google.maps.LatLng(36.560347,-118.292702),new google.maps.LatLng(36.559723,-118.292085),new google.maps.LatLng(36.559466,-118.291719),new google.maps.LatLng(36.559335,-118.291552),new google.maps.LatLng(36.558871,-118.290511),new google.maps.LatLng(36.558915,-118.289582),new google.maps.LatLng(36.558806,-118.288694),new google.maps.LatLng(36.558750,-118.288257),new google.maps.LatLng(36.558570,-118.287377),new google.maps.LatLng(36.558911,-118.287647),new google.maps.LatLng(36.559231,-118.287924),new google.maps.LatLng(36.559455,-118.287957),new google.maps.LatLng(36.559692,-118.288094),new google.maps.LatLng(36.559903,-118.288285),new google.maps.LatLng(36.559698,-118.286893),new google.maps.LatLng(36.559836,-118.286715),new google.maps.LatLng(36.559884,-118.286743),new google.maps.LatLng(36.559921,-118.286864),new google.maps.LatLng(36.560074,-118.286554),new google.maps.LatLng(36.560197,-118.286456),new google.maps.LatLng(36.560362,-118.286693),new google.maps.LatLng(36.560490,-118.286450),new google.maps.LatLng(36.560583,-118.286147),new google.maps.LatLng(36.560736,-118.286347),new google.maps.LatLng(36.560934,-118.286649),new google.maps.LatLng(36.561026,-118.285630),new google.maps.LatLng(36.561089,-118.285473),new google.maps.LatLng(36.560869,-118.284952),new google.maps.LatLng(36.561114,-118.284607),new google.maps.LatLng(36.561157,-118.284186),new google.maps.LatLng(36.561354,-118.283682),new google.maps.LatLng(36.561322,-118.283277),new google.maps.LatLng(36.561411,-118.282973),new google.maps.LatLng(36.561464,-118.282695),new google.maps.LatLng(36.561854,-118.282755),new google.maps.LatLng(36.561934,-118.282450),new google.maps.LatLng(36.562280,-118.281855),new google.maps.LatLng(36.562569,-118.281624),new google.maps.LatLng(36.562679,-118.281226),new google.maps.LatLng(36.562596,-118.280875),new google.maps.LatLng(36.562984,-118.279443),new google.maps.LatLng(36.563341,-118.277742),new google.maps.LatLng(36.563457,-118.276826),new google.maps.LatLng(36.563556,-118.276821),new google.maps.LatLng(36.563642,-118.276667),new google.maps.LatLng(36.563532,-118.276889),new google.maps.LatLng(36.563580,-118.276828),new google.maps.LatLng(36.563467,-118.276847),new google.maps.LatLng(36.563437,-118.276849),new google.maps.LatLng(36.563432,-118.276864),new google.maps.LatLng(36.563456,-118.276829),new google.maps.LatLng(36.563459,-118.276252),new google.maps.LatLng(36.563850,-118.274924),new google.maps.LatLng(36.564442,-118.273635),new google.maps.LatLng(36.565109,-118.272589),new google.maps.LatLng(36.565276,-118.272199),new google.maps.LatLng(36.565532,-118.271639),new google.maps.LatLng(36.565570,-118.271419),new google.maps.LatLng(36.565736,-118.270781),new google.maps.LatLng(36.565894,-118.270152),new google.maps.LatLng(36.566395,-118.270135),new google.maps.LatLng(36.566383,-118.270129),new google.maps.LatLng(36.566790,-118.269595),new google.maps.LatLng(36.567075,-118.268843),new google.maps.LatLng(36.567260,-118.268361),new google.maps.LatLng(36.567437,-118.267679),new google.maps.LatLng(36.567104,-118.267837),new google.maps.LatLng(36.566855,-118.268194),new google.maps.LatLng(36.566659,-118.268225),new google.maps.LatLng(36.566757,-118.267092),new google.maps.LatLng(36.566893,-118.265875),new google.maps.LatLng(36.567018,-118.265152),new google.maps.LatLng(36.567097,-118.264554),new google.maps.LatLng(36.567469,-118.264150),new google.maps.LatLng(36.567560,-118.263436),new google.maps.LatLng(36.567969,-118.262669),new google.maps.LatLng(36.568556,-118.261806),new google.maps.LatLng(36.568989,-118.261576),new google.maps.LatLng(36.569210,-118.261162),new google.maps.LatLng(36.569251,-118.262072),new google.maps.LatLng(36.569716,-118.261732),new google.maps.LatLng(36.570227,-118.261482),new google.maps.LatLng(36.570252,-118.261818),new google.maps.LatLng(36.570598,-118.261997),new google.maps.LatLng(36.571227,-118.261403),new google.maps.LatLng(36.571422,-118.261046),new google.maps.LatLng(36.571455,-118.261034),new google.maps.LatLng(36.572292,-118.260568),new google.maps.LatLng(36.572501,-118.260054),new google.maps.LatLng(36.572151,-118.259968),new google.maps.LatLng(36.572101,-118.259569),new google.maps.LatLng(36.571729,-118.259039),new google.maps.LatLng(36.571049,-118.258302),new google.maps.LatLng(36.571106,-118.257045),new google.maps.LatLng(36.572005,-118.256083),new google.maps.LatLng(36.573006,-118.254937),new google.maps.LatLng(36.573186,-118.253986),new google.maps.LatLng(36.572658,-118.253134),new google.maps.LatLng(36.573357,-118.253281),new google.maps.LatLng(36.573558,-118.252770),new google.maps.LatLng(36.573337,-118.252851),new google.maps.LatLng(36.572701,-118.252155),new google.maps.LatLng(36.573644,-118.252125),new google.maps.LatLng(36.573791,-118.251668),new google.maps.LatLng(36.574554,-118.250568),new google.maps.LatLng(36.574824,-118.250541),new google.maps.LatLng(36.574837,-118.250532),new google.maps.LatLng(36.575194,-118.250568),new google.maps.LatLng(36.575436,-118.251506),new google.maps.LatLng(36.576530,-118.251606),new google.maps.LatLng(36.577452,-118.251680),new google.maps.LatLng(36.578161,-118.251270),new google.maps.LatLng(36.579137,-118.251695),new google.maps.LatLng(36.580222,-118.251718),new google.maps.LatLng(36.579285,-118.251041),new google.maps.LatLng(36.580208,-118.251168),new google.maps.LatLng(36.581115,-118.250970),new google.maps.LatLng(36.580367,-118.250524),new google.maps.LatLng(36.580772,-118.250262),new google.maps.LatLng(36.581266,-118.250162),new google.maps.LatLng(36.581814,-118.249851),new google.maps.LatLng(36.581803,-118.249569),new google.maps.LatLng(36.581222,-118.248770),new google.maps.LatLng(36.581509,-118.248435),new google.maps.LatLng(36.581974,-118.248438),new google.maps.LatLng(36.582799,-118.248262),new google.maps.LatLng(36.582948,-118.248023),new google.maps.LatLng(36.583432,-118.247164),new google.maps.LatLng(36.583923,-118.246365),new google.maps.LatLng(36.584661,-118.245759),new google.maps.LatLng(36.584665,-118.245551),new google.maps.LatLng(36.584717,-118.245252),new google.maps.LatLng(36.585042,-118.244996),new google.maps.LatLng(36.585405,-118.244797),new google.maps.LatLng(36.585546,-118.244355),new google.maps.LatLng(36.586010,-118.244430),new google.maps.LatLng(36.586835,-118.245277),new google.maps.LatLng(36.587451,-118.244474),new google.maps.LatLng(36.587956,-118.243320),new google.maps.LatLng(36.589053,-118.242356),new google.maps.LatLng(36.589184,-118.241489),new google.maps.LatLng(36.589090,-118.240070),new google.maps.LatLng(36.589660,-118.238668),new google.maps.LatLng(36.589338,-118.238728),new google.maps.LatLng(36.588347,-118.240212),new google.maps.LatLng(36.587230,-118.240150),new google.maps.LatLng(36.586666,-118.239759),new google.maps.LatLng(36.586741,-118.239470),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 8315, 8379, 8424, 8473, 8591, 8627, 8652, 8674, 8739, 8854, 8981, 9076, 9188, 9269, 9409, 9523, 9600, 9658, 9754, 9790, 9882, 9962, 10030, 10047, 10104, 10156, 10274, 10349, 10367, 10368, 10368, 10390, 10508, 10629, 10757, 10861, 10964, 11041, 11137, 11271, 11345, 11416, 11517, 11624, 11700, 11798, 11875, 11891, 11966, 11975, 12022, 12066, 12137, 12319, 12483, 12617, 12856, 13088, 13228, 13359, 13490, 13585, 13604, 13517, 13504, 13595, 13642, 13712, 13761, 13755, 13715, 13770, 13830, 13875, 13929, 14001, 14044, 14079, 14148, 14195, 14253, 14323, 14401, 14472, 14458, 14412, 14331, 14258, 14199, 14153, 14081, 14039, 13997, 13918, 13861, 13818, 13760, 13724, 13771, 13764, 13708, 13641, 13541, 13480, 13586, 13621, 13553, 13456, 13297, 13105, 12915, 12676, 12544, 12384, 12236, 12113, 12024, 12006, 11968, 11913, 11884, 11816, 11752, 11635, 11552, 11437, 11349, 11274, 11142, 11050, 10973, 10848, 10725, 10625, 10582, 10420, 10372, 10374, 10364, 10358, 10300, 10252, 10175, 10081, 10044, 10038, 9975, 9893, 9828, 9768, 9706, 9617, 9521, 9367, 9233, 9148, 9062, 8956, 8786, 8718, 8683, 8585, 8611, 8500, 8426, 8391, 8342, 8301 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Mt Whitney Day Hike</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Mt Whitney Day Hike</div><div style="font-size:20px;">20.8 miles &nbsp;&nbsp;&nbsp; 6400 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">16 Aug 2010</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        A strenuous day hike to the tallest peak in continental USA.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Inyo_National_Forest.html">Inyo National Forest</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.fs.usda.gov/inyo">Park Website</a> &mdash; <a href="">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCAUSCA0630">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://150mph.planetrambler.com/090703_MtWhitney/trailmap_mtwhitney.jpg">Highlighted Trail Map for Mt Whitney</a>: Good map showing the entire route from Whitney Portal Campground to Mt Whitney.</p>
+<div class="mini_header">Route</div>
+    <p>Mt Whitney (14,505 ft) is the highest peak in continental USA. On 16 August 2010, I finished a day-hike to Mt Whitney with three friends. It was an incredible experience! We walked about 21 miles with 6400 ft total elevation gain. Each of us carried 5+ liters of water in our backpacks. And I was wearing my <a href="http://www.google.com/images?q=vibram+five+fingers">Vibram Five Fingers</a> throughout the hike.
+
+<p>In terms of difficulty, Mt Whitney day hike was clearly a notch above Half Dome and <a href="http://gurmeet.net/2009/10/19/hiking-in-grand-canyon-national-park/">Grand Canyon</a> day hikes, both of which are 16 miles and 4800 ft total elevation gain. Apart from distance (22 miles) and elevation gain (6,400 ft), a major challenge at Mt Whitney is adaptation to high altitude &mdash; when oxygen gets low, our brains swell and our bodies become lethargic. Making constant progress in such conditions requires a fair amount of mental strength and physical stamina.
+
+<div class="mini_header">Day 1 &mdash; Travel</div>
+<p>We drove from Mt View, CA to Whitney Portal (8360 ft), which lies 13 miles to the west of Lone Pine, CA. Initially, our plan was to take one car. However, our group of four had so much stuff that we needed two cars! In hindsight, we could certainly have reduced our gear to fit one car.
+
+<p>At Lone Pine, two of us went ahead to pick up the permit from a Night Box (see instructions on permit if you avail of this option). The other two went to Whitney Portal to pitch a tent at a walk-in campsite that did not require advance reservations. We were lucky to get a campsite at night.
+
+<p>Cell phone coverage was unreliable at Lone Pine. I could not get a signal anywhere. So we had difficulty in coordination. Somehow, all of us got together at the campsite parking lot by 11pm. After stashing all our food in bear-proof boxes, we went to sleep.
+
+<div class="mini_header">Day 2 &mdash; Acclimatization</div>
+
+<p>I was not feeling too well. My throat had been mildly sore for the last three days. I had started to wonder if I should actually attempt Mt Whitney the next day. I remained at Whitney Portal (8360 ft) to acclimatize while my friends hiked 6 miles round trip to Lone Pine Lake (10,120 ft). I made a short trip to Lone Pine to pick up some food supplies that we were short of.
+
+<p>We had planned to start the hike on Day 3 at 4am. However, it was so warm during the afternoon on Day 2 that we decided to start the hike at 3am instead of 4am. Other campers told us that some groups start the hike as early as 1am!
+
+<p>Two of us took showers at <a href="http://www.whitneyportalstore.com/">Whitney Portal Store</a> (<a href="http://www.yelp.com/biz/whitney-portal-store-lone-pine">Yelp Reviews</a>), which also serves breakfast, lunch and dinner!
+
+<p>We wanted to get ready the next morning in the least possible time. So all of us packed our backpacks. We slept in clothes we would use the next day for our hike. We had breakfast material in four different bags so that we could get ready swiftly in the morning. We went to sleep at 8pm. By nightfall, I had decided to hike as much as possible the next morning.
+
+<p>In hindsight, my friends should have stayed with me at the campground on Day 2, instead of doing their 6-mile hike. They should have taken short naps throughout the day to catch up on sleep. Day 1 had been quite long: driving, coordinating and setting up tents. Our sleep on the night of Day 1 had been disturbed by early morning risers who start hiking Whitney as early as 1am. On the night of Day 2, we ourselves would get very little sleep, from 8am to 2pm &mdash; several fellow campers would not sleep as late as 10pm.
+
+<div class="mini_header">Day 3 &mdash; Day-Hike</div>
+
+<p>We got up at 2:00am. It took us 30 minutes longer than we expected to pack the tent, get ready and have breakfast. We started the hike at 3:30am. We were joined by several other groups. We formed a file of twenty odd hikers going up Mt Whitney Trail. All of us had head-mounted flashlights.
+
+<p>We covered the first few miles at brisk pace. Within 3 hours, we covered 6.1 miles to reach Trail Camp (12,000 ft). By this time, it was dawn and we no longer needed flashlights.
+
+<p>Till Trail Camp (12,000 ft), I was in good spirits and unaffected by altitude. All concerns pertaining to my throat infections had vanished - I was feeling good. Soon after, we started climbing the famous 97 switchbacks to reach the summit. By the tenth of twelfth switchback, I realized that I had become quite slow. Actually, this was the first time I was at altitude higher than 8,800 ft (Half Dome). So I had no idea of what to expect. I started taking a break after every 20 to 30 steps. Soon, I realized that I would not be able to finish this hike in this fashion. So I made a resolve to take a break only after covering between 0.2 to 0.3 miles. To keep track of distance and elevation, I had a <a href="http://www.amazon.com/Garmin-Forerunner-Receiver-Heart-Monitor/dp/B000CSWCQA">Garmin 305</a> with me. This trick worked. I slowed down significantly but I made constant progress. Maintaining a smiling face was helpful.
+
+<p>By the time the summit was about 1.5 miles away, I started feeling quite sleepy. I kinda wobbled a few times. Thanks to hiking poles, I did not lose balance. The last mile was particularly slow for me, as we inched towards the summit. We reached the top at 1pm. We signed our names in a log book outside a hut that lies atop the summit.
+
+<p>The return journey was equally arduous. I took several breaks, including 5-minute and 10-minute naps along the switchbacks. Keeping myself awake and making constant progress was challenging. I did not have any nausea or uneasiness. However, there was a constant dull headache and my head felt as if it were clamped from all sides. My body told me that I needed sleep and rest, but I had to continue hiking to reach Whitney Portal. I munched on chocolate bars, fruits and sandwiches for fuel and to keep myself awake.
+
+<p>From Trail Camp (12,000 ft) onwards, I picked up speed. By this time, I was quite exhausted but my body had kicked into some kind of auto-pilot mode. I felt I could hike for several more hours! By the time I reached Lone Pine Lake, it had become dark. I hiked the last three miles using a headlamp, reaching Whitney Portal at 9:30pm. It had been eighteen hours since we started the hike at 3:30am. Two of my friends had reached 1.5 hours earlier &mdash; they had taken 16.5 hours overall.
+
+<p>At Whitney Portal, fellow campers asked us to be careful as there was a bear hanging around trying to snatch backpacks of hikers! We soon shifted all of our food from the bear-proof containers to our cars while keeping an eye out for bears. And we hurried to Lone Pine to get some dinner before restaurants would close. After dinner, we reached out hotel (Best Western at Lone Pine), took showers and slept merrily.
+
+<div class="mini_header">Day 4 &mdash; Travel</div>
+We got up at 7am at Best Western in Lone Pine, CA. Their continental breakfast was excellent. We drove back to Mountain View in about eight hours, going through Yosemite, which required a pass for $20.
+
+<div class="mini_header">Miscellaneous Information</div>
+
+<p><b>Preparation</b>: Some websites with plenty of information: <a href="http://sites.google.com/site/mtwhitneytrailinfo/">Mt Whitney Trail Info</a> &mdash; <a href="http://www.whitneyzone.com/wz/ubbthreads.php/topics/88">WhitneyZone FAQ</a> &mdash; <a href="http://sites.google.com/site/mtwhitneytrailinfo/MtWhitneyTrail/waypoints">Maps and Diagrams</a> for water availability, campsites, switchbacks, and so on. <a href="http://www.fs.usda.gov/wps/portal/fsinternet/!ut/p/c5/04_SB8K8xLLM9MSSzPy8xBz9CP0os3gDfxMDT8MwRydLA1cj72DTUE8TAwgAykeaxRtBeY4WBv4eHmF-YT4GMHn8usNB9uHXDzYBB3A00PfzyM9N1S_IjTDIMnFUBADW0rdA/dl3/d3/L2dJQSEvUUt3QS9ZQnZ3LzZfME80MEkxVkFCOTBFMktTNVVJNDAwMDAwMDA!/?navtype=BROWSEBYSUBJECT&amp;cid=stelprdb5143475&amp;navid=110000000000000&amp;pnavid=null&amp;ss=110504&amp;position=Not%20Yet%20Determined.Html&amp;ttype=detailfull&amp;pname=Inyo%20National%20Forest%20-%20Mt.%20Whitney%20Trail">Whitney Permit</a>.
+
+<p><b>Narratives</b>: <a href="http://www.dayhiker.com/directory/MtWhitney.htm">DayHiker</a> &mdash; <a href="http://kevingong.com/Hiking/WhitneyTrailCrest.html">Kevin Gong</a> &mdash; <a href="http://sekihiker.home.comcast.net/~sekihiker/MtWhitney/index.html">Bill Finch</a> &mdash; <a href="http://www.adampaul.com/hiking/whitney02_04.shtml">Adam Paul</a> &mdash; <a href="http://reelds9.blogspot.com/2010/07/mt-whitney-day-hike-2010.html">Keith</a> &mdash; <a href="http://dirtyrunning.blogspot.com/2010/08/mt-whitney-day-hike.html">Dax at DirtyRunning</a> &mdash; <a href="http://www.scaruffi.com/travel/whitney.html">Scaruffi</a>.
+
+<p><b>Water</b>: I carried 6 liters of water in my backpack, making it quite heavy. Several campers advised me to carry a <a href="http://www.amazon.com/Katadyn-Hiker-PRO-Water-Microfilter/dp/B0007U012U">water filter</a> in future. Check out <a href="http://www.flickr.com/photos/rockwellb/534837474/sizes/o/in/set-72157600246922628/">Water Availability TOPO Map</a> for Mt Whitney Trail.
+<p>We cached some water at Trail Camp, behind some rocks. There are enough rocks around the campsite to stash some water away.
+
+<p><b>High Altitude</b>: I had never been above Half Dome (8,842 ft). For Mt Whitney hike, our campsite itself was at 8,360 ft. We then gained 6,200 ft to reach Mt Whitney at 14,505 ft. Three out of four people in our group were walking at such high altitude for the first time! I had gone into the hike imagining that people either get sick or they remain healthy, as if altitude sickness were black and white: you get it or you don't get it. In reality, we all get affected, some more than others. Only if the symptoms are severe is the condition classified as sickness.
+
+<p><b>Terrain</b>: The first 3 miles to Lone Pine Lake were on soft ground, making it the fastest section of the entire hike. The next 3 miles to Trail Camp were stony. Next to Trail Camp, there was a half-mile section that was relatively flat. Subsequently, the switchbacks all the way to Mt Whitney were on stony terrain. Check out Whitney Trail Videos below!
+
+<p><b>Vibram Five Fingers</b>: <a href="http://www.google.com/#hl=en&amp;source=hp&amp;q=vibram+five+fingers">Vibram Five Fingers</a> have recently become popular for almost-barefoot walking / running experience. The KSO-Trek model provides extra traction that is helpful for hiking. Check out <a href="http://www.youtube.com/watch?v=9itkEkcQ8WM&amp;feature=related">Barefoot Running YouTube video</a> and <a href="http://www.amazon.com/Born-Run-Hidden-Superathletes-Greatest/dp/0307266303/">Born to Run</a>, a book that popularized the VFF's and barefoot running.
+
+<p>I finished the entire hike in the KSO-Trek model. I wore socks for cushioning because these shoes had earlier given me blisters. My previous VFF's were KSO and never gave me any problems. I had decided to carry both for the hike. At the last moment, I decided to leave my KSO's behind to reduce weight.
+
+<p><b>Clothing</b>: We hiked in mid-August. I was adequately dressed in three layers: a nylon t-shirt, a lightweight fleece jacket and a regular jacket with plenty of pockets. I also had a base layer made of Merino Wool with me. I decided that would make too warm and that I didn't need it for this hike. My decision was sound. I also had gloves, a warm cap and a hat. The warm cap and the fleece jacket was helpful in keeping me warm during pre-dawn and post-dusk hours. The hat wasn't really necessary. For my legs, I had a pair of convertible pants.
+
+<p><b>Hiking Poles</b>: All four members of our group used hiking poles. We unanimously agreed that poles saved our knees in a big way during descent, especially over stone steps. None of us felt any muscular aches and pains, and we all attributed it to hiking poles!
+
+<p><b>Side Trips</b>: You may climb up to <a href="http://www.summitpost.org/mountain/rock/208312/keeler-needle.html">Keeler Needle</a>, which is a class 2/3 scramble for about 500 ft. We did not know about this scramble and didn't try it.
+
+<p><b>3-day Hike</b>: A much easier ascent to Mt Whitney is feasible as a 3-day hike:
+<p>Day 1 (6 miles, 3400 ft gain) &mdash; Drive to Whitney Portal. Hike 6 miles to Trail Camp (12,000 ft) with all your gear. Camp and acclimatize.
+<p>Day 2 (10 miles, 2800 ft gain and drop) &mdash; Hike to Mt Whitney, leaving your tent behind at Trail Camp. Sleep overnight at Trail Camp.
+<p>Day 3 (6 miles, 3400 ft drop) &mdash; Hike 6 miles back to Whitney Portal. Drive back.
+
+<p><b>Practice Hikes in Bay Area</b>:
+&nbsp;1) <a href="http://gurmeet.net/2009/10/05/hiking-in-mission-peak-regional-preserve/">Mission Peak</a>: 6.2 miles, 2100 ft
+&nbsp;2) <a href="http://gurmeet.net/2010/02/02/hiking-in-ohlone-regional-wilderness-rose-peak/">Murietta Falls</a>: 12 miles, 3300 ft
+&nbsp;3) <a href="http://gurmeet.net/2010/02/02/hiking-in-ohlone-regional-wilderness-rose-peak/">Rose Peak</a>: 20 miles, 4200 ft
+&nbsp;4) Half Dome in Yosemite: 16 miles, 4800 ft
+&nbsp;5) <a href="http://gurmeet.net/hiking/hikes/Clouds_Rest_From_Happy_Isles.html">Clouds Rest</a> in Yosemite: 22 miles, 6000 ft
+
+<p><b>Whitney Trail Videos</b>: <a href="http://www.tripfilms.com/users/HikeAlongPete">Pete Wagenleitner</a> from Australia has made a series of videos covering the entire Mt Whitney Trail! I highly recommend these videos to those who have never hiked Mt Whitney before. They give a good idea of the terrain: <a href="http://www.youtube.com/watch?v=yAlxUke_zos&list=PLUs5ZOmrxG_ytQQHHKdbhXmQoLRnAo8td">Playlist of Mt Whitney Trip</a>.
+
+<p><b>What next?</b>
+<ol>
+<li>Mt Whitney is one of the twelve <a href="http://en.wikipedia.org/wiki/List_of_California_fourteeners">California Fourteeners</a> (peaks above 14,000 ft). Some of these peaks are tougher than Mt Whitney.</li>
+<li>The <a href="http://www.google.com/#hl=en&amp;source=hp&amp;q=mountaineer%27s+route+mt+whitney&amp;aq=1&amp;aqi=g2g-m2&amp;aql=&amp;oq=mountaineer%27s+route">Mountaineer's Route</a> to Mt Whitney is a class 3 scramble.</li>
+<li><a href="http://www.google.com/#hl=en&amp;source=hp&amp;q=cactus+to+clouds">Cactus to Clouds</a> (17.5 miles and 10,400 ft total elevation gain) is quite a challenge.</li>
+</ol>
+
+<div style="clear:both;"></div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div onclick="location.href='https://gurmeet.net/hiking/hikes/Mt_Whitney_Day_Hike.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Mt_Whitney_Day_Hike.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C36.586741%2C-118.239470&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:czh~EtstpUiApBeEfAkE}FyCoBfC`F^dHk@`GxFhBfBlFxBjE|BoBlBi@jBl@~@v@Gh@CzAhDdCjB~BbBnDVrAlCnA`B_@dCRsB~CFjAJlAlCDdCZiF`CnD^dFo@sC`C~Bb@fEs@nCVlEFjESjAiCdA{@X??HrDrDhAlCdBBa@xBoARVv@jBDk@jBKvDlElFrDbEj@jFgElHQlAg@Xd@rAxChBUDz@x@jAbBzANFyAdAh@|B`BCiEfAf@|@r@lBjDrA|CxAvFJnBf@vB^rFZtFO~@{@qBsA_APxBb@bBhA~CdAdChA@z@`B`@~Bp@xBP^VdAxBhE|BjFhArGJvCHZ?DECAZWu@Nn@Gu@R\JnBvA|IlAzGKvBTlAL`@fBpBh@p@Tl@r@@L`AShB^bBp@~@XtAg@z@Jt@B`Ef@WZw@XbAR`@`@[R|A^WHKJr@n@y@{@tFTtAr@]j@MvAaCj@CGtBY`COvBJfEmAfFuAnBuDxEIWmD}A_EZqBtAfBwEcAj@cCvA{@E{B]iC?yBNiCAeB^_C|@wBk@aCW}B_@oB@uCMiCiBoDmAuCB}ARq@\aDnCiCdDw@v@AEoAnCgA|Du@lIsBMWWAC{@w@qB}ApAsCBMZ{CV}DcCsBaAeBW{@BAAEN`AlDnEPbDa@`DGl@}@vB|@lBv@z@d@LB?hBt@h@}AFyA\_Cv@aE|AgDFKVS`CmDzFeEp@?bD_@rDhAvBpBfDLdJr@pCt@rBa@~Ay@~Ba@xB`@zCMdBFfBRCBtAw@lBmAkAdDv@OnDk@fDtA`Ab@n@sAzB{BlAiBzAoEGyD^iGb@oDcClBk@Do@Zi@d@h@uG[c@IDGV]}@WSa@n@Yo@Q}@]f@g@z@QiEK_@j@gBq@eAGsAg@cBDqAQ{@Iw@mAJO{@eAwBw@m@UoANeAmA}GgAsIUwDS?Q_@Tj@IK\B?BCG?qBoAiGuBaGcCqEuA}DGk@_A{FcBC@AoAiB}AuFc@iC`A^p@fAf@DSaF[sFWoCOwBiAoASoCoAyCuBkDuAm@m@qAGtD{AcAeBq@E`AcAb@}BuBg@gAmD_Bi@eBdAQHoAjAiBfCqCK{FsD_EgEeFc@}DhBiDkC\g@eBj@N|BkC{DE]{AwC{Ew@EgADo@zDsKb@mCqAaErAyEBzDeCwDVuDe@tCyAqAs@aBSmB}@@y@rB}Cw@cA}A?cDa@_C{EaB_DsCyB?g@I{@aAs@gAg@[wA}ANcDfD{B_DcBeF{EaEYmDPyGqByG`AJdEhH|EKpBoAOw@"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Mt_Whitney_Day_Hike.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Photos
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/--SQN3wWOsds/TwqcwiG7OpI/AAAAAAACfsI/goJd5Xb4bW4/IMG_7746.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/--SQN3wWOsds/TwqcwiG7OpI/AAAAAAACfsI/goJd5Xb4bW4/s144/IMG_7746.JPG" alt="The summit in view." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-3DC3QWcTVXg/TwqbVMx13MI/AAAAAAACfqk/q7P6mIZKT9E/IMG_7698.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-3DC3QWcTVXg/TwqbVMx13MI/AAAAAAACfqk/q7P6mIZKT9E/s144/IMG_7698.JPG" alt="Gorgeous colors at sunrise." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-0NQCkOjTvHU/TwqdAhQRxNI/AAAAAAACfsU/dxQwpfTaadc/IMG_7752.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-0NQCkOjTvHU/TwqdAhQRxNI/AAAAAAACfsU/dxQwpfTaadc/s144/IMG_7752.JPG" alt="The hut at Mt Whitney." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-3X3QR5cMo2o/TwqcSiyk9rI/AAAAAAACfro/JhkeL5gG8Eg/IMG_7736.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-3X3QR5cMo2o/TwqcSiyk9rI/AAAAAAACfro/JhkeL5gG8Eg/s144/IMG_7736.JPG" alt="Guitar Lake" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-6kJFhqDmZic/TwqcNq9KiSI/AAAAAAACfrk/32s5Dpnz3og/IMG_7765.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-6kJFhqDmZic/TwqcNq9KiSI/AAAAAAACfrk/32s5Dpnz3og/s144/IMG_7765.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-kdQHfZpqMW4/TwqcjEDcuYI/AAAAAAACfr4/RwYDIzJjM_U/IMG_7741.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-kdQHfZpqMW4/TwqcjEDcuYI/AAAAAAACfr4/RwYDIzJjM_U/s144/IMG_7741.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.08.16.Mt.Whitney.Day.Hike/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 16 August 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://goo.gl/maps/DNU17">
+    Whitney Portal Road, Lone Pine, CA
+    </a>. No street address. Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From Hwy 395 (Main St) in Lone Pine, follow Whitney Portal Road going west for 11 miles to reach Whitney Portal Campground.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    Whitney Portal Road, Lone Pine, CA
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: None (campsite registration required) (last visited: August 2010)</p>
+<p><b>Capacity</b>: Dozens of cars may be parked along Whitney Portal Road.</p>
+<p><b>Latitude</b>: 36.589784 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -118.230464</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

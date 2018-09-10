@@ -1,0 +1,452 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Hardy Canyon Trail - Miwok Trail</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.868743, -121.750244);
+    var center_latlng = new google.maps.LatLng(37.868743, -121.750244);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.868743,-121.750244),new google.maps.LatLng(37.868541,-121.750219),new google.maps.LatLng(37.868374,-121.750298),new google.maps.LatLng(37.868182,-121.750380),new google.maps.LatLng(37.868093,-121.750495),new google.maps.LatLng(37.867861,-121.750628),new google.maps.LatLng(37.867719,-121.751041),new google.maps.LatLng(37.867668,-121.751246),new google.maps.LatLng(37.867607,-121.751513),new google.maps.LatLng(37.867523,-121.751427),new google.maps.LatLng(37.867452,-121.751194),new google.maps.LatLng(37.867257,-121.750794),new google.maps.LatLng(37.867207,-121.750407),new google.maps.LatLng(37.867180,-121.749854),new google.maps.LatLng(37.867277,-121.749466),new google.maps.LatLng(37.867326,-121.748999),new google.maps.LatLng(37.867250,-121.748740),new google.maps.LatLng(37.867130,-121.748398),new google.maps.LatLng(37.866982,-121.748007),new google.maps.LatLng(37.866763,-121.747605),new google.maps.LatLng(37.866600,-121.747269),new google.maps.LatLng(37.866267,-121.747044),new google.maps.LatLng(37.865920,-121.747051),new google.maps.LatLng(37.865570,-121.747080),new google.maps.LatLng(37.865344,-121.747088),new google.maps.LatLng(37.864991,-121.747124),new google.maps.LatLng(37.864683,-121.747390),new google.maps.LatLng(37.864521,-121.747427),new google.maps.LatLng(37.864403,-121.747218),new google.maps.LatLng(37.864213,-121.746913),new google.maps.LatLng(37.864072,-121.746798),new google.maps.LatLng(37.863854,-121.746668),new google.maps.LatLng(37.863919,-121.746405),new google.maps.LatLng(37.863944,-121.746030),new google.maps.LatLng(37.863827,-121.745745),new google.maps.LatLng(37.863786,-121.745683),new google.maps.LatLng(37.863638,-121.745421),new google.maps.LatLng(37.863644,-121.745204),new google.maps.LatLng(37.863650,-121.744938),new google.maps.LatLng(37.863621,-121.744660),new google.maps.LatLng(37.863569,-121.744329),new google.maps.LatLng(37.863366,-121.743932),new google.maps.LatLng(37.863129,-121.743803),new google.maps.LatLng(37.862786,-121.743751),new google.maps.LatLng(37.862407,-121.743965),new google.maps.LatLng(37.862167,-121.744163),new google.maps.LatLng(37.861963,-121.744304),new google.maps.LatLng(37.861784,-121.744479),new google.maps.LatLng(37.861619,-121.744568),new google.maps.LatLng(37.861549,-121.744611),new google.maps.LatLng(37.861443,-121.744961),new google.maps.LatLng(37.861275,-121.745239),new google.maps.LatLng(37.861235,-121.745422),new google.maps.LatLng(37.861139,-121.745722),new google.maps.LatLng(37.861031,-121.746124),new google.maps.LatLng(37.860972,-121.746392),new google.maps.LatLng(37.860858,-121.746549),new google.maps.LatLng(37.860710,-121.746713),new google.maps.LatLng(37.860585,-121.746912),new google.maps.LatLng(37.860477,-121.747137),new google.maps.LatLng(37.860378,-121.747227),new google.maps.LatLng(37.860361,-121.747267),new google.maps.LatLng(37.860165,-121.747439),new google.maps.LatLng(37.859992,-121.747661),new google.maps.LatLng(37.859754,-121.747934),new google.maps.LatLng(37.859623,-121.748101),new google.maps.LatLng(37.859534,-121.748300),new google.maps.LatLng(37.859415,-121.748410),new google.maps.LatLng(37.859258,-121.748431),new google.maps.LatLng(37.859066,-121.748559),new google.maps.LatLng(37.858960,-121.748729),new google.maps.LatLng(37.858837,-121.748922),new google.maps.LatLng(37.858740,-121.749103),new google.maps.LatLng(37.858625,-121.749404),new google.maps.LatLng(37.858521,-121.749562),new google.maps.LatLng(37.858433,-121.749694),new google.maps.LatLng(37.858267,-121.749976),new google.maps.LatLng(37.858080,-121.750147),new google.maps.LatLng(37.857911,-121.750311),new google.maps.LatLng(37.857734,-121.750405),new google.maps.LatLng(37.857537,-121.750496),new google.maps.LatLng(37.857445,-121.750671),new google.maps.LatLng(37.857324,-121.750735),new google.maps.LatLng(37.857157,-121.750824),new google.maps.LatLng(37.857032,-121.750888),new google.maps.LatLng(37.856923,-121.751075),new google.maps.LatLng(37.856741,-121.751356),new google.maps.LatLng(37.856628,-121.751531),new google.maps.LatLng(37.856563,-121.751609),new google.maps.LatLng(37.856372,-121.751830),new google.maps.LatLng(37.856158,-121.752159),new google.maps.LatLng(37.856036,-121.752298),new google.maps.LatLng(37.855951,-121.752462),new google.maps.LatLng(37.855921,-121.752662),new google.maps.LatLng(37.855820,-121.752815),new google.maps.LatLng(37.855679,-121.753035),new google.maps.LatLng(37.855619,-121.753222),new google.maps.LatLng(37.855484,-121.753395),new google.maps.LatLng(37.855415,-121.753683),new google.maps.LatLng(37.855392,-121.753889),new google.maps.LatLng(37.855437,-121.754087),new google.maps.LatLng(37.855450,-121.754294),new google.maps.LatLng(37.855443,-121.754313),new google.maps.LatLng(37.855446,-121.754545),new google.maps.LatLng(37.855405,-121.754821),new google.maps.LatLng(37.855390,-121.754999),new google.maps.LatLng(37.855338,-121.755086),new google.maps.LatLng(37.855247,-121.755247),new google.maps.LatLng(37.854992,-121.755377),new google.maps.LatLng(37.854721,-121.755421),new google.maps.LatLng(37.854613,-121.755477),new google.maps.LatLng(37.854544,-121.755583),new google.maps.LatLng(37.854485,-121.755683),new google.maps.LatLng(37.854472,-121.755802),new google.maps.LatLng(37.854548,-121.755972),new google.maps.LatLng(37.854680,-121.756128),new google.maps.LatLng(37.854756,-121.756234),new google.maps.LatLng(37.854854,-121.756407),new google.maps.LatLng(37.854841,-121.756675),new google.maps.LatLng(37.854809,-121.756924),new google.maps.LatLng(37.854782,-121.757218),new google.maps.LatLng(37.854779,-121.757309),new google.maps.LatLng(37.854769,-121.757522),new google.maps.LatLng(37.854754,-121.757950),new google.maps.LatLng(37.854702,-121.758359),new google.maps.LatLng(37.854653,-121.758741),new google.maps.LatLng(37.854619,-121.759130),new google.maps.LatLng(37.854465,-121.759516),new google.maps.LatLng(37.854390,-121.759846),new google.maps.LatLng(37.854424,-121.760206),new google.maps.LatLng(37.854493,-121.760579),new google.maps.LatLng(37.854540,-121.760956),new google.maps.LatLng(37.854623,-121.761293),new google.maps.LatLng(37.854664,-121.761522),new google.maps.LatLng(37.854704,-121.761740),new google.maps.LatLng(37.854742,-121.761994),new google.maps.LatLng(37.854779,-121.762185),new google.maps.LatLng(37.854806,-121.762327),new google.maps.LatLng(37.854879,-121.762499),new google.maps.LatLng(37.854907,-121.762581),new google.maps.LatLng(37.855062,-121.763040),new google.maps.LatLng(37.855218,-121.763271),new google.maps.LatLng(37.855450,-121.763461),new google.maps.LatLng(37.855675,-121.763716),new google.maps.LatLng(37.855900,-121.764081),new google.maps.LatLng(37.856073,-121.764480),new google.maps.LatLng(37.856175,-121.764953),new google.maps.LatLng(37.856253,-121.765279),new google.maps.LatLng(37.856237,-121.765437),new google.maps.LatLng(37.856307,-121.765636),new google.maps.LatLng(37.856308,-121.765747),new google.maps.LatLng(37.856284,-121.765970),new google.maps.LatLng(37.856194,-121.765812),new google.maps.LatLng(37.856116,-121.765447),new google.maps.LatLng(37.856078,-121.765614),new google.maps.LatLng(37.856037,-121.766100),new google.maps.LatLng(37.855971,-121.766481),new google.maps.LatLng(37.856137,-121.766859),new google.maps.LatLng(37.856449,-121.766981),new google.maps.LatLng(37.856697,-121.767182),new google.maps.LatLng(37.856719,-121.767699),new google.maps.LatLng(37.856880,-121.768141),new google.maps.LatLng(37.857227,-121.768145),new google.maps.LatLng(37.857358,-121.768101),new google.maps.LatLng(37.857396,-121.768087),new google.maps.LatLng(37.857655,-121.768028),new google.maps.LatLng(37.857993,-121.768066),new google.maps.LatLng(37.858195,-121.768237),new google.maps.LatLng(37.858343,-121.768499),new google.maps.LatLng(37.858480,-121.768724),new google.maps.LatLng(37.858627,-121.768940),new google.maps.LatLng(37.858698,-121.769188),new google.maps.LatLng(37.858764,-121.769431),new google.maps.LatLng(37.858855,-121.769621),new google.maps.LatLng(37.858926,-121.769776),new google.maps.LatLng(37.859082,-121.769971),new google.maps.LatLng(37.859252,-121.770034),new google.maps.LatLng(37.859403,-121.769871),new google.maps.LatLng(37.859541,-121.769685),new google.maps.LatLng(37.859623,-121.769447),new google.maps.LatLng(37.859792,-121.769407),new google.maps.LatLng(37.860149,-121.769550),new google.maps.LatLng(37.860385,-121.769745),new google.maps.LatLng(37.860551,-121.769916),new google.maps.LatLng(37.860699,-121.770154),new google.maps.LatLng(37.860823,-121.770356),new google.maps.LatLng(37.861012,-121.770546),new google.maps.LatLng(37.861186,-121.770500),new google.maps.LatLng(37.861379,-121.770358),new google.maps.LatLng(37.861566,-121.770343),new google.maps.LatLng(37.861681,-121.770593),new google.maps.LatLng(37.861776,-121.770704),new google.maps.LatLng(37.861904,-121.770883),new google.maps.LatLng(37.862034,-121.771095),new google.maps.LatLng(37.862114,-121.771248),new google.maps.LatLng(37.862191,-121.771339),new google.maps.LatLng(37.862378,-121.771594),new google.maps.LatLng(37.862393,-121.771608),new google.maps.LatLng(37.862446,-121.771666),new google.maps.LatLng(37.862628,-121.771864),new google.maps.LatLng(37.862797,-121.771986),new google.maps.LatLng(37.862909,-121.772066),new google.maps.LatLng(37.863156,-121.771987),new google.maps.LatLng(37.863363,-121.771868),new google.maps.LatLng(37.863477,-121.771772),new google.maps.LatLng(37.863581,-121.771199),new google.maps.LatLng(37.863700,-121.771027),new google.maps.LatLng(37.863820,-121.770878),new google.maps.LatLng(37.864074,-121.770673),new google.maps.LatLng(37.864318,-121.770584),new google.maps.LatLng(37.864587,-121.770432),new google.maps.LatLng(37.864765,-121.770123),new google.maps.LatLng(37.864945,-121.769792),new google.maps.LatLng(37.865135,-121.769436),new google.maps.LatLng(37.865353,-121.769273),new google.maps.LatLng(37.865594,-121.768936),new google.maps.LatLng(37.865892,-121.768542),new google.maps.LatLng(37.866089,-121.768194),new google.maps.LatLng(37.866376,-121.767693),new google.maps.LatLng(37.866470,-121.767227),new google.maps.LatLng(37.866683,-121.766753),new google.maps.LatLng(37.866687,-121.766235),new google.maps.LatLng(37.866778,-121.765769),new google.maps.LatLng(37.866864,-121.765189),new google.maps.LatLng(37.866836,-121.764840),new google.maps.LatLng(37.866837,-121.764312),new google.maps.LatLng(37.866821,-121.763830),new google.maps.LatLng(37.866742,-121.763560),new google.maps.LatLng(37.866742,-121.763078),new google.maps.LatLng(37.866804,-121.762940),new google.maps.LatLng(37.867079,-121.762623),new google.maps.LatLng(37.867387,-121.762265),new google.maps.LatLng(37.867346,-121.761686),new google.maps.LatLng(37.867444,-121.761236),new google.maps.LatLng(37.867507,-121.760865),new google.maps.LatLng(37.867526,-121.760578),new google.maps.LatLng(37.867657,-121.760219),new google.maps.LatLng(37.867868,-121.759894),new google.maps.LatLng(37.867916,-121.759389),new google.maps.LatLng(37.867833,-121.759195),new google.maps.LatLng(37.867800,-121.758787),new google.maps.LatLng(37.867710,-121.758396),new google.maps.LatLng(37.867675,-121.757948),new google.maps.LatLng(37.867583,-121.757493),new google.maps.LatLng(37.867354,-121.757270),new google.maps.LatLng(37.867322,-121.757240),new google.maps.LatLng(37.867158,-121.757311),new google.maps.LatLng(37.866996,-121.757362),new google.maps.LatLng(37.866921,-121.757079),new google.maps.LatLng(37.866897,-121.756859),new google.maps.LatLng(37.866827,-121.756639),new google.maps.LatLng(37.866912,-121.756402),new google.maps.LatLng(37.867157,-121.756314),new google.maps.LatLng(37.867317,-121.756127),new google.maps.LatLng(37.867541,-121.756040),new google.maps.LatLng(37.867645,-121.755927),new google.maps.LatLng(37.867763,-121.755645),new google.maps.LatLng(37.867719,-121.755434),new google.maps.LatLng(37.867751,-121.755051),new google.maps.LatLng(37.867792,-121.754619),new google.maps.LatLng(37.867796,-121.754365),new google.maps.LatLng(37.867772,-121.754140),new google.maps.LatLng(37.867740,-121.753859),new google.maps.LatLng(37.867749,-121.753583),new google.maps.LatLng(37.867738,-121.753340),new google.maps.LatLng(37.867714,-121.753067),new google.maps.LatLng(37.867716,-121.752813),new google.maps.LatLng(37.867665,-121.752551),new google.maps.LatLng(37.867562,-121.752369),new google.maps.LatLng(37.867527,-121.752013),new google.maps.LatLng(37.867580,-121.751875),new google.maps.LatLng(37.867589,-121.751616),new google.maps.LatLng(37.867674,-121.751571),new google.maps.LatLng(37.867695,-121.751321),new google.maps.LatLng(37.867742,-121.751050),new google.maps.LatLng(37.867824,-121.750779),new google.maps.LatLng(37.867927,-121.750579),new google.maps.LatLng(37.867915,-121.750521),new google.maps.LatLng(37.867920,-121.750510),new google.maps.LatLng(37.868122,-121.750457),new google.maps.LatLng(37.868335,-121.750314),new google.maps.LatLng(37.868360,-121.750297),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 238, 251, 239, 239, 270, 323, 357, 360, 349, 339, 365, 399, 463, 503, 544, 621, 663, 718, 793, 847, 921, 972, 1046, 1086, 1039, 989, 915, 838, 768, 690, 602, 546, 486, 449, 389, 371, 356, 344, 322, 316, 324, 297, 288, 286, 298, 357, 326, 303, 272, 236 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Hardy Canyon Trail - Miwok Trail</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Hardy Canyon Trail - Miwok Trail</div><div style="font-size:20px;">4.6 miles &nbsp;&nbsp;&nbsp; 1000 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">24 Apr 2011</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        A pleasant hike through rolling hills in Round Valley. Recommended in spring when valleys are lush green.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Round_Valley_Regional_Preserve.html">Round Valley Regional Preserve</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.ebparks.org/parks/round_valley">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/round-valley-regional-preserve-brentwood">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0128">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.ebparks.org/Assets/files/Round_Valley_map1.pdf">Official Trail Map</a>: Good map showing various trails. Also see <A href="http://www.ebparks.org/Assets/files/Round_Valley_text2.pdf">Text section</a> of the map.</p>
+<div class="mini_header">Route</div>
+    <p><b>Route</b>: Miwok Trail (0.1 miles) &rarr; Hardy Canyon Trail (3.1 miles) &rarr; Miwok Trail (1.1 + 0.5 + 0.1 miles).
+    <p><b>Notes</b>: While going clockwise around Hardy Canyon &mdash; Miwok loop, I faced strong winds when descending into the valley along Hardy Canyon Trail. In April 2011, Marsh Creek and Round Valley Creek had plenty of water, High Creek was dry. At one point, there was an intersection with an unnamed trail. The trail map showed me that Hardy Canyon Trail meandered next to High Creek. That helped me decide which trail to follow.
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div onclick="location.href='https://gurmeet.net/hiking/hikes/Hardy_Canyon_Trail_Miwok_Trail.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Hardy_Canyon_Trail_Miwok_Trail.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.868743%2C-121.750244&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:sfcfF~ibfVf@EfA`@PTl@X\rAT|ANQLm@f@oAHmADmBSmAI}ALq@t@sCjAsCbAk@vDFdAF|@t@^D|@eBZWj@YKs@EiAVy@d@_ACaBPyBf@mAn@YbAIjAh@n@f@f@Zb@`@n@ZRdA`@t@Fd@f@jCJt@V\\`@Vf@Tj@RP@Ff@`@pAbBX`@Pf@VT^Bd@V`AlBTz@fApBdAbAjAb@Pb@pAh@pA`Cp@z@j@~@VZN`@Df@p@hAJd@X`@Lx@Bf@Gf@AzAHxA\p@p@Xt@HTHXh@@VM`@i@r@S`@@t@JjBDrCR|CFlA\jAL`AEfAMhAIjAObAc@lEM`@e@lB]l@m@d@m@p@m@hAa@nAc@|CB^Mf@BbAP_@NiAF`@F`BJjA_@hA}@Xq@f@CdB_@xAeA?a@Ks@KcAFg@`@y@`B[j@[`B_@bA_@f@a@J]_@[e@Oo@a@GeA\o@d@a@`@u@vAe@d@a@Ge@]e@AWp@k@x@i@fAs@dAq@t@w@f@q@Oi@WUQUsBm@_As@g@o@Qu@]mBgEk@_@kBqC_BiDS}Ai@}A?gBQ}AQsBDcA@iENu@?aBKYsBgCFsB_@cDCy@YgAi@_AIeBNe@DqAPmAFyAPyAr@q@`AVLy@Dk@Lk@Qm@o@Q_@e@m@OSWWw@Hi@OcD?q@HeB?u@DgB?q@Hs@Re@FeAI[As@QGCq@Iu@Ow@Sg@?Kg@Ko@_@"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Hardy_Canyon_Trail_Miwok_Trail.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Photos
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-dGd4T9xjKOo/Tw9qA41cYwI/AAAAAAACiLc/Vh69-MnAxb0/IMG_6947.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-dGd4T9xjKOo/Tw9qA41cYwI/AAAAAAACiLc/Vh69-MnAxb0/s144/IMG_6947.JPG" alt="Views from Hardy Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-UxAelhKRF8A/Tw9qN3pfSMI/AAAAAAACiMA/qhhIJJqd-MM/IMG_6958.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-UxAelhKRF8A/Tw9qN3pfSMI/AAAAAAACiMA/qhhIJJqd-MM/s144/IMG_6958.JPG" alt="Intersection of Miwok Trail and Hardy Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-TmjIZym3nWs/Tw9qCyCLR2I/AAAAAAACiLk/hczi_CRIJVs/IMG_6948.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-TmjIZym3nWs/Tw9qCyCLR2I/AAAAAAACiLk/hczi_CRIJVs/s144/IMG_6948.JPG" alt="A lake-like section of High Creek along Hardy Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-lsTE8yZ0wp4/Tw9p-8OTGQI/AAAAAAACiLY/-Zwo0sLCiPs/IMG_6945.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-lsTE8yZ0wp4/Tw9p-8OTGQI/AAAAAAACiLY/-Zwo0sLCiPs/s144/IMG_6945.JPG" alt="A pond along Hardy Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Round.Valley.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://g.co/maps/zdksb">
+    19450 Marsh Creek Road, Brentwood, CA 94513
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From I-580 East, take exit 55 for Vasco Road towards Brentwood and follow signs for N Vasco Road. After 14.6 miles, turn left on Camino Diablo Road and drive 3.6 miles. Continue along Marsh Creek Road for 1.5 miles to reach Round Valley Regional Park entrance on left.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    19450 Marsh Creek Road, Brentwood, CA 94513
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: None (last visited: April 2011)</p>
+<p><b>Capacity</b>: More than 20 cars.</p>
+<p><b>Latitude</b>: 37.870034 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -121.750145</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

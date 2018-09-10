@@ -1,0 +1,879 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Gray Whale Cove Trail</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.545500, -122.514388);
+    var center_latlng = new google.maps.LatLng(37.545500, -122.514388);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.545500,-122.514388),new google.maps.LatLng(37.545615,-122.514181),new google.maps.LatLng(37.545422,-122.514334),new google.maps.LatLng(37.545492,-122.514278),new google.maps.LatLng(37.545624,-122.514226),new google.maps.LatLng(37.545731,-122.514402),new google.maps.LatLng(37.545742,-122.514483),new google.maps.LatLng(37.545786,-122.514536),new google.maps.LatLng(37.545854,-122.514618),new google.maps.LatLng(37.545830,-122.514608),new google.maps.LatLng(37.545834,-122.514589),new google.maps.LatLng(37.546001,-122.514632),new google.maps.LatLng(37.546259,-122.514582),new google.maps.LatLng(37.546495,-122.514562),new google.maps.LatLng(37.546740,-122.514537),new google.maps.LatLng(37.546950,-122.514562),new google.maps.LatLng(37.547150,-122.514799),new google.maps.LatLng(37.547369,-122.514747),new google.maps.LatLng(37.547622,-122.514681),new google.maps.LatLng(37.547760,-122.514621),new google.maps.LatLng(37.547971,-122.514505),new google.maps.LatLng(37.548332,-122.514334),new google.maps.LatLng(37.548679,-122.514239),new google.maps.LatLng(37.548938,-122.514190),new google.maps.LatLng(37.549116,-122.514173),new google.maps.LatLng(37.549372,-122.514096),new google.maps.LatLng(37.549697,-122.514072),new google.maps.LatLng(37.550054,-122.514044),new google.maps.LatLng(37.550330,-122.514068),new google.maps.LatLng(37.550580,-122.514172),new google.maps.LatLng(37.550783,-122.514148),new google.maps.LatLng(37.551155,-122.514102),new google.maps.LatLng(37.551599,-122.513933),new google.maps.LatLng(37.551943,-122.513847),new google.maps.LatLng(37.552491,-122.513757),new google.maps.LatLng(37.552657,-122.513645),new google.maps.LatLng(37.552665,-122.513405),new google.maps.LatLng(37.552617,-122.513237),new google.maps.LatLng(37.552613,-122.513043),new google.maps.LatLng(37.552629,-122.512992),new google.maps.LatLng(37.552588,-122.512916),new google.maps.LatLng(37.552576,-122.512819),new google.maps.LatLng(37.552373,-122.512791),new google.maps.LatLng(37.552198,-122.512739),new google.maps.LatLng(37.551981,-122.512593),new google.maps.LatLng(37.551799,-122.512457),new google.maps.LatLng(37.552198,-122.512272),new google.maps.LatLng(37.552675,-122.512352),new google.maps.LatLng(37.552917,-122.512386),new google.maps.LatLng(37.553210,-122.512436),new google.maps.LatLng(37.553632,-122.512503),new google.maps.LatLng(37.553892,-122.512259),new google.maps.LatLng(37.553843,-122.512232),new google.maps.LatLng(37.553877,-122.512109),new google.maps.LatLng(37.553885,-122.512024),new google.maps.LatLng(37.553838,-122.511831),new google.maps.LatLng(37.553829,-122.511601),new google.maps.LatLng(37.553817,-122.511307),new google.maps.LatLng(37.553793,-122.511081),new google.maps.LatLng(37.553883,-122.510731),new google.maps.LatLng(37.553937,-122.510499),new google.maps.LatLng(37.554078,-122.510358),new google.maps.LatLng(37.554285,-122.510440),new google.maps.LatLng(37.554440,-122.510701),new google.maps.LatLng(37.554596,-122.510884),new google.maps.LatLng(37.554691,-122.511027),new google.maps.LatLng(37.554841,-122.511161),new google.maps.LatLng(37.554951,-122.511349),new google.maps.LatLng(37.554851,-122.511571),new google.maps.LatLng(37.554966,-122.511717),new google.maps.LatLng(37.555185,-122.511829),new google.maps.LatLng(37.555288,-122.511901),new google.maps.LatLng(37.555436,-122.511984),new google.maps.LatLng(37.555562,-122.512055),new google.maps.LatLng(37.555653,-122.512098),new google.maps.LatLng(37.555933,-122.512238),new google.maps.LatLng(37.556066,-122.512299),new google.maps.LatLng(37.556211,-122.512133),new google.maps.LatLng(37.556430,-122.512172),new google.maps.LatLng(37.556747,-122.512238),new google.maps.LatLng(37.557190,-122.512169),new google.maps.LatLng(37.557308,-122.512211),new google.maps.LatLng(37.557453,-122.512293),new google.maps.LatLng(37.557669,-122.512474),new google.maps.LatLng(37.557988,-122.512769),new google.maps.LatLng(37.557971,-122.513120),new google.maps.LatLng(37.557913,-122.513401),new google.maps.LatLng(37.557867,-122.513529),new google.maps.LatLng(37.557739,-122.513687),new google.maps.LatLng(37.557688,-122.513803),new google.maps.LatLng(37.557689,-122.513794),new google.maps.LatLng(37.557708,-122.513865),new google.maps.LatLng(37.557702,-122.513828),new google.maps.LatLng(37.557674,-122.513790),new google.maps.LatLng(37.557690,-122.513775),new google.maps.LatLng(37.557747,-122.513687),new google.maps.LatLng(37.557788,-122.513634),new google.maps.LatLng(37.557951,-122.513531),new google.maps.LatLng(37.558125,-122.513557),new google.maps.LatLng(37.558268,-122.513620),new google.maps.LatLng(37.558466,-122.513700),new google.maps.LatLng(37.558708,-122.513838),new google.maps.LatLng(37.558929,-122.513906),new google.maps.LatLng(37.559048,-122.513767),new google.maps.LatLng(37.559121,-122.513687),new google.maps.LatLng(37.559136,-122.513141),new google.maps.LatLng(37.559149,-122.512894),new google.maps.LatLng(37.559324,-122.512649),new google.maps.LatLng(37.559368,-122.512333),new google.maps.LatLng(37.559597,-122.512095),new google.maps.LatLng(37.559767,-122.512057),new google.maps.LatLng(37.559954,-122.511957),new google.maps.LatLng(37.560228,-122.511750),new google.maps.LatLng(37.560393,-122.512147),new google.maps.LatLng(37.560401,-122.512235),new google.maps.LatLng(37.560586,-122.512532),new google.maps.LatLng(37.560817,-122.512501),new google.maps.LatLng(37.561215,-122.512593),new google.maps.LatLng(37.561299,-122.512909),new google.maps.LatLng(37.561417,-122.513091),new google.maps.LatLng(37.561493,-122.513168),new google.maps.LatLng(37.561697,-122.513257),new google.maps.LatLng(37.561818,-122.513192),new google.maps.LatLng(37.561881,-122.513142),new google.maps.LatLng(37.561914,-122.513122),new google.maps.LatLng(37.562365,-122.512827),new google.maps.LatLng(37.562529,-122.512401),new google.maps.LatLng(37.562555,-122.512153),new google.maps.LatLng(37.562666,-122.511681),new google.maps.LatLng(37.562675,-122.511607),new google.maps.LatLng(37.562762,-122.511238),new google.maps.LatLng(37.562832,-122.511582),new google.maps.LatLng(37.562839,-122.511889),new google.maps.LatLng(37.562866,-122.512454),new google.maps.LatLng(37.562972,-122.512622),new google.maps.LatLng(37.563126,-122.512746),new google.maps.LatLng(37.563268,-122.512994),new google.maps.LatLng(37.563237,-122.513035),new google.maps.LatLng(37.563282,-122.513023),new google.maps.LatLng(37.563448,-122.512902),new google.maps.LatLng(37.563619,-122.512760),new google.maps.LatLng(37.563880,-122.512672),new google.maps.LatLng(37.564040,-122.512686),new google.maps.LatLng(37.564119,-122.512772),new google.maps.LatLng(37.564214,-122.512891),new google.maps.LatLng(37.564297,-122.513166),new google.maps.LatLng(37.564281,-122.513438),new google.maps.LatLng(37.564480,-122.513482),new google.maps.LatLng(37.564545,-122.513334),new google.maps.LatLng(37.564710,-122.513103),new google.maps.LatLng(37.564916,-122.513114),new google.maps.LatLng(37.564985,-122.513313),new google.maps.LatLng(37.564972,-122.513481),new google.maps.LatLng(37.564912,-122.513595),new google.maps.LatLng(37.564653,-122.513844),new google.maps.LatLng(37.564325,-122.513962),new google.maps.LatLng(37.564115,-122.514112),new google.maps.LatLng(37.563829,-122.514098),new google.maps.LatLng(37.563562,-122.514142),new google.maps.LatLng(37.563372,-122.514148),new google.maps.LatLng(37.563266,-122.514251),new google.maps.LatLng(37.563106,-122.514312),new google.maps.LatLng(37.563211,-122.514306),new google.maps.LatLng(37.563145,-122.514287),new google.maps.LatLng(37.563126,-122.514390),new google.maps.LatLng(37.563111,-122.514382),new google.maps.LatLng(37.563163,-122.514370),new google.maps.LatLng(37.563148,-122.514355),new google.maps.LatLng(37.563263,-122.514260),new google.maps.LatLng(37.563255,-122.514268),new google.maps.LatLng(37.563254,-122.514274),new google.maps.LatLng(37.563260,-122.514279),new google.maps.LatLng(37.563211,-122.514306),new google.maps.LatLng(37.563191,-122.514299),new google.maps.LatLng(37.563142,-122.514317),new google.maps.LatLng(37.563171,-122.514354),new google.maps.LatLng(37.563163,-122.514319),new google.maps.LatLng(37.563178,-122.514303),new google.maps.LatLng(37.563188,-122.514337),new google.maps.LatLng(37.563156,-122.514289),new google.maps.LatLng(37.563169,-122.514314),new google.maps.LatLng(37.563179,-122.514296),new google.maps.LatLng(37.563182,-122.514310),new google.maps.LatLng(37.563182,-122.514321),new google.maps.LatLng(37.563186,-122.514321),new google.maps.LatLng(37.563181,-122.514324),new google.maps.LatLng(37.563214,-122.514326),new google.maps.LatLng(37.563218,-122.514321),new google.maps.LatLng(37.563216,-122.514348),new google.maps.LatLng(37.563186,-122.514331),new google.maps.LatLng(37.563197,-122.514313),new google.maps.LatLng(37.563218,-122.514310),new google.maps.LatLng(37.563181,-122.514302),new google.maps.LatLng(37.563212,-122.514339),new google.maps.LatLng(37.563259,-122.514295),new google.maps.LatLng(37.563245,-122.514260),new google.maps.LatLng(37.563245,-122.514272),new google.maps.LatLng(37.563162,-122.514296),new google.maps.LatLng(37.563125,-122.514330),new google.maps.LatLng(37.563144,-122.514355),new google.maps.LatLng(37.563095,-122.514395),new google.maps.LatLng(37.563097,-122.514419),new google.maps.LatLng(37.563102,-122.514410),new google.maps.LatLng(37.563111,-122.514399),new google.maps.LatLng(37.563128,-122.514313),new google.maps.LatLng(37.563172,-122.514336),new google.maps.LatLng(37.563196,-122.514321),new google.maps.LatLng(37.563182,-122.514338),new google.maps.LatLng(37.563189,-122.514357),new google.maps.LatLng(37.563283,-122.514317),new google.maps.LatLng(37.563301,-122.514232),new google.maps.LatLng(37.563274,-122.514175),new google.maps.LatLng(37.563346,-122.514170),new google.maps.LatLng(37.563543,-122.514088),new google.maps.LatLng(37.563676,-122.514182),new google.maps.LatLng(37.563912,-122.514072),new google.maps.LatLng(37.564121,-122.514078),new google.maps.LatLng(37.564123,-122.514084),new google.maps.LatLng(37.564320,-122.514111),new google.maps.LatLng(37.564298,-122.514081),new google.maps.LatLng(37.564563,-122.514044),new google.maps.LatLng(37.564661,-122.513913),new google.maps.LatLng(37.564872,-122.513662),new google.maps.LatLng(37.564928,-122.513532),new google.maps.LatLng(37.564979,-122.513365),new google.maps.LatLng(37.564972,-122.513200),new google.maps.LatLng(37.564921,-122.513061),new google.maps.LatLng(37.564780,-122.513073),new google.maps.LatLng(37.564564,-122.513123),new google.maps.LatLng(37.564486,-122.513167),new google.maps.LatLng(37.564258,-122.512983),new google.maps.LatLng(37.564139,-122.512746),new google.maps.LatLng(37.563927,-122.512626),new google.maps.LatLng(37.563705,-122.512610),new google.maps.LatLng(37.563577,-122.512791),new google.maps.LatLng(37.563437,-122.512650),new google.maps.LatLng(37.563002,-122.512568),new google.maps.LatLng(37.562923,-122.512579),new google.maps.LatLng(37.562871,-122.512421),new google.maps.LatLng(37.562843,-122.512161),new google.maps.LatLng(37.562853,-122.511858),new google.maps.LatLng(37.562850,-122.511598),new google.maps.LatLng(37.562803,-122.511317),new google.maps.LatLng(37.562742,-122.511237),new google.maps.LatLng(37.562709,-122.511482),new google.maps.LatLng(37.562632,-122.511717),new google.maps.LatLng(37.562570,-122.511775),new google.maps.LatLng(37.562555,-122.511853),new google.maps.LatLng(37.562524,-122.512066),new google.maps.LatLng(37.562513,-122.512388),new google.maps.LatLng(37.562384,-122.512806),new google.maps.LatLng(37.561853,-122.513146),new google.maps.LatLng(37.561486,-122.513191),new google.maps.LatLng(37.561468,-122.513140),new google.maps.LatLng(37.561302,-122.512841),new google.maps.LatLng(37.561243,-122.512622),new google.maps.LatLng(37.560903,-122.512497),new google.maps.LatLng(37.560547,-122.512507),new google.maps.LatLng(37.560417,-122.512228),new google.maps.LatLng(37.560277,-122.511814),new google.maps.LatLng(37.559970,-122.511919),new google.maps.LatLng(37.559567,-122.512071),new google.maps.LatLng(37.559383,-122.512376),new google.maps.LatLng(37.559228,-122.512764),new google.maps.LatLng(37.559135,-122.513206),new google.maps.LatLng(37.559164,-122.513499),new google.maps.LatLng(37.559077,-122.513714),new google.maps.LatLng(37.558993,-122.513792),new google.maps.LatLng(37.558849,-122.513872),new google.maps.LatLng(37.558667,-122.513825),new google.maps.LatLng(37.558571,-122.513770),new google.maps.LatLng(37.558516,-122.513728),new google.maps.LatLng(37.558077,-122.513538),new google.maps.LatLng(37.558019,-122.513092),new google.maps.LatLng(37.558002,-122.512750),new google.maps.LatLng(37.557742,-122.512506),new google.maps.LatLng(37.557386,-122.512245),new google.maps.LatLng(37.557087,-122.512304),new google.maps.LatLng(37.556641,-122.512489),new google.maps.LatLng(37.556375,-122.512473),new google.maps.LatLng(37.556324,-122.512454),new google.maps.LatLng(37.556213,-122.512411),new google.maps.LatLng(37.556021,-122.512292),new google.maps.LatLng(37.555682,-122.512114),new google.maps.LatLng(37.555270,-122.511870),new google.maps.LatLng(37.554912,-122.511599),new google.maps.LatLng(37.554907,-122.511488),new google.maps.LatLng(37.554923,-122.511236),new google.maps.LatLng(37.554828,-122.511115),new google.maps.LatLng(37.554647,-122.510945),new google.maps.LatLng(37.554418,-122.510655),new google.maps.LatLng(37.554155,-122.510359),new google.maps.LatLng(37.553994,-122.510408),new google.maps.LatLng(37.553874,-122.510700),new google.maps.LatLng(37.553806,-122.511012),new google.maps.LatLng(37.553790,-122.511255),new google.maps.LatLng(37.553827,-122.511531),new google.maps.LatLng(37.553825,-122.511917),new google.maps.LatLng(37.553888,-122.512192),new google.maps.LatLng(37.553813,-122.512378),new google.maps.LatLng(37.553753,-122.512407),new google.maps.LatLng(37.553399,-122.512358),new google.maps.LatLng(37.553107,-122.512300),new google.maps.LatLng(37.552620,-122.512220),new google.maps.LatLng(37.552569,-122.512339),new google.maps.LatLng(37.552492,-122.512789),new google.maps.LatLng(37.552516,-122.512821),new google.maps.LatLng(37.552564,-122.512812),new google.maps.LatLng(37.552550,-122.512828),new google.maps.LatLng(37.552602,-122.512930),new google.maps.LatLng(37.552622,-122.513033),new google.maps.LatLng(37.552606,-122.513261),new google.maps.LatLng(37.552420,-122.513584),new google.maps.LatLng(37.552177,-122.513673),new google.maps.LatLng(37.551845,-122.513744),new google.maps.LatLng(37.551374,-122.513867),new google.maps.LatLng(37.550839,-122.513982),new google.maps.LatLng(37.550261,-122.514073),new google.maps.LatLng(37.549760,-122.514148),new google.maps.LatLng(37.549299,-122.514230),new google.maps.LatLng(37.548851,-122.514271),new google.maps.LatLng(37.548392,-122.514384),new google.maps.LatLng(37.548041,-122.514486),new google.maps.LatLng(37.547608,-122.514617),new google.maps.LatLng(37.547223,-122.514736),new google.maps.LatLng(37.546743,-122.514905),new google.maps.LatLng(37.546465,-122.514981),new google.maps.LatLng(37.546255,-122.514787),new google.maps.LatLng(37.546137,-122.514805),new google.maps.LatLng(37.546100,-122.514672),new google.maps.LatLng(37.546078,-122.514659),new google.maps.LatLng(37.546092,-122.514642),new google.maps.LatLng(37.546081,-122.514624),new google.maps.LatLng(37.546072,-122.514627),new google.maps.LatLng(37.545942,-122.514590),new google.maps.LatLng(37.545778,-122.514538),new google.maps.LatLng(37.545760,-122.514459),new google.maps.LatLng(37.545719,-122.514386),new google.maps.LatLng(37.545715,-122.514273),new google.maps.LatLng(37.545607,-122.514176),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 33, 20, 13, 13, 12, 20, 41, 56, 56, 92, 124, 157, 177, 225, 147, 177, 208, 238, 208, 180, 219, 178, 119, 74, 46, 36, 36, 32, 65, 108, 156, 220, 195, 197, 231, 223, 172, 221, 193, 162, 148, 104, 71, 48, 33, 17, 13, 10, 15, 24 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gray Whale Cove Trail</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Gray Whale Cove Trail</div><div style="font-size:20px;">4.8 miles &nbsp;&nbsp;&nbsp; 900 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">28 May 2011</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        A pleasant walk from Montara Beach to Gray Whale Cove Beach with excellent views of the Pacific. The number of distinct wildflowers along this trail is probably the highest among bay area trais.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Montara_State_Beach.html">Montara State Beach</a>
+ &mdash; <a href="https://gurmeet.net/hiking/parks/Gray_Whale_Cove_Beach.html">Gray Whale Cove Beach</a>
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div onclick="location.href='https://gurmeet.net/hiking/hikes/Gray_Whale_Cove_Trail.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Gray_Whale_Cove_Trail.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.545500%2C-122.514388&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:ibddFzqwjVWg@d@\MKYIUb@ANUXBA?Ca@Hq@IaBIi@Dg@l@}AUmCeAcASwAKs@OgCIw@Bo@TsBMwAa@eAQmBQ_@UAo@Ha@?e@AIFO@Sf@Cb@KnAw@oAc@_Hl@s@q@HCGi@He@BiBBk@[uB[[i@P_@r@]b@SZ]ZUb@Rl@UZk@TkAl@cBn@]_@iBRyAMUH]NiB|A@fAJv@HVX^HTCLDMMUGIa@Sa@BcA\o@Xk@Lg@k@C}Cc@q@G}@m@o@a@Ge@Su@g@a@lAAPc@z@m@EoAPO|@Wd@OLg@PWKmBiA_@sAEq@i@wDMdAElDU`@]V[p@DFIAaAs@s@Qa@@a@h@Ot@@t@g@HK]a@m@g@@Mf@@`@JTr@p@`AVh@\x@Cr@Hd@?TT^JUALCBT@AIABCWQ?@HDBAHBEF@GAAADDIADACADE??BDAECDAEDGG@E?@NBFFCBHF?BESIBCA@@?BSGCODKM?g@QYRo@Ui@?g@FDEu@G}@kAS{@?_@H[Z@j@HNFl@c@Vo@h@Wj@AXb@Z[tAQN@H]Ds@?qBFw@JOFp@Ll@JJHx@@~@XrAhBbAhAHb@eAJk@bAYfA@Xw@ZqAlCr@b@z@^lAPvAEx@Pj@NN\Nb@I\SvAe@JwA@cAr@q@fAs@z@JvAb@t@A^KzDkBfAw@AgARWb@a@l@y@r@{@^HVz@L|@@n@Ev@?jAKv@Lb@JDbFc@HTLxACFIAB@KTCRBl@b@~@p@PjG|@rHp@vAF`Dh@bDp@~A`@v@Nh@g@VBDYDCCA@C|@Q@OHM?UTS"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Gray_Whale_Cove_Trail.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.parks.ca.gov/?page_id=532">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/montara-state-beach-montara">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0822">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://plants.montara.com/frontpix/MRSPmap.jpeg">Official Trail Map</a>: Good map showing various trails. Mileage information is missing.</p>
+<div class="mini_header">Route</div>
+    <p><b>Trailhead</b>: Southern entrance to Montara State Beach. If you start at the northern entrance, the hike gets shortened by a mile.
+    <p><b>Route</b>: From Montara State Beach to Gray Whale Cove Beach:
+    <ol>
+    <li>(0.6 miles) Walk along Montara Beach.</li>
+    <li>(0.1 miles) Exit the beach where Martini Creek meets the beach (study the trail map to find the location). A staircase leads you up into the northern entrance of Montara State Beach which has parking for about 12 cars.</li>
+    <li>(0.1 miles) Walk north along Highway 1. Then cross Highway 1 carefully (there is no crosswalk). You will see a sign for "Montara State Beach | McNee Ranch", with street parking for 3 to 4 cars next to the sign. <a href="http://maps.google.com/maps?q=37.553883,-122.512493&num=1&t=h&sll=37.551782,-122.51215&sspn=0.005827,0.012681&hl=en&ie=UTF8&ll=37.553883,-122.512493&spn=0.001457,0.00317&z=19&iwloc=near">Google Map for location of this entrance</a>.</li>
+    <li>(1.2 miles) Follow signs for Gray Whale Cove Trail. This trail meanders next to Highway 1 with great views of the Pacific and beaches along the way. The trail finally descends down into the parking lot for Gray Whale Cove Beach. The parking lot lies to the east of Highway 1.</li>
+    <li>(0.1 miles) Cross Highway 1 carefully (there is no crosswalk). The entrance to Gray Whale Cove Beach is not immediately visible. Walk a short distance north along Highway 1 until you reach a wide gate and a paved road going down to the beach.</li>
+    <li>(0.3 miles) Descend down to Gray Whale Cove Beach. Walk to the southern end of the beach.</li>
+    </ol>
+    Return by the same route to southern entrance for Montara State Beach for 4.8 miles round-trip.
+    <p><span class="key">Notes</span>: 
+    <ol>
+    <li><a href="http://www.yelp.com/biz/gray-whale-cove-state-beach-montara">Yelp Reviews for Gray Whale Cove State Beach</a>. A section of this beach is clothing optional.</li>
+    <li>Gray Whale Cove Trail has an amazing variety of wild flowers in spring. In May 2011, I photographed more than 30 different species.</li>
+    <li>At the southern end of Gray Whale Cove Beach, there was a small rock which we climbed amid splashing waves.</li>
+    </ol>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://g.co/maps/ygmyu">
+    2nd street & Highway 1, Montara, CA 94037
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From CA-92 West, turn right onto Main Street and drive for 0.3 miles. Turn right onto CA-1 North adn drive for 7.4 miles. The parking lot for the southern entrance into Montara State Beach is to the south of a restaurant called La Constanera.
+    <p>If parking is tight here, you may park at the northern entrance for Montara State Beach. See <a href="http://g.co/maps/yskx7">Google Map</a>. The northern entrance is 0.5 miles to the north, along CA-1.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    2nd street & Highway 1, Montara, CA 94037
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: None (last visited: May 2011)</p>
+<p><b>Capacity</b>: Parking is tight. About ten cars may be parked here.</p>
+<p><b>Latitude</b>: 37.545439 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -122.514121</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Montara Beach
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-2caDqQYaPn0/Tw94XXOJRWI/AAAAAAACi3M/bTeuqxPAkAk/IMG_8804.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-2caDqQYaPn0/Tw94XXOJRWI/AAAAAAACi3M/bTeuqxPAkAk/s144/IMG_8804.JPG" alt="Entrance to Montara State Beach opposite McNee Ranch entrance." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-gmLXIqhrIC8/Tw94TWwNLeI/AAAAAAACi3A/jG6-5JcvoNc/IMG_8782.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-gmLXIqhrIC8/Tw94TWwNLeI/AAAAAAACi3A/jG6-5JcvoNc/s144/IMG_8782.JPG" alt="Montara State Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-_E0M7uHLBNM/Tw94ZMbyjBI/AAAAAAACi3Q/1q17qzoJqhM/IMG_8821.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-_E0M7uHLBNM/Tw94ZMbyjBI/AAAAAAACi3Q/1q17qzoJqhM/s144/IMG_8821.JPG" alt="Montara State Beach as seen from Gray Whale Cove Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-PkWPff7R0rI/Tw94V4DNrwI/AAAAAAACi3E/vtb6UufHh9A/IMG_8803.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-PkWPff7R0rI/Tw94V4DNrwI/AAAAAAACi3E/vtb6UufHh9A/s144/IMG_8803.JPG" alt="Entrance to Montara State Beach opposite McNee Ranch entrance." title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.28.Montara.State.Beach/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 28 March 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Gray Whale Cove Trail
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-NEpZDR4Vr3o/Tw94frwte0I/AAAAAAACi3g/dbuGpvanbgU/IMG_8845.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh3.googleusercontent.com/-NEpZDR4Vr3o/Tw94frwte0I/AAAAAAACi3g/dbuGpvanbgU/s144/IMG_8845.JPG" alt="Views of Pacific and Highway 1 from Gray Whale Cove Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-EIJZUMYeEi0/Tw94hGIY6FI/AAAAAAACi3o/lSMuEeXzTg0/IMG_8846.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/-EIJZUMYeEi0/Tw94hGIY6FI/AAAAAAACi3o/lSMuEeXzTg0/s144/IMG_8846.JPG" alt="Gray Whale Cove Trail meanders next to the Pacific" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-Sx4n17V4DDg/Tw94cL-9weI/AAAAAAACi3Y/Rh9v7v6J7V4/IMG_8833.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh5.googleusercontent.com/-Sx4n17V4DDg/Tw94cL-9weI/AAAAAAACi3Y/Rh9v7v6J7V4/s144/IMG_8833.JPG" alt="Unnamed and inaccessible beach visible from Gray Whale Cove Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-a0kBwJHyIwU/Tw94eCmNb6I/AAAAAAACi3c/1XdSJanC9Ao/IMG_8839.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh5.googleusercontent.com/-a0kBwJHyIwU/Tw94eCmNb6I/AAAAAAACi3c/1XdSJanC9Ao/s144/IMG_8839.JPG" alt="Gray Whale Cove Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.28.Montara.State.Beach/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 28 March 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Gray Whale Cove Beach
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-DW6LHvIJtqY/Tw94wJW_3gI/AAAAAAACi4U/-MyDRXjNp2E/IMG_8930.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-DW6LHvIJtqY/Tw94wJW_3gI/AAAAAAACi4U/-MyDRXjNp2E/s144/IMG_8930.JPG" alt="The Rock" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-xi4i0ytk-WM/Tw94nWvapkI/AAAAAAACi34/mgLperpSz8k/IMG_8881.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-xi4i0ytk-WM/Tw94nWvapkI/AAAAAAACi34/mgLperpSz8k/s144/IMG_8881.JPG" alt="Gray Whale Cove Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-J884-vER0Co/Tw942JITK_I/AAAAAAACi4o/LRufnojtTa0/IMG_8942.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-J884-vER0Co/Tw942JITK_I/AAAAAAACi4o/LRufnojtTa0/s144/IMG_8942.JPG" alt="Gray Whale Cove Beach" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-WH8ApAB8YWk/Tw94sYUpirI/AAAAAAACi4M/9j_tnb76-UA/IMG_8928.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh6.googleusercontent.com/-WH8ApAB8YWk/Tw94sYUpirI/AAAAAAACi4M/9j_tnb76-UA/s144/IMG_8928.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.28.Montara.State.Beach/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 28 March 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Nature
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-8rGQ0Q64O0g/TxBPyHidEXI/AAAAAAACln8/sb-V81AhN50/IMG_8816.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-8rGQ0Q64O0g/TxBPyHidEXI/AAAAAAACln8/sb-V81AhN50/s48-c/IMG_8816.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-TFmV1TBMSI4/Tw95Nlio-8I/AAAAAAACi54/8_XWgoOu0y8/IMG_8843.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-TFmV1TBMSI4/Tw95Nlio-8I/AAAAAAACi54/8_XWgoOu0y8/s48-c/IMG_8843.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-hKbrHn2mZa0/Tw95bGTHrVI/AAAAAAACi6w/_z35zDxM28Q/IMG_8978.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-hKbrHn2mZa0/Tw95bGTHrVI/AAAAAAACi6w/_z35zDxM28Q/s48-c/IMG_8978.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-E45TDiqVv_g/Tw95eU0ExZI/AAAAAAACi7E/SYxT1pl_Euw/IMG_9005.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-E45TDiqVv_g/Tw95eU0ExZI/AAAAAAACi7E/SYxT1pl_Euw/s48-c/IMG_9005.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-Br0C3gLBooE/TxBPu3SOTsI/AAAAAAACln0/I4vCtqKgyRs/IMG_8952.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-Br0C3gLBooE/TxBPu3SOTsI/AAAAAAACln0/I4vCtqKgyRs/s48-c/IMG_8952.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-eIJArKZ6jd8/TxBP-_kXd_I/AAAAAAACloQ/iFEC3bwqLms/IMG_8834.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-eIJArKZ6jd8/TxBP-_kXd_I/AAAAAAACloQ/iFEC3bwqLms/s48-c/IMG_8834.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-aG4qDdDh4CE/Tw95UjhGLQI/AAAAAAACi6U/qEV9RMDV80A/IMG_8966.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-aG4qDdDh4CE/Tw95UjhGLQI/AAAAAAACi6U/qEV9RMDV80A/s48-c/IMG_8966.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-qt1QaKsVpTI/Tw95dJr_bQI/AAAAAAACi68/Ss_4s3HbhdA/IMG_8989.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-qt1QaKsVpTI/Tw95dJr_bQI/AAAAAAACi68/Ss_4s3HbhdA/s48-c/IMG_8989.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-dSuEQwS9vwo/Tw95mW9S67I/AAAAAAACi7o/VBpzNP_4Va0/IMG_9045.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-dSuEQwS9vwo/Tw95mW9S67I/AAAAAAACi7o/VBpzNP_4Va0/s48-c/IMG_9045.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-MkOihcUQ5ZI/Tw95Rd3c_OI/AAAAAAACi6A/YXuUkuXqFZg/IMG_8947.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-MkOihcUQ5ZI/Tw95Rd3c_OI/AAAAAAACi6A/YXuUkuXqFZg/s48-c/IMG_8947.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-fpBaC8n7zHI/Tw95kgHvHFI/AAAAAAACi7g/nhmhlqMniFc/IMG_9041.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-fpBaC8n7zHI/Tw95kgHvHFI/AAAAAAACi7g/nhmhlqMniFc/s48-c/IMG_9041.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-1Vl1YyOWHTY/Tw95h5SmGtI/AAAAAAACi7U/GEuJaQ7VSz8/IMG_9019.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-1Vl1YyOWHTY/Tw95h5SmGtI/AAAAAAACi7U/GEuJaQ7VSz8/s48-c/IMG_9019.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-yQwnAUO1W3E/Tw95T1K-e4I/AAAAAAACi6Q/7FU8YKm_pZw/IMG_8963.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-yQwnAUO1W3E/Tw95T1K-e4I/AAAAAAACi6Q/7FU8YKm_pZw/s48-c/IMG_8963.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-O10yGZXZCMY/Tw95ivEb9UI/AAAAAAACi7Y/ve08uvWPwP4/IMG_9020.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-O10yGZXZCMY/Tw95ivEb9UI/AAAAAAACi7Y/ve08uvWPwP4/s48-c/IMG_9020.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-_tQDBS1IoFE/Tw95fGtxHGI/AAAAAAACi7I/hObqACqaDr8/IMG_9009.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-_tQDBS1IoFE/Tw95fGtxHGI/AAAAAAACi7I/hObqACqaDr8/s48-c/IMG_9009.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-hGOqa2DOqwc/Tw95aOA119I/AAAAAAACi6s/i1tBVXtGyL4/IMG_8857.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-hGOqa2DOqwc/Tw95aOA119I/AAAAAAACi6s/i1tBVXtGyL4/s48-c/IMG_8857.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-SkAKsxWM3vs/Tw95jrmkdOI/AAAAAAACi7c/mq0HRDz7k6k/IMG_9033.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-SkAKsxWM3vs/Tw95jrmkdOI/AAAAAAACi7c/mq0HRDz7k6k/s48-c/IMG_9033.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-WqNpaHFCSUo/Tw95hOIny4I/AAAAAAACi7Q/R32nfT1sOZY/IMG_9014.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-WqNpaHFCSUo/Tw95hOIny4I/AAAAAAACi7Q/R32nfT1sOZY/s48-c/IMG_9014.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-JwLFtwltg7Q/Tw95QTnOz_I/AAAAAAACi58/MS3xTGY0nbU/IMG_8877.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-JwLFtwltg7Q/Tw95QTnOz_I/AAAAAAACi58/MS3xTGY0nbU/s48-c/IMG_8877.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-nEN1oJ84idI/TxBQEnI8LQI/AAAAAAACloc/KJq-8o1uFQU/IMG_8854.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-nEN1oJ84idI/TxBQEnI8LQI/AAAAAAACloc/KJq-8o1uFQU/s48-c/IMG_8854.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/--HiD04bEhFg/Tw95XHH_9KI/AAAAAAACi6g/jvtkKNb_ku4/IMG_8973.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/--HiD04bEhFg/Tw95XHH_9KI/AAAAAAACi6g/jvtkKNb_ku4/s48-c/IMG_8973.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-1Nl28VCIf7g/Tw95WcNL34I/AAAAAAACi6c/auW_eliDN6o/IMG_8944.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-1Nl28VCIf7g/Tw95WcNL34I/AAAAAAACi6c/auW_eliDN6o/s48-c/IMG_8944.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-M9VeW4D5YOo/Tw95nPiavPI/AAAAAAACi7s/ZNS_fFLN8XE/IMG_8949.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-M9VeW4D5YOo/Tw95nPiavPI/AAAAAAACi7s/ZNS_fFLN8XE/s48-c/IMG_8949.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-zrusjKsTfHM/TxBQA44rJJI/AAAAAAACloU/Gj0U-7QreSI/IMG_8850.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-zrusjKsTfHM/TxBQA44rJJI/AAAAAAACloU/Gj0U-7QreSI/s48-c/IMG_8850.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-cSeMhep4bss/TxBP0PV6xCI/AAAAAAACloA/bugemnr7J08/IMG_8818.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-cSeMhep4bss/TxBP0PV6xCI/AAAAAAACloA/bugemnr7J08/s48-c/IMG_8818.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-1eezhezE_bw/Tw95n8aSaLI/AAAAAAACi7w/YWq-FEKwc90/IMG_9029.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-1eezhezE_bw/Tw95n8aSaLI/AAAAAAACi7w/YWq-FEKwc90/s48-c/IMG_9029.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-4hW68OjnHlA/Tw95gELmt2I/AAAAAAACi7M/w5jUg7s7Wbw/IMG_9012.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-4hW68OjnHlA/Tw95gELmt2I/AAAAAAACi7M/w5jUg7s7Wbw/s48-c/IMG_9012.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-GVYV_aeEIxc/TxBQDRaLuUI/AAAAAAACloY/N0slhQg1AZE/IMG_8852.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-GVYV_aeEIxc/TxBQDRaLuUI/AAAAAAACloY/N0slhQg1AZE/s48-c/IMG_8852.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-gfBESFCcKRY/Tw95VntZMfI/AAAAAAACi6Y/Ra4NK1GPK3g/IMG_8970.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-gfBESFCcKRY/Tw95VntZMfI/AAAAAAACi6Y/Ra4NK1GPK3g/s48-c/IMG_8970.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-tU4YlLwQq10/TxBQHd6gvBI/AAAAAAAClok/n2_oFAsI6Dw/IMG_8859.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-tU4YlLwQq10/TxBQHd6gvBI/AAAAAAAClok/n2_oFAsI6Dw/s48-c/IMG_8859.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-vbe1DvZQY9o/TxBP73AHtmI/AAAAAAACloM/NeOdZIY7m0A/IMG_8842.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-vbe1DvZQY9o/TxBP73AHtmI/AAAAAAACloM/NeOdZIY7m0A/s48-c/IMG_8842.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-O1rrf1w5CG8/Tw95Y7ctFDI/AAAAAAACi6o/pNi2QL_htgw/IMG_8840.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-O1rrf1w5CG8/Tw95Y7ctFDI/AAAAAAACi6o/pNi2QL_htgw/s48-c/IMG_8840.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-JqQjl5Bg_xs/Tw95coPYPDI/AAAAAAACi64/yCuBlRizX-M/IMG_8984.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-JqQjl5Bg_xs/Tw95coPYPDI/AAAAAAACi64/yCuBlRizX-M/s48-c/IMG_8984.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-Y_3FOskV7y8/TxBP49JlNQI/AAAAAAACloI/6jsjcbYWwwQ/IMG_8841.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-Y_3FOskV7y8/TxBP49JlNQI/AAAAAAACloI/6jsjcbYWwwQ/s48-c/IMG_8841.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-RPUkG-uzzSs/Tw95byen8bI/AAAAAAACi60/kbdPubgakdo/IMG_8982.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-RPUkG-uzzSs/Tw95byen8bI/AAAAAAACi60/kbdPubgakdo/s48-c/IMG_8982.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-SK68vxCoSaQ/Tw95SlpWjNI/AAAAAAACi6I/ihdG1BDOtqw/IMG_8964.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-SK68vxCoSaQ/Tw95SlpWjNI/AAAAAAACi6I/ihdG1BDOtqw/s48-c/IMG_8964.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-cz7pKmAGQGA/TxBQJxR012I/AAAAAAACloo/TEBVNKl8cVY/IMG_8860.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-cz7pKmAGQGA/TxBQJxR012I/AAAAAAACloo/TEBVNKl8cVY/s48-c/IMG_8860.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-hUAWXRUzybQ/TxBP1cHQAXI/AAAAAAACloE/UWJo11tnRmQ/IMG_8835.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-hUAWXRUzybQ/TxBP1cHQAXI/AAAAAAACloE/UWJo11tnRmQ/s48-c/IMG_8835.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-RSZkIX-7OLU/Tw95Xwf8M2I/AAAAAAACi6k/rs-EYVe3xVE/IMG_8974.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-RSZkIX-7OLU/Tw95Xwf8M2I/AAAAAAACi6k/rs-EYVe3xVE/s48-c/IMG_8974.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-u37FSIia-lE/TxBQK27o4tI/AAAAAAAClos/Y-lpuJVS86M/IMG_8864.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-u37FSIia-lE/TxBQK27o4tI/AAAAAAAClos/Y-lpuJVS86M/s48-c/IMG_8864.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.05.28.Montara.State.Beach/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 28 March 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

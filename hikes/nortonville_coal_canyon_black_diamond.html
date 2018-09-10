@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Nortonville - Coal Canyon - Black Diamond</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.958258, -121.863302);
+    var center_latlng = new google.maps.LatLng(37.958258, -121.863302);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.958258,-121.863302),new google.maps.LatLng(37.958150,-121.863338),new google.maps.LatLng(37.958131,-121.863368),new google.maps.LatLng(37.957976,-121.863554),new google.maps.LatLng(37.957824,-121.863752),new google.maps.LatLng(37.957571,-121.863814),new google.maps.LatLng(37.957321,-121.863923),new google.maps.LatLng(37.956894,-121.864193),new google.maps.LatLng(37.956594,-121.864493),new google.maps.LatLng(37.956532,-121.864697),new google.maps.LatLng(37.956429,-121.864895),new google.maps.LatLng(37.956161,-121.865423),new google.maps.LatLng(37.956033,-121.865874),new google.maps.LatLng(37.956058,-121.866240),new google.maps.LatLng(37.956102,-121.866385),new google.maps.LatLng(37.956183,-121.866757),new google.maps.LatLng(37.956223,-121.867216),new google.maps.LatLng(37.956248,-121.867661),new google.maps.LatLng(37.956236,-121.867773),new google.maps.LatLng(37.956233,-121.867895),new google.maps.LatLng(37.956328,-121.868406),new google.maps.LatLng(37.956402,-121.869123),new google.maps.LatLng(37.956471,-121.869425),new google.maps.LatLng(37.956702,-121.869379),new google.maps.LatLng(37.957053,-121.869094),new google.maps.LatLng(37.957133,-121.869035),new google.maps.LatLng(37.957469,-121.869110),new google.maps.LatLng(37.957638,-121.869472),new google.maps.LatLng(37.957423,-121.869950),new google.maps.LatLng(37.957318,-121.870473),new google.maps.LatLng(37.957285,-121.871002),new google.maps.LatLng(37.957188,-121.871717),new google.maps.LatLng(37.957156,-121.871957),new google.maps.LatLng(37.957148,-121.872352),new google.maps.LatLng(37.957138,-121.872835),new google.maps.LatLng(37.957108,-121.873034),new google.maps.LatLng(37.956876,-121.873451),new google.maps.LatLng(37.956546,-121.873783),new google.maps.LatLng(37.956311,-121.874069),new google.maps.LatLng(37.956191,-121.874316),new google.maps.LatLng(37.956116,-121.874436),new google.maps.LatLng(37.956106,-121.874419),new google.maps.LatLng(37.956216,-121.874702),new google.maps.LatLng(37.956166,-121.874798),new google.maps.LatLng(37.956448,-121.875248),new google.maps.LatLng(37.956782,-121.875543),new google.maps.LatLng(37.957012,-121.875949),new google.maps.LatLng(37.957143,-121.876585),new google.maps.LatLng(37.957146,-121.877265),new google.maps.LatLng(37.957271,-121.877826),new google.maps.LatLng(37.957449,-121.878436),new google.maps.LatLng(37.957579,-121.879052),new google.maps.LatLng(37.957722,-121.879621),new google.maps.LatLng(37.957825,-121.880116),new google.maps.LatLng(37.958004,-121.880781),new google.maps.LatLng(37.958180,-121.881374),new google.maps.LatLng(37.958329,-121.881741),new google.maps.LatLng(37.958400,-121.881942),new google.maps.LatLng(37.958354,-121.882233),new google.maps.LatLng(37.958418,-121.882473),new google.maps.LatLng(37.958411,-121.882521),new google.maps.LatLng(37.958338,-121.882610),new google.maps.LatLng(37.958251,-121.882656),new google.maps.LatLng(37.957778,-121.882486),new google.maps.LatLng(37.957482,-121.882331),new google.maps.LatLng(37.957379,-121.882316),new google.maps.LatLng(37.957349,-121.882298),new google.maps.LatLng(37.957059,-121.882200),new google.maps.LatLng(37.956731,-121.882202),new google.maps.LatLng(37.956504,-121.882272),new google.maps.LatLng(37.956239,-121.882423),new google.maps.LatLng(37.955955,-121.882502),new google.maps.LatLng(37.955671,-121.882520),new google.maps.LatLng(37.955391,-121.882543),new google.maps.LatLng(37.955116,-121.882715),new google.maps.LatLng(37.954923,-121.882494),new google.maps.LatLng(37.954752,-121.882481),new google.maps.LatLng(37.954583,-121.882627),new google.maps.LatLng(37.954445,-121.882582),new google.maps.LatLng(37.954240,-121.882731),new google.maps.LatLng(37.954163,-121.882856),new google.maps.LatLng(37.954103,-121.882986),new google.maps.LatLng(37.954009,-121.883094),new google.maps.LatLng(37.953846,-121.883239),new google.maps.LatLng(37.953737,-121.883372),new google.maps.LatLng(37.953586,-121.883455),new google.maps.LatLng(37.953431,-121.883557),new google.maps.LatLng(37.953353,-121.883710),new google.maps.LatLng(37.953219,-121.883881),new google.maps.LatLng(37.953074,-121.884095),new google.maps.LatLng(37.953037,-121.884344),new google.maps.LatLng(37.952975,-121.884589),new google.maps.LatLng(37.952932,-121.884825),new google.maps.LatLng(37.952909,-121.885109),new google.maps.LatLng(37.952826,-121.885277),new google.maps.LatLng(37.952795,-121.885473),new google.maps.LatLng(37.952679,-121.885650),new google.maps.LatLng(37.952552,-121.885840),new google.maps.LatLng(37.952423,-121.886162),new google.maps.LatLng(37.952395,-121.886346),new google.maps.LatLng(37.952355,-121.886617),new google.maps.LatLng(37.952326,-121.886845),new google.maps.LatLng(37.952339,-121.887112),new google.maps.LatLng(37.952362,-121.887339),new google.maps.LatLng(37.952272,-121.887199),new google.maps.LatLng(37.952099,-121.887185),new google.maps.LatLng(37.952157,-121.887411),new google.maps.LatLng(37.952093,-121.887494),new google.maps.LatLng(37.952214,-121.887692),new google.maps.LatLng(37.952348,-121.887908),new google.maps.LatLng(37.952552,-121.888179),new google.maps.LatLng(37.952631,-121.888505),new google.maps.LatLng(37.952595,-121.888821),new google.maps.LatLng(37.952618,-121.889093),new google.maps.LatLng(37.952682,-121.889321),new google.maps.LatLng(37.952749,-121.889442),new google.maps.LatLng(37.952795,-121.889606),new google.maps.LatLng(37.952945,-121.889797),new google.maps.LatLng(37.953020,-121.890022),new google.maps.LatLng(37.952994,-121.890339),new google.maps.LatLng(37.952955,-121.890576),new google.maps.LatLng(37.952904,-121.890850),new google.maps.LatLng(37.952886,-121.890873),new google.maps.LatLng(37.952894,-121.890932),new google.maps.LatLng(37.952756,-121.891337),new google.maps.LatLng(37.952738,-121.891594),new google.maps.LatLng(37.952511,-121.891667),new google.maps.LatLng(37.952365,-121.891754),new google.maps.LatLng(37.952195,-121.891775),new google.maps.LatLng(37.952037,-121.891891),new google.maps.LatLng(37.951826,-121.891942),new google.maps.LatLng(37.951439,-121.892077),new google.maps.LatLng(37.951214,-121.892281),new google.maps.LatLng(37.951055,-121.892395),new google.maps.LatLng(37.950814,-121.892608),new google.maps.LatLng(37.950591,-121.892742),new google.maps.LatLng(37.950357,-121.892869),new google.maps.LatLng(37.950075,-121.893016),new google.maps.LatLng(37.949898,-121.892949),new google.maps.LatLng(37.949745,-121.892881),new google.maps.LatLng(37.949501,-121.892823),new google.maps.LatLng(37.949307,-121.892760),new google.maps.LatLng(37.949125,-121.892541),new google.maps.LatLng(37.949078,-121.892581),new google.maps.LatLng(37.948936,-121.892273),new google.maps.LatLng(37.948797,-121.891955),new google.maps.LatLng(37.948637,-121.892054),new google.maps.LatLng(37.948517,-121.892330),new google.maps.LatLng(37.948460,-121.892460),new google.maps.LatLng(37.948370,-121.892592),new google.maps.LatLng(37.948220,-121.892789),new google.maps.LatLng(37.947965,-121.893156),new google.maps.LatLng(37.947830,-121.893144),new google.maps.LatLng(37.947767,-121.893031),new google.maps.LatLng(37.947832,-121.892916),new google.maps.LatLng(37.947752,-121.892747),new google.maps.LatLng(37.947746,-121.892583),new google.maps.LatLng(37.947726,-121.892492),new google.maps.LatLng(37.947661,-121.892363),new google.maps.LatLng(37.947603,-121.892097),new google.maps.LatLng(37.947544,-121.891594),new google.maps.LatLng(37.947469,-121.891343),new google.maps.LatLng(37.947317,-121.890878),new google.maps.LatLng(37.947214,-121.890560),new google.maps.LatLng(37.947211,-121.890331),new google.maps.LatLng(37.947201,-121.889885),new google.maps.LatLng(37.947193,-121.889466),new google.maps.LatLng(37.947182,-121.889187),new google.maps.LatLng(37.947411,-121.888900),new google.maps.LatLng(37.947782,-121.888795),new google.maps.LatLng(37.948046,-121.888902),new google.maps.LatLng(37.948227,-121.888790),new google.maps.LatLng(37.948274,-121.888454),new google.maps.LatLng(37.948419,-121.888257),new google.maps.LatLng(37.948744,-121.888032),new google.maps.LatLng(37.948911,-121.887883),new google.maps.LatLng(37.948984,-121.887652),new google.maps.LatLng(37.949016,-121.887334),new google.maps.LatLng(37.949140,-121.886832),new google.maps.LatLng(37.949263,-121.886295),new google.maps.LatLng(37.949233,-121.885994),new google.maps.LatLng(37.948959,-121.885486),new google.maps.LatLng(37.948565,-121.885352),new google.maps.LatLng(37.948255,-121.885117),new google.maps.LatLng(37.948235,-121.884563),new google.maps.LatLng(37.948308,-121.884290),new google.maps.LatLng(37.948408,-121.884062),new google.maps.LatLng(37.948513,-121.883673),new google.maps.LatLng(37.948505,-121.883287),new google.maps.LatLng(37.948349,-121.883105),new google.maps.LatLng(37.948211,-121.882889),new google.maps.LatLng(37.948195,-121.882572),new google.maps.LatLng(37.948198,-121.882260),new google.maps.LatLng(37.948186,-121.881911),new google.maps.LatLng(37.948176,-121.881565),new google.maps.LatLng(37.948099,-121.881279),new google.maps.LatLng(37.947951,-121.881112),new google.maps.LatLng(37.947834,-121.880871),new google.maps.LatLng(37.947652,-121.880661),new google.maps.LatLng(37.947495,-121.880409),new google.maps.LatLng(37.947449,-121.880080),new google.maps.LatLng(37.947403,-121.879854),new google.maps.LatLng(37.947293,-121.879567),new google.maps.LatLng(37.947177,-121.879331),new google.maps.LatLng(37.947171,-121.879165),new google.maps.LatLng(37.947260,-121.878858),new google.maps.LatLng(37.947446,-121.878382),new google.maps.LatLng(37.947323,-121.878097),new google.maps.LatLng(37.947185,-121.877783),new google.maps.LatLng(37.947131,-121.877497),new google.maps.LatLng(37.947202,-121.877181),new google.maps.LatLng(37.947236,-121.876941),new google.maps.LatLng(37.947135,-121.876667),new google.maps.LatLng(37.946836,-121.876433),new google.maps.LatLng(37.946718,-121.876250),new google.maps.LatLng(37.946809,-121.875882),new google.maps.LatLng(37.947039,-121.875584),new google.maps.LatLng(37.947177,-121.875451),new google.maps.LatLng(37.947443,-121.875257),new google.maps.LatLng(37.947660,-121.875050),new google.maps.LatLng(37.947752,-121.874700),new google.maps.LatLng(37.947837,-121.874394),new google.maps.LatLng(37.947792,-121.873962),new google.maps.LatLng(37.947923,-121.873688),new google.maps.LatLng(37.947998,-121.873364),new google.maps.LatLng(37.948095,-121.873168),new google.maps.LatLng(37.948070,-121.872795),new google.maps.LatLng(37.948000,-121.872532),new google.maps.LatLng(37.947935,-121.872158),new google.maps.LatLng(37.947911,-121.871755),new google.maps.LatLng(37.947898,-121.871373),new google.maps.LatLng(37.947890,-121.870964),new google.maps.LatLng(37.947921,-121.870782),new google.maps.LatLng(37.948016,-121.870732),new google.maps.LatLng(37.948121,-121.870705),new google.maps.LatLng(37.948146,-121.870708),new google.maps.LatLng(37.948564,-121.870849),new google.maps.LatLng(37.948771,-121.871060),new google.maps.LatLng(37.949069,-121.871113),new google.maps.LatLng(37.949339,-121.871176),new google.maps.LatLng(37.949402,-121.871192),new google.maps.LatLng(37.949452,-121.871150),new google.maps.LatLng(37.949614,-121.870994),new google.maps.LatLng(37.949698,-121.870807),new google.maps.LatLng(37.949761,-121.870648),new google.maps.LatLng(37.949836,-121.870473),new google.maps.LatLng(37.950003,-121.870188),new google.maps.LatLng(37.950110,-121.870008),new google.maps.LatLng(37.950365,-121.869941),new google.maps.LatLng(37.950573,-121.869873),new google.maps.LatLng(37.950898,-121.869778),new google.maps.LatLng(37.951071,-121.869730),new google.maps.LatLng(37.951268,-121.869744),new google.maps.LatLng(37.951361,-121.869687),new google.maps.LatLng(37.951460,-121.869634),new google.maps.LatLng(37.951541,-121.869634),new google.maps.LatLng(37.951709,-121.869520),new google.maps.LatLng(37.951943,-121.869468),new google.maps.LatLng(37.952213,-121.869452),new google.maps.LatLng(37.952446,-121.869396),new google.maps.LatLng(37.952599,-121.869291),new google.maps.LatLng(37.952667,-121.869185),new google.maps.LatLng(37.952631,-121.869090),new google.maps.LatLng(37.952567,-121.869001),new google.maps.LatLng(37.952498,-121.868924),new google.maps.LatLng(37.952379,-121.868965),new google.maps.LatLng(37.952175,-121.869004),new google.maps.LatLng(37.952116,-121.869079),new google.maps.LatLng(37.951974,-121.869132),new google.maps.LatLng(37.951844,-121.869049),new google.maps.LatLng(37.951749,-121.868941),new google.maps.LatLng(37.951640,-121.869015),new google.maps.LatLng(37.951679,-121.869202),new google.maps.LatLng(37.951519,-121.869225),new google.maps.LatLng(37.951393,-121.869107),new google.maps.LatLng(37.951135,-121.868894),new google.maps.LatLng(37.950927,-121.868717),new google.maps.LatLng(37.950748,-121.868496),new google.maps.LatLng(37.950603,-121.868302),new google.maps.LatLng(37.950452,-121.868109),new google.maps.LatLng(37.950454,-121.867783),new google.maps.LatLng(37.950383,-121.867534),new google.maps.LatLng(37.950348,-121.867113),new google.maps.LatLng(37.950406,-121.866786),new google.maps.LatLng(37.950425,-121.866493),new google.maps.LatLng(37.950380,-121.866180),new google.maps.LatLng(37.950356,-121.865903),new google.maps.LatLng(37.950610,-121.865649),new google.maps.LatLng(37.950770,-121.865516),new google.maps.LatLng(37.950822,-121.865203),new google.maps.LatLng(37.950855,-121.864761),new google.maps.LatLng(37.950844,-121.864687),new google.maps.LatLng(37.950836,-121.864702),new google.maps.LatLng(37.950926,-121.864754),new google.maps.LatLng(37.951051,-121.864829),new google.maps.LatLng(37.951229,-121.864943),new google.maps.LatLng(37.951381,-121.865039),new google.maps.LatLng(37.951559,-121.865018),new google.maps.LatLng(37.951740,-121.864996),new google.maps.LatLng(37.951969,-121.865008),new google.maps.LatLng(37.952140,-121.865089),new google.maps.LatLng(37.952250,-121.865050),new google.maps.LatLng(37.952282,-121.864890),new google.maps.LatLng(37.952347,-121.864686),new google.maps.LatLng(37.952434,-121.864539),new google.maps.LatLng(37.952548,-121.864397),new google.maps.LatLng(37.952715,-121.864254),new google.maps.LatLng(37.952790,-121.864140),new google.maps.LatLng(37.952676,-121.864131),new google.maps.LatLng(37.952729,-121.864043),new google.maps.LatLng(37.952854,-121.863956),new google.maps.LatLng(37.952835,-121.863829),new google.maps.LatLng(37.952669,-121.863794),new google.maps.LatLng(37.952540,-121.863830),new google.maps.LatLng(37.952433,-121.863656),new google.maps.LatLng(37.952421,-121.863440),new google.maps.LatLng(37.952438,-121.863279),new google.maps.LatLng(37.952457,-121.863255),new google.maps.LatLng(37.952424,-121.863250),new google.maps.LatLng(37.952576,-121.863248),new google.maps.LatLng(37.952584,-121.863351),new google.maps.LatLng(37.952727,-121.863359),new google.maps.LatLng(37.952814,-121.863537),new google.maps.LatLng(37.952841,-121.863656),new google.maps.LatLng(37.952847,-121.863729),new google.maps.LatLng(37.952869,-121.863837),new google.maps.LatLng(37.952862,-121.863927),new google.maps.LatLng(37.952992,-121.863920),new google.maps.LatLng(37.953253,-121.863893),new google.maps.LatLng(37.953371,-121.863913),new google.maps.LatLng(37.953580,-121.863916),new google.maps.LatLng(37.953815,-121.863807),new google.maps.LatLng(37.954019,-121.863797),new google.maps.LatLng(37.953950,-121.863718),new google.maps.LatLng(37.954075,-121.863694),new google.maps.LatLng(37.954222,-121.863743),new google.maps.LatLng(37.954125,-121.863822),new google.maps.LatLng(37.954059,-121.863922),new google.maps.LatLng(37.954277,-121.863721),new google.maps.LatLng(37.954455,-121.863783),new google.maps.LatLng(37.954342,-121.863767),new google.maps.LatLng(37.954325,-121.863777),new google.maps.LatLng(37.954292,-121.863771),new google.maps.LatLng(37.954423,-121.863650),new google.maps.LatLng(37.954568,-121.863584),new google.maps.LatLng(37.954804,-121.863543),new google.maps.LatLng(37.954908,-121.863555),new google.maps.LatLng(37.955137,-121.863315),new google.maps.LatLng(37.955077,-121.862908),new google.maps.LatLng(37.955140,-121.862482),new google.maps.LatLng(37.955144,-121.862383),new google.maps.LatLng(37.954964,-121.862197),new google.maps.LatLng(37.954900,-121.861935),new google.maps.LatLng(37.954760,-121.861735),new google.maps.LatLng(37.954983,-121.861303),new google.maps.LatLng(37.955232,-121.861365),new google.maps.LatLng(37.955459,-121.861542),new google.maps.LatLng(37.955675,-121.861747),new google.maps.LatLng(37.955789,-121.861869),new google.maps.LatLng(37.955954,-121.862115),new google.maps.LatLng(37.956108,-121.862414),new google.maps.LatLng(37.956291,-121.862517),new google.maps.LatLng(37.956425,-121.862735),new google.maps.LatLng(37.956562,-121.862977),new google.maps.LatLng(37.956654,-121.863178),new google.maps.LatLng(37.956677,-121.863260),new google.maps.LatLng(37.956812,-121.863204),new google.maps.LatLng(37.956923,-121.863317),new google.maps.LatLng(37.957116,-121.863464),new google.maps.LatLng(37.957337,-121.863531),new google.maps.LatLng(37.957489,-121.863591),new google.maps.LatLng(37.957624,-121.863806),new google.maps.LatLng(37.957933,-121.863556),new google.maps.LatLng(37.958163,-121.863302),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 735, 747, 781, 828, 861, 926, 998, 1041, 1076, 1076, 1005, 913, 831, 767, 751, 791, 847, 938, 1017, 1108, 1154, 1169, 1223, 1252, 1275, 1312, 1340, 1397, 1486, 1532, 1595, 1582, 1527, 1472, 1432, 1418, 1416, 1422, 1400, 1357, 1332, 1317, 1309, 1275, 1188, 1174, 1139, 1064, 998, 987, 1052, 1131, 1172, 1138, 1069, 987, 988, 911, 879, 832, 841, 830, 799, 747 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Nortonville - Coal Canyon - Black Diamond</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Nortonville - Coal Canyon - Black Diamond</div><div style="font-size:20px;">6.0 miles &nbsp;&nbsp;&nbsp; 1500 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">24 Apr 2011</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        Gorgeous route through forests and open spaces of Black Diamond Mines going through mining related attractions in the park.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Black_Diamond_Mines_Regional_Preserve.html">Black Diamond Mines Regional Preserve</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div onclick="location.href='https://gurmeet.net/hiking/hikes/Nortonville_Coal_Canyon_Black_Diamond.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Nortonville_Coal_Canyon_Black_Diamond.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.958258%2C-121.863302&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:avtfFrlxfVRD`ArAp@Jp@TtAt@z@z@Jf@hApCXxAChAYdBKtD@l@QdBOnCMz@m@IuAcAaANa@fAh@~ATfBDhBX|DBnDDf@l@rA`A`Al@v@Vp@NV@CUx@HPw@xAcAz@m@nAY~B?fCYnBa@xBkAnIgAzFi@pBFx@Kn@?HNPNF~Aa@x@]TC~@U~@?l@Lt@\v@NnBFv@`@d@k@`@A`@ZZGf@\Zp@RT^ZTZz@b@N^v@jAFp@R~ADv@N`@Df@n@hAX~@RfCG`BP[b@AKl@JNq@pAi@t@O`AF~@Ct@Ml@KVI^]d@Ol@D|@PfBBBAJZnABr@j@L\P`@B^Vh@HlAXzBhBrCpA`AYvAWb@k@HFv@}B^Rb@pA`BhCXALUMWNa@@_@BQJYJu@JcB`AmEDsGm@w@iAUs@Tc@UIcA[g@aAk@a@]Mm@E_Aq@oED{@v@eBlAY|@o@BmBMu@Sm@UmA@mA^c@Xk@FgGNy@Z_@Vo@b@i@^s@PmBTy@Vm@?a@Q}@c@}Ar@wBHy@M}@Eo@Rw@z@m@Vc@QiAm@{@[Yu@g@k@g@a@cCFuAYw@M_ASg@BiALs@LkAFmFEc@QIYEsAZi@j@}BXi@g@k@gBw@}A_Eu@e@@e@UQ?_@Uo@Ku@Am@K]SMUDQZa@VFf@FJLZJXQRSTLGd@^BtBeB|AyB?_ALq@FsAKaACy@LuBq@s@a@YI}@EwA@O@BmB`AgAGk@@c@NUEE_@Ki@Q]U[a@[OUVAIQYQBY`@EVFTc@@i@Aa@CCD?]AAT[?Qb@Iz@?PmAEWBi@?m@Ug@AJOWC]HRNLRk@g@c@J^AYW[Mo@GS@m@o@JqAMgBb@e@Js@Zg@k@uAq@Jk@b@aA~@a@p@]z@e@Ru@zAUx@[KUTe@\iAX[h@}@q@m@q@"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Nortonville_Coal_Canyon_Black_Diamond.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.ebparks.org/parks/black_diamond">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/black-diamond-mines-regional-preserve-antioch">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0034">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.ebparks.org/Assets/_Nav_Categories/Parks/Maps/Black+Diamond+map.pdf">Official Trail Map</a>: Good map showing various trails. Also check out <a href="http://www.ebparks.org/Assets/_Nav_Categories/Parks/Maps/Black+Diamond+text.pdf">Text section</a> of the map.</p>
+<div class="mini_header">Route</div>
+    <p><b>Trailhead</b>: Second parking lot on Somersville Road, located at the end of the road.
+    <p><b>Route in brief</b>: Nortonville Trail (0.06 + 0.07 + 0.11 + 0.18 + 0.42 + 0.39 miles) &rarr; Coal Canyon Trail (0.89 miles) &rarr; Black Diamond Way (0.20 + 0.39 miles) &rarr; Black Diamond Trail (0.32 + 1.12 miles) &rarr; Manhattan Canyon Trail (0.28 miles) &rarr; Chaparral Loop Trail (0.40 + 0.11 + 0.09 miles) &rarr; Pittsburg Mine Trail (0.27 miles) &rarr; Stewartville Trail (0.10 + 0.11 miles) &rarr; Nortonville Trail (0.06 miles).
+    <p><b>Notes</b>: Nortonville Trail is a wide fire road that takes you up and down a hill as you travel west from Somersville Rd trail head. Coal Canyon Trail is a nice trail that climbs quickly out of a canyon, meandering through a forest. Black Diamond Way is a paved road for about half a mile with lush green trees and meadows on both sides in spring. Black Diamond Trail is a wide fire road. Manhattan Canyon Trail and Chaparral Loop Trail take you through a forest. Some sections of these trails are steep.
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Nortonville Trail
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-K2cbrbUHJoo/Tw9nNW8HpiI/AAAAAAACiD0/cBG81rG67mQ/IMG_6699.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-K2cbrbUHJoo/Tw9nNW8HpiI/AAAAAAACiD0/cBG81rG67mQ/s144/IMG_6699.JPG" alt="Views along Nortonville Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-tt5T-BPIZOQ/Tw9nLp3j6jI/AAAAAAACiDw/WyJM3pR5BFQ/IMG_6698.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-tt5T-BPIZOQ/Tw9nLp3j6jI/AAAAAAACiDw/WyJM3pR5BFQ/s144/IMG_6698.JPG" alt="A pond along Nortonville Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Coal Canyon Trail
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-zclTdQfFo10/Tw9ncVJK_FI/AAAAAAACiEU/LGOzlWhRyQE/IMG_6728.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh3.googleusercontent.com/-zclTdQfFo10/Tw9ncVJK_FI/AAAAAAACiEU/LGOzlWhRyQE/s144/IMG_6728.JPG" alt="&quot;Jim's Place&quot; (Feature #2 on Trail Map)" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-qU2a2KS6oEM/Tw9nSebIX0I/AAAAAAACiEA/_NCK6l-Dj9M/IMG_6716.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh5.googleusercontent.com/-qU2a2KS6oEM/Tw9nSebIX0I/AAAAAAACiEA/_NCK6l-Dj9M/s144/IMG_6716.JPG" alt="Coal Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/--NWWDl827q4/Tw9naUmLrCI/AAAAAAACiEQ/hl0BG45aB_Y/IMG_6724.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh4.googleusercontent.com/--NWWDl827q4/Tw9naUmLrCI/AAAAAAACiEQ/hl0BG45aB_Y/s144/IMG_6724.JPG" alt="Coal Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-yCgR-47XPsY/Tw9nYBo5GxI/AAAAAAACiEM/pAiPMbDkSBM/IMG_6719.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group1' })">
+    
+      <img src="https://lh5.googleusercontent.com/-yCgR-47XPsY/Tw9nYBo5GxI/AAAAAAACiEM/pAiPMbDkSBM/s144/IMG_6719.JPG" alt="Coal Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://g.co/maps/fw429">
+    5175 Somersville Road, Antioch, CA 94565
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From I-680 North, take CA-242 North and drive for 3.2 miles. Continue along CA-4 East and drive for 11.6 miles. Take exit 26B for Auto Center Drive and turn right onto Auto Center Drive / Somersville Rd. Within 0.1 miles, make a U-Turn and follow Somersville Rd for 3.7 miles. There are two parking lots on Somersville Rd for Black Diamond. The trailhead is at the second parking lot, deeper into the park.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    5175 Somersville Road, Antioch, CA 94565
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: $5 per vehicle when entry kiosk was manned, free otherwise. (last visited: April 2011)</p>
+<p><b>Capacity</b>: Over 30 cars</p>
+<p><b>Latitude</b>: 37.958766 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -121.862991</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Black Diamond Trail
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-Lyps35DlEwQ/Tw9nmno9-OI/AAAAAAACiE0/Encjmk-bBrY/IMG_6754.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-Lyps35DlEwQ/Tw9nmno9-OI/AAAAAAACiE0/Encjmk-bBrY/s144/IMG_6754.JPG" alt="Valley views from Black Diamond Way" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-HwSHkDs9YyQ/Tw9nhmHofmI/AAAAAAACiEk/ICWA7PwZnPw/IMG_6742.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh6.googleusercontent.com/-HwSHkDs9YyQ/Tw9nhmHofmI/AAAAAAACiEk/ICWA7PwZnPw/s144/IMG_6742.JPG" alt="Valley views from Black Diamond Way on an overcast day" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-Bm2P8LuRQms/Tw9neQvOwjI/AAAAAAACiEc/3UK5hLbIEVc/IMG_6739.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh3.googleusercontent.com/-Bm2P8LuRQms/Tw9neQvOwjI/AAAAAAACiEc/3UK5hLbIEVc/s144/IMG_6739.JPG" alt="Black Diamond Way" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-wlKmvsJKfMk/Tw9noNKRkSI/AAAAAAACiE4/0_14p4spjOE/IMG_6759.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group2' })">
+    
+      <img src="https://lh5.googleusercontent.com/-wlKmvsJKfMk/Tw9noNKRkSI/AAAAAAACiE4/0_14p4spjOE/s144/IMG_6759.JPG" alt="Black Diamond Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Manhattan Canyon Trail
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-8ebp7O8YYqw/Tw9nzwQoaPI/AAAAAAACiFQ/-ZQyl_cJPCs/IMG_6773.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group3' })">
+    
+      <img src="https://lh3.googleusercontent.com/-8ebp7O8YYqw/Tw9nzwQoaPI/AAAAAAACiFQ/-ZQyl_cJPCs/s144/IMG_6773.JPG" alt="Manhattan Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-QpdDE4gRliQ/Tw9nwJoXMvI/AAAAAAACiFM/CTKAzsc6yi8/IMG_6772.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group3' })">
+    
+      <img src="https://lh3.googleusercontent.com/-QpdDE4gRliQ/Tw9nwJoXMvI/AAAAAAACiFM/CTKAzsc6yi8/s144/IMG_6772.JPG" alt="Manhattan Canyon Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Chaparral Loop
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-q0wtMCKKfr4/Tw9n4yzTGVI/AAAAAAACiFg/rkvpvMycodg/IMG_6778.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group4' })">
+    
+      <img src="https://lh6.googleusercontent.com/-q0wtMCKKfr4/Tw9n4yzTGVI/AAAAAAACiFg/rkvpvMycodg/s144/IMG_6778.JPG" alt="Chaparral Loop Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-40HA8TOLIOo/Tw9n1T8zsMI/AAAAAAACiFU/9cFCB8nfdY8/IMG_6774.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group4' })">
+    
+      <img src="https://lh4.googleusercontent.com/-40HA8TOLIOo/Tw9n1T8zsMI/AAAAAAACiFU/9cFCB8nfdY8/s144/IMG_6774.JPG" alt="Chaparral Loop Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Mines
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-BRshLoZd6cc/Tw9n_waqC_I/AAAAAAACiF0/RovWQuzJAS0/IMG_6805.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh5.googleusercontent.com/-BRshLoZd6cc/Tw9n_waqC_I/AAAAAAACiF0/RovWQuzJAS0/s144/IMG_6805.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-pAtc6Fs03-M/Tw9oJDvqTfI/AAAAAAACiGM/smxhFIxb8Og/IMG_6814.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh6.googleusercontent.com/-pAtc6Fs03-M/Tw9oJDvqTfI/AAAAAAACiGM/smxhFIxb8Og/s144/IMG_6814.JPG" alt="Inside view of &quot;Hazel Atlas Portal&quot; (Feature #5 on Trail Map)" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-PL62FYMnwXg/Tw9n--3B8lI/AAAAAAACiFw/20pWBBpMZGE/IMG_6790.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh4.googleusercontent.com/-PL62FYMnwXg/Tw9n--3B8lI/AAAAAAACiFw/20pWBBpMZGE/s144/IMG_6790.JPG" alt="&quot;Stope&quot; (Feature #7 on Trail Map)" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-Nbm5mZd6RR8/Tw9n9cojC6I/AAAAAAACiFs/9KiKcL9txbA/IMG_6785.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group5' })">
+    
+      <img src="https://lh4.googleusercontent.com/-Nbm5mZd6RR8/Tw9n9cojC6I/AAAAAAACiFs/9KiKcL9txbA/s144/IMG_6785.JPG" alt="&quot;Powder Magazine&quot; (Feature #6 on Trail Map)" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Pittsburg Mine Trail
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-amfqy9WyFf8/Tw9oLZlLWPI/AAAAAAACiGQ/mbEsnPUhM8M/IMG_6825.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh4.googleusercontent.com/-amfqy9WyFf8/Tw9oLZlLWPI/AAAAAAACiGQ/mbEsnPUhM8M/s144/IMG_6825.JPG" alt="Pittsburg Mine Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-U1frLV4ZqDw/Tw9oM9ZI0-I/AAAAAAACiGU/yrjjBJSJ7cc/IMG_6826.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group6' })">
+    
+      <img src="https://lh3.googleusercontent.com/-U1frLV4ZqDw/Tw9oM9ZI0-I/AAAAAAACiGU/yrjjBJSJ7cc/s144/IMG_6826.JPG" alt="View from Pittsburg Mine Trail" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Nature
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-ZWFYvTI9l_g/Tw9oNUdRsQI/AAAAAAACiGY/2Xl7XIzimNs/IMG_6757.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-ZWFYvTI9l_g/Tw9oNUdRsQI/AAAAAAACiGY/2Xl7XIzimNs/s48-c/IMG_6757.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-6mSuq4lqPEI/Tw9oOgAM3KI/AAAAAAACiGg/6u0kp2QJdO4/IMG_6795.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-6mSuq4lqPEI/Tw9oOgAM3KI/AAAAAAACiGg/6u0kp2QJdO4/s48-c/IMG_6795.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh4.googleusercontent.com/-cDcFh54FklU/Tw9oQvfSHvI/AAAAAAACiGo/xU-bMkQ-JAc/IMG_6807.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh4.googleusercontent.com/-cDcFh54FklU/Tw9oQvfSHvI/AAAAAAACiGo/xU-bMkQ-JAc/s48-c/IMG_6807.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-s1SJvEazZEg/Tw9oR-AbRwI/AAAAAAACiGs/QqmgdfdMds0/IMG_6819.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-s1SJvEazZEg/Tw9oR-AbRwI/AAAAAAACiGs/QqmgdfdMds0/s48-c/IMG_6819.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh3.googleusercontent.com/-EL8J8yUHhl8/Tw9oU64sQsI/AAAAAAACiG0/LfTMTXkbI4o/IMG_6833.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh3.googleusercontent.com/-EL8J8yUHhl8/Tw9oU64sQsI/AAAAAAACiG0/LfTMTXkbI4o/s48-c/IMG_6833.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh5.googleusercontent.com/-_IwBwoAvOT8/Tw9oT0EiOII/AAAAAAACiGw/aVF5y1_fW8g/IMG_6824.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh5.googleusercontent.com/-_IwBwoAvOT8/Tw9oT0EiOII/AAAAAAACiGw/aVF5y1_fW8g/s48-c/IMG_6824.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-YgQcNRYOhhc/Tw9oVnKMHfI/AAAAAAACiG8/c6JQ8x7rnJE/IMG_6836.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-YgQcNRYOhhc/Tw9oVnKMHfI/AAAAAAACiG8/c6JQ8x7rnJE/s48-c/IMG_6836.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_48x48">
+    
+      <a href="https://lh6.googleusercontent.com/-d7gGcmUtS7s/Tw9oPg3Y9VI/AAAAAAACiGk/CH2xiR9q1kg/IMG_6801.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'nature' })">
+    
+      <img src="https://lh6.googleusercontent.com/-d7gGcmUtS7s/Tw9oPg3Y9VI/AAAAAAACiGk/CH2xiR9q1kg/s48-c/IMG_6801.JPG" alt="" title="Click to enlarge" height="48" width="48" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2011.04.24.Black.Diamond.Mines.Regional.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 24 April 2011</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

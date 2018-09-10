@@ -1,0 +1,459 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Mitchell Canyon - Eagle Peak</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.922213, -121.941462);
+    var center_latlng = new google.maps.LatLng(37.922213, -121.941462);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.922213,-121.941462),new google.maps.LatLng(37.921659,-121.941451),new google.maps.LatLng(37.921249,-121.941419),new google.maps.LatLng(37.920717,-121.941596),new google.maps.LatLng(37.920253,-121.941862),new google.maps.LatLng(37.919711,-121.942010),new google.maps.LatLng(37.919264,-121.942401),new google.maps.LatLng(37.918883,-121.942917),new google.maps.LatLng(37.918504,-121.943448),new google.maps.LatLng(37.918274,-121.944108),new google.maps.LatLng(37.917905,-121.944633),new google.maps.LatLng(37.917575,-121.945202),new google.maps.LatLng(37.917226,-121.945757),new google.maps.LatLng(37.916912,-121.946349),new google.maps.LatLng(37.916435,-121.946716),new google.maps.LatLng(37.916045,-121.947164),new google.maps.LatLng(37.915500,-121.947360),new google.maps.LatLng(37.915073,-121.947827),new google.maps.LatLng(37.914598,-121.948218),new google.maps.LatLng(37.914178,-121.948353),new google.maps.LatLng(37.913723,-121.948780),new google.maps.LatLng(37.913232,-121.949114),new google.maps.LatLng(37.912692,-121.949310),new google.maps.LatLng(37.912154,-121.949166),new google.maps.LatLng(37.911647,-121.948916),new google.maps.LatLng(37.911230,-121.949371),new google.maps.LatLng(37.910823,-121.949848),new google.maps.LatLng(37.910334,-121.950157),new google.maps.LatLng(37.909782,-121.950227),new google.maps.LatLng(37.909241,-121.950218),new google.maps.LatLng(37.908691,-121.950386),new google.maps.LatLng(37.908132,-121.950330),new google.maps.LatLng(37.907700,-121.949912),new google.maps.LatLng(37.907209,-121.949610),new google.maps.LatLng(37.906762,-121.949674),new google.maps.LatLng(37.906256,-121.949920),new google.maps.LatLng(37.905696,-121.949994),new google.maps.LatLng(37.905143,-121.949882),new google.maps.LatLng(37.904608,-121.950076),new google.maps.LatLng(37.904094,-121.949816),new google.maps.LatLng(37.903585,-121.949534),new google.maps.LatLng(37.903036,-121.949378),new google.maps.LatLng(37.902482,-121.949366),new google.maps.LatLng(37.901921,-121.949259),new google.maps.LatLng(37.901375,-121.949151),new google.maps.LatLng(37.900872,-121.948877),new google.maps.LatLng(37.900318,-121.948662),new google.maps.LatLng(37.899743,-121.948468),new google.maps.LatLng(37.899248,-121.948091),new google.maps.LatLng(37.898869,-121.947561),new google.maps.LatLng(37.898421,-121.947145),new google.maps.LatLng(37.898078,-121.946627),new google.maps.LatLng(37.897638,-121.946198),new google.maps.LatLng(37.897315,-121.945623),new google.maps.LatLng(37.896963,-121.945043),new google.maps.LatLng(37.896534,-121.944526),new google.maps.LatLng(37.896358,-121.943876),new google.maps.LatLng(37.896320,-121.943164),new google.maps.LatLng(37.896024,-121.942572),new google.maps.LatLng(37.895597,-121.942137),new google.maps.LatLng(37.895082,-121.941824),new google.maps.LatLng(37.895371,-121.941218),new google.maps.LatLng(37.895222,-121.940604),new google.maps.LatLng(37.895264,-121.940049),new google.maps.LatLng(37.895480,-121.939400),new google.maps.LatLng(37.895029,-121.939025),new google.maps.LatLng(37.894692,-121.938518),new google.maps.LatLng(37.894488,-121.937894),new google.maps.LatLng(37.894300,-121.938542),new google.maps.LatLng(37.894053,-121.939173),new google.maps.LatLng(37.893588,-121.939554),new google.maps.LatLng(37.893226,-121.939551),new google.maps.LatLng(37.893083,-121.939194),new google.maps.LatLng(37.892738,-121.939101),new google.maps.LatLng(37.892355,-121.938619),new google.maps.LatLng(37.891942,-121.938711),new google.maps.LatLng(37.891585,-121.938301),new google.maps.LatLng(37.891225,-121.938835),new google.maps.LatLng(37.891101,-121.939527),new google.maps.LatLng(37.890617,-121.939172),new google.maps.LatLng(37.890335,-121.939502),new google.maps.LatLng(37.890648,-121.940019),new google.maps.LatLng(37.890171,-121.940392),new google.maps.LatLng(37.889637,-121.940574),new google.maps.LatLng(37.889158,-121.940226),new google.maps.LatLng(37.888890,-121.939594),new google.maps.LatLng(37.888837,-121.938981),new google.maps.LatLng(37.888687,-121.938297),new google.maps.LatLng(37.888499,-121.937623),new google.maps.LatLng(37.888285,-121.936952),new google.maps.LatLng(37.888352,-121.936239),new google.maps.LatLng(37.888915,-121.936228),new google.maps.LatLng(37.889223,-121.935650),new google.maps.LatLng(37.889301,-121.935166),new google.maps.LatLng(37.889370,-121.934523),new google.maps.LatLng(37.888932,-121.934097),new google.maps.LatLng(37.888694,-121.933487),new google.maps.LatLng(37.888871,-121.932819),new google.maps.LatLng(37.889114,-121.932266),new google.maps.LatLng(37.889383,-121.931673),new google.maps.LatLng(37.889356,-121.931315),new google.maps.LatLng(37.889296,-121.930611),new google.maps.LatLng(37.889285,-121.929969),new google.maps.LatLng(37.889657,-121.930489),new google.maps.LatLng(37.889983,-121.931058),new google.maps.LatLng(37.890443,-121.931466),new google.maps.LatLng(37.890930,-121.931139),new google.maps.LatLng(37.891457,-121.930965),new google.maps.LatLng(37.891797,-121.930426),new google.maps.LatLng(37.891908,-121.929757),new google.maps.LatLng(37.892237,-121.929164),new google.maps.LatLng(37.892694,-121.928769),new google.maps.LatLng(37.893193,-121.928574),new google.maps.LatLng(37.893660,-121.928968),new google.maps.LatLng(37.894183,-121.929181),new google.maps.LatLng(37.894711,-121.929413),new google.maps.LatLng(37.895164,-121.929797),new google.maps.LatLng(37.895420,-121.930120),new google.maps.LatLng(37.895726,-121.930706),new google.maps.LatLng(37.895936,-121.931351),new google.maps.LatLng(37.896295,-121.931913),new google.maps.LatLng(37.896684,-121.932427),new google.maps.LatLng(37.896948,-121.933024),new google.maps.LatLng(37.897148,-121.933680),new google.maps.LatLng(37.897485,-121.934253),new google.maps.LatLng(37.897819,-121.934829),new google.maps.LatLng(37.898102,-121.935486),new google.maps.LatLng(37.898532,-121.935978),new google.maps.LatLng(37.898989,-121.936375),new google.maps.LatLng(37.899525,-121.936634),new google.maps.LatLng(37.899869,-121.937125),new google.maps.LatLng(37.900369,-121.937417),new google.maps.LatLng(37.900901,-121.937605),new google.maps.LatLng(37.901392,-121.937904),new google.maps.LatLng(37.901725,-121.938283),new google.maps.LatLng(37.902153,-121.938223),new google.maps.LatLng(37.902667,-121.937969),new google.maps.LatLng(37.903220,-121.937975),new google.maps.LatLng(37.903769,-121.938015),new google.maps.LatLng(37.904207,-121.937657),new google.maps.LatLng(37.904544,-121.937105),new google.maps.LatLng(37.904612,-121.937806),new google.maps.LatLng(37.904755,-121.938540),new google.maps.LatLng(37.904985,-121.939151),new google.maps.LatLng(37.905104,-121.938426),new google.maps.LatLng(37.905159,-121.937734),new google.maps.LatLng(37.905392,-121.937105),new google.maps.LatLng(37.905717,-121.936519),new google.maps.LatLng(37.906188,-121.936209),new google.maps.LatLng(37.906715,-121.936130),new google.maps.LatLng(37.907237,-121.935960),new google.maps.LatLng(37.907800,-121.935949),new google.maps.LatLng(37.908372,-121.935998),new google.maps.LatLng(37.908889,-121.936271),new google.maps.LatLng(37.909367,-121.936636),new google.maps.LatLng(37.909820,-121.937041),new google.maps.LatLng(37.910331,-121.937317),new google.maps.LatLng(37.910881,-121.937398),new google.maps.LatLng(37.911455,-121.937390),new google.maps.LatLng(37.912005,-121.937267),new google.maps.LatLng(37.912314,-121.936885),new google.maps.LatLng(37.912390,-121.936197),new google.maps.LatLng(37.912653,-121.936787),new google.maps.LatLng(37.913024,-121.937309),new google.maps.LatLng(37.913519,-121.937627),new google.maps.LatLng(37.913378,-121.938215),new google.maps.LatLng(37.912920,-121.938537),new google.maps.LatLng(37.912468,-121.938924),new google.maps.LatLng(37.912111,-121.939480),new google.maps.LatLng(37.912115,-121.940149),new google.maps.LatLng(37.912558,-121.940583),new google.maps.LatLng(37.913033,-121.940954),new google.maps.LatLng(37.913450,-121.941314),new google.maps.LatLng(37.913373,-121.941698),new google.maps.LatLng(37.913268,-121.942395),new google.maps.LatLng(37.913068,-121.943056),new google.maps.LatLng(37.912738,-121.943650),new google.maps.LatLng(37.912444,-121.944243),new google.maps.LatLng(37.912586,-121.944431),new google.maps.LatLng(37.913110,-121.944196),new google.maps.LatLng(37.913582,-121.943894),new google.maps.LatLng(37.913869,-121.943289),new google.maps.LatLng(37.914419,-121.943381),new google.maps.LatLng(37.914883,-121.942943),new google.maps.LatLng(37.915386,-121.942626),new google.maps.LatLng(37.915888,-121.942790),new google.maps.LatLng(37.916244,-121.942236),new google.maps.LatLng(37.916344,-121.941538),new google.maps.LatLng(37.916081,-121.940931),new google.maps.LatLng(37.915940,-121.940289),new google.maps.LatLng(37.915635,-121.939685),new google.maps.LatLng(37.916144,-121.939640),new google.maps.LatLng(37.916678,-121.939536),new google.maps.LatLng(37.917160,-121.939232),new google.maps.LatLng(37.917737,-121.939217),new google.maps.LatLng(37.918163,-121.939587),new google.maps.LatLng(37.918159,-121.940315),new google.maps.LatLng(37.918255,-121.941003),new google.maps.LatLng(37.918715,-121.941371),new google.maps.LatLng(37.919170,-121.941573),new google.maps.LatLng(37.919323,-121.941864),new google.maps.LatLng(37.919868,-121.941895),new google.maps.LatLng(37.920390,-121.941671),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 565, 581, 604, 631, 634, 643, 682, 677, 681, 691, 708, 716, 735, 740, 756, 775, 796, 812, 821, 841, 864, 886, 913, 948, 1005, 1076, 1184, 1260, 1311, 1419, 1576, 1705, 1802, 1875, 1922, 1995, 2049, 2067, 2094, 2111, 2059, 2018, 2022, 2124, 2241, 2325, 2335, 2356, 2283, 2164, 2074, 2044, 2079, 2182, 2294, 2312, 2275, 2179, 2098, 2034, 1945, 1851, 1752, 1683, 1679, 1626, 1527, 1400, 1370, 1361, 1267, 1181, 1108, 1055, 1054, 1022, 956, 873, 798, 712, 656, 574, 542 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Mitchell Canyon - Eagle Peak</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Mitchell Canyon - Eagle Peak</div><div style="font-size:20px;">7.8 miles &nbsp;&nbsp;&nbsp; 2300 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">31 Jul 2010</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        A definitive Mt Diablo hike with steep climbs and majestic valley views.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Mount_Diablo_State_Park.html">Mount Diablo State Park</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.mdia.org/">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/mount-diablo-state-park-clayton">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0225">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.rei.com/product/801873/mount-diablo-state-park-trail-map-6th-edition">REI Map for Mount Diablo and Los Vaqueros</a>: Sold for $7.00 in April 2011. The map is very detailed, water-proof and tear-proof. Must have for avid hikers.</p>
+<p>&raquo; <a href="http://www.parks.ca.gov/pages/517/files/mtDiabloBrochure.pdf">Official Park Brochure</a>: Decent map but missing myriad other trails that are shown on the REI map.</p>
+<div class="mini_header">Route</div>
+    <p>A good description by Tom Mangan is available at <a href="http://www.everytrail.com/guide/mitchell-canyon-to-eagle-peak-hike-at-mount-diablo-state-park">EveryTrail Route Guide for Mitchell Canyon - Eagle Peak</a>, with the following overview: <em>"Everybody loves to visit the summit of Mount Diablo, but many seasoned San Francisco Bay Area hikers prefer this hike to Eagle Peak via Mitchell Canyon, which takes in all the features that make Mount Diablo State Park unique. Mitchell Canyon is shady with abundant wildflowers in the spring; Eagle Peak culminates a rugged hike to jaw-dropping vistas of the East Bay and surrounding terrain. On a clear winter day you might be able to spot the snow-capped peaks of the Sierra Madre."</em>.
+    <p><b>Route in brief</b>: Yet to write.
+    <p><b>Variations</b>: For the return trip from Prospectors Gap, there are multiple options. Check out <a href="http://www.everytrail.com/view_trip.php?trip_id=1458436">(EveryTrail) Variation I by JoergDHS</a> and <a href="http://www.everytrail.com/view_trip.php?trip_id=570062">(EveryTrail) Variation II by Vaudesir</a>.
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div onclick="location.href='https://gurmeet.net/hiking/hikes/Mitchell_Canyon_Eagle_Peak.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Mitchell_Canyon_Eagle_Peak.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.922213%2C-121.941462&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:ytmfFbuggVnBApAGhBb@zAt@jB\xAlAvCnEl@bChAhB`ApBdAlB|@tB~AhAlAxAjBf@tAzA~AlArAZxAtA`B`AjBf@jB]dBq@pAzApA|A`B|@lBLjBAlB`@nBItAsAbB{@vAJdBp@nBLlBUjBd@dBs@dBw@lB_@lBA|Ei@bBw@nBi@pBg@bBiAjAiBvAsAdAgBvAuA~@qBdAsBtAgBb@aCDmCz@uBtAwAdB}@y@yB\yBGoBk@_CzAkA`AeBh@{Bb@`Cp@|B|AjAfA?ZgAdAQjAaBpARfAqAfAhBVhC`BeAv@`A}@dB|AjAjBb@~AeAr@}BJyB\iCd@eCh@eCMoCoBA}@qBOaBM_CvAuAn@yBc@eCeBcFPsE@aCiAfBaApB{ApA_BaAiBa@cAkBUeCaAuB{AoAcBe@{AlAsExAyAjAs@`A{@rBi@`CgAnBmAdBs@vBg@bCeCbFy@bCuA`ByAnAkBr@cA`BcBx@kBd@aBz@aAjAuAKeBs@mB@mBFwAgAcAmBMjC[rCm@xBWqCIiCo@}B_AuB}A}@iBMgBa@qBCqBHeBv@_BfA{ApAeBt@mBNqB?mBY}@kAOiCs@tBiAfBaB~@ZtBxA~@zAlAdAnB?bCwAvA_BhAqAfALjATjCf@bC`AvBx@tB[d@iBo@}A{@w@yBmBR}AwAcB_AcB`@gAoBSkCr@wBZaC|@wBeBGiBUaB{@qBCuAhA@pCShC{AhA{Af@]x@kBDgBk@"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Mitchell_Canyon_Eagle_Peak.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Photos
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh5.googleusercontent.com/-3htbsTC41zo/TwknSKLr4xI/AAAAAAACeZM/i16T2z1-knI/IMG_7138.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh5.googleusercontent.com/-3htbsTC41zo/TwknSKLr4xI/AAAAAAACeZM/i16T2z1-knI/s144/IMG_7138.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-uE8tdkA3LT4/TwknwfSN_nI/AAAAAAACeZs/v7qxzpA9RYs/IMG_7147.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-uE8tdkA3LT4/TwknwfSN_nI/AAAAAAACeZs/v7qxzpA9RYs/s144/IMG_7147.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-22ph1l1pWKY/TwkoMv0urCI/AAAAAAACeaM/6DPsvgsGjbk/IMG_7158.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-22ph1l1pWKY/TwkoMv0urCI/AAAAAAACeaM/6DPsvgsGjbk/s144/IMG_7158.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh6.googleusercontent.com/-3PEDYkZFgr8/TwkneAMI93I/AAAAAAACeZY/cJkGmxuqCUU/IMG_7141.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh6.googleusercontent.com/-3PEDYkZFgr8/TwkneAMI93I/AAAAAAACeZY/cJkGmxuqCUU/s144/IMG_7141.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.07.31.Mount.Diablo.State.Park/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 31 July 2010</a>
+      
+    <div class="photos_citation">
+    Photos are from a different hike with similar landscape: <a href="https://gurmeet.net/hiking/hikes/Mt_Olympia_From_Regency_Drive.html">Mt Olympia from Regency Drive</a>.
+    </div>
+    
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="https://goo.gl/maps/DjGOK">
+    (Mitchell Canyon Visitor Center) 96 Mitchell Canyon Road, Clayton, CA 94517
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    (borrowed from <A href="http://www.meetup.com/Early-Morning-Hiking-Fast-and-Steep/events/53342842/">Meetup (Early Morning Hikes)</a>)
+    <p>From Milpitas, take I-880 North to the Mission Blvd exit and merge onto Mission Blvd toward Sacramento/I-680. Drive 1.5 miles on Mission Blvd to the I-680 North entrance (towards Sacramento). Drive 35.4 miles on I-680 and take the exit for Treat Blvd toward Geary Rd. Keep right at two successive forks to continue toward Treat Blvd (follow signs for Silicon Valley College). Merge onto Treat Blvd. Drive 1 mile and then turn right onto Bancroft Rd. Drive 0.7 miles and then turn left onto Ygnacio Valley Rd. Drive 5.3 miles and then turn right on Clayton Rd. Drive south on this road for 1 mile and then turn right onto Mitchell Canyon Rd. Continue about 1.5 miles to a parking lot on your left. Please note that if you miss the parking lot the road will loop around and send you back to Mitchell Canyon Road the way you just came.    
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    (Mitchell Canyon Visitor Center) 96 Mitchell Canyon Road, Clayton, CA 94517
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: $6 per vehicle (last visited: April 2014)</p>
+<p><b>Capacity</b>: Over 30 cars may be parked here.</p>
+<p><b>Latitude</b>: 37.920334 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -121.941923</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

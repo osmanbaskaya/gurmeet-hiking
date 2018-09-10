@@ -1,0 +1,455 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<title>Grand Loop in Arastradero</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="https://gurmeet.net/Images/favicon_smile.png" type="image/gif" />
+
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  #map_canvas { height: 100% }
+</style>
+
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKJuTYSAk5uPhdlptJ2lEdNepT7naujXE&sensor=false">
+</script>
+
+<script type="text/javascript">
+  function initialize_google_maps() {
+    var trailhead_latlng = new google.maps.LatLng(37.387160, -122.174353);
+    var center_latlng = new google.maps.LatLng(37.387160, -122.174353);
+    
+    var myOptions = {
+//      zoom: 13,
+      center: trailhead_latlng,
+      mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    var map = new google.maps.Map(document.getElementById("map_canvas"),
+        myOptions);
+
+    var infowindow = new google.maps.InfoWindow({
+      content: 'Trail head'
+    });
+    var marker = new google.maps.Marker({
+      position: trailhead_latlng,
+      map: map,
+      title:"Hello World!",
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+       infowindow.open(map,marker);
+    });
+  
+    var route_coordinates = [
+    new google.maps.LatLng(37.387160,-122.174353),new google.maps.LatLng(37.387141,-122.174166),new google.maps.LatLng(37.387093,-122.174034),new google.maps.LatLng(37.387060,-122.173827),new google.maps.LatLng(37.387064,-122.173822),new google.maps.LatLng(37.387080,-122.174011),new google.maps.LatLng(37.387141,-122.174184),new google.maps.LatLng(37.387108,-122.174413),new google.maps.LatLng(37.387107,-122.174419),new google.maps.LatLng(37.387132,-122.174211),new google.maps.LatLng(37.387087,-122.174002),new google.maps.LatLng(37.387015,-122.173769),new google.maps.LatLng(37.386926,-122.173595),new google.maps.LatLng(37.386767,-122.173297),new google.maps.LatLng(37.386703,-122.173077),new google.maps.LatLng(37.386584,-122.172693),new google.maps.LatLng(37.386467,-122.172289),new google.maps.LatLng(37.386364,-122.172244),new google.maps.LatLng(37.386190,-122.172345),new google.maps.LatLng(37.385974,-122.172598),new google.maps.LatLng(37.385846,-122.172882),new google.maps.LatLng(37.385628,-122.173004),new google.maps.LatLng(37.385479,-122.173035),new google.maps.LatLng(37.385141,-122.173130),new google.maps.LatLng(37.385126,-122.173130),new google.maps.LatLng(37.385038,-122.173014),new google.maps.LatLng(37.384914,-122.172761),new google.maps.LatLng(37.384687,-122.172628),new google.maps.LatLng(37.384726,-122.172551),new google.maps.LatLng(37.384882,-122.172379),new google.maps.LatLng(37.384736,-122.172395),new google.maps.LatLng(37.384396,-122.172276),new google.maps.LatLng(37.384257,-122.172233),new google.maps.LatLng(37.384095,-122.172214),new google.maps.LatLng(37.383763,-122.172089),new google.maps.LatLng(37.383543,-122.172224),new google.maps.LatLng(37.383414,-122.172474),new google.maps.LatLng(37.383304,-122.172860),new google.maps.LatLng(37.383280,-122.173262),new google.maps.LatLng(37.383308,-122.173476),new google.maps.LatLng(37.383339,-122.173654),new google.maps.LatLng(37.383181,-122.174021),new google.maps.LatLng(37.382985,-122.173858),new google.maps.LatLng(37.382728,-122.173642),new google.maps.LatLng(37.382518,-122.173421),new google.maps.LatLng(37.382298,-122.173171),new google.maps.LatLng(37.382112,-122.173178),new google.maps.LatLng(37.382042,-122.173336),new google.maps.LatLng(37.381989,-122.173528),new google.maps.LatLng(37.381879,-122.173849),new google.maps.LatLng(37.381805,-122.174265),new google.maps.LatLng(37.381772,-122.174681),new google.maps.LatLng(37.381521,-122.175041),new google.maps.LatLng(37.381513,-122.175434),new google.maps.LatLng(37.381631,-122.175605),new google.maps.LatLng(37.381813,-122.175846),new google.maps.LatLng(37.381934,-122.176024),new google.maps.LatLng(37.381987,-122.176301),new google.maps.LatLng(37.382040,-122.176625),new google.maps.LatLng(37.381981,-122.177059),new google.maps.LatLng(37.381819,-122.177253),new google.maps.LatLng(37.381663,-122.177502),new google.maps.LatLng(37.381451,-122.177852),new google.maps.LatLng(37.381220,-122.178073),new google.maps.LatLng(37.381062,-122.178131),new google.maps.LatLng(37.380851,-122.178122),new google.maps.LatLng(37.380675,-122.178184),new google.maps.LatLng(37.380570,-122.178330),new google.maps.LatLng(37.380563,-122.178516),new google.maps.LatLng(37.380591,-122.178856),new google.maps.LatLng(37.380614,-122.179079),new google.maps.LatLng(37.380646,-122.179335),new google.maps.LatLng(37.380641,-122.179575),new google.maps.LatLng(37.380537,-122.179753),new google.maps.LatLng(37.380356,-122.180104),new google.maps.LatLng(37.380313,-122.180526),new google.maps.LatLng(37.380435,-122.181015),new google.maps.LatLng(37.380492,-122.181372),new google.maps.LatLng(37.380459,-122.181703),new google.maps.LatLng(37.380427,-122.181851),new google.maps.LatLng(37.380353,-122.182114),new google.maps.LatLng(37.380241,-122.182317),new google.maps.LatLng(37.380148,-122.182660),new google.maps.LatLng(37.380002,-122.182898),new google.maps.LatLng(37.379853,-122.183050),new google.maps.LatLng(37.379727,-122.183112),new google.maps.LatLng(37.379566,-122.183177),new google.maps.LatLng(37.379283,-122.183248),new google.maps.LatLng(37.379093,-122.183428),new google.maps.LatLng(37.379075,-122.183746),new google.maps.LatLng(37.379149,-122.183925),new google.maps.LatLng(37.379318,-122.184211),new google.maps.LatLng(37.379322,-122.184422),new google.maps.LatLng(37.379109,-122.184520),new google.maps.LatLng(37.378960,-122.184642),new google.maps.LatLng(37.378926,-122.184623),new google.maps.LatLng(37.378920,-122.184645),new google.maps.LatLng(37.378920,-122.184632),new google.maps.LatLng(37.378811,-122.184900),new google.maps.LatLng(37.378742,-122.185079),new google.maps.LatLng(37.378671,-122.185207),new google.maps.LatLng(37.378601,-122.185369),new google.maps.LatLng(37.378468,-122.185728),new google.maps.LatLng(37.378374,-122.185869),new google.maps.LatLng(37.378363,-122.186031),new google.maps.LatLng(37.378362,-122.186356),new google.maps.LatLng(37.378309,-122.186534),new google.maps.LatLng(37.378252,-122.186728),new google.maps.LatLng(37.378143,-122.186931),new google.maps.LatLng(37.378118,-122.187177),new google.maps.LatLng(37.378226,-122.187201),new google.maps.LatLng(37.378338,-122.187250),new google.maps.LatLng(37.378353,-122.187316),new google.maps.LatLng(37.378305,-122.187530),new google.maps.LatLng(37.378275,-122.187742),new google.maps.LatLng(37.378282,-122.187921),new google.maps.LatLng(37.378376,-122.188197),new google.maps.LatLng(37.378324,-122.188294),new google.maps.LatLng(37.378258,-122.188258),new google.maps.LatLng(37.378254,-122.188293),new google.maps.LatLng(37.378269,-122.188269),new google.maps.LatLng(37.378284,-122.188264),new google.maps.LatLng(37.378227,-122.188327),new google.maps.LatLng(37.378238,-122.188313),new google.maps.LatLng(37.378264,-122.188337),new google.maps.LatLng(37.378228,-122.188320),new google.maps.LatLng(37.378284,-122.188330),new google.maps.LatLng(37.378229,-122.188328),new google.maps.LatLng(37.378239,-122.188324),new google.maps.LatLng(37.378223,-122.188311),new google.maps.LatLng(37.378185,-122.188225),new google.maps.LatLng(37.378167,-122.188289),new google.maps.LatLng(37.378228,-122.188391),new google.maps.LatLng(37.378297,-122.188475),new google.maps.LatLng(37.378366,-122.188671),new google.maps.LatLng(37.378401,-122.188802),new google.maps.LatLng(37.378496,-122.188975),new google.maps.LatLng(37.378603,-122.189184),new google.maps.LatLng(37.378687,-122.189410),new google.maps.LatLng(37.378751,-122.189597),new google.maps.LatLng(37.378859,-122.189797),new google.maps.LatLng(37.378877,-122.189992),new google.maps.LatLng(37.378777,-122.189897),new google.maps.LatLng(37.378621,-122.189810),new google.maps.LatLng(37.378452,-122.189636),new google.maps.LatLng(37.378265,-122.189559),new google.maps.LatLng(37.378122,-122.189585),new google.maps.LatLng(37.378061,-122.189800),new google.maps.LatLng(37.378122,-122.190028),new google.maps.LatLng(37.378156,-122.190273),new google.maps.LatLng(37.378184,-122.190593),new google.maps.LatLng(37.378214,-122.190908),new google.maps.LatLng(37.378241,-122.191147),new google.maps.LatLng(37.378294,-122.191393),new google.maps.LatLng(37.378348,-122.191491),new google.maps.LatLng(37.378348,-122.191465),new google.maps.LatLng(37.378374,-122.191434),new google.maps.LatLng(37.378399,-122.191429),new google.maps.LatLng(37.378382,-122.191458),new google.maps.LatLng(37.378383,-122.191490),new google.maps.LatLng(37.378386,-122.191505),new google.maps.LatLng(37.378368,-122.191472),new google.maps.LatLng(37.378359,-122.191461),new google.maps.LatLng(37.378354,-122.191455),new google.maps.LatLng(37.378292,-122.191587),new google.maps.LatLng(37.378246,-122.191665),new google.maps.LatLng(37.378110,-122.191800),new google.maps.LatLng(37.377999,-122.191956),new google.maps.LatLng(37.377846,-122.192156),new google.maps.LatLng(37.377828,-122.192222),new google.maps.LatLng(37.377696,-122.192391),new google.maps.LatLng(37.377470,-122.192670),new google.maps.LatLng(37.377221,-122.192760),new google.maps.LatLng(37.377081,-122.192805),new google.maps.LatLng(37.376933,-122.192882),new google.maps.LatLng(37.376809,-122.192994),new google.maps.LatLng(37.376693,-122.193065),new google.maps.LatLng(37.376570,-122.193144),new google.maps.LatLng(37.376444,-122.193254),new google.maps.LatLng(37.376280,-122.193314),new google.maps.LatLng(37.376150,-122.193385),new google.maps.LatLng(37.376069,-122.193522),new google.maps.LatLng(37.376070,-122.193685),new google.maps.LatLng(37.375946,-122.193839),new google.maps.LatLng(37.375900,-122.193913),new google.maps.LatLng(37.375804,-122.194036),new google.maps.LatLng(37.375694,-122.194157),new google.maps.LatLng(37.375530,-122.194156),new google.maps.LatLng(37.375384,-122.194059),new google.maps.LatLng(37.375211,-122.193858),new google.maps.LatLng(37.375012,-122.193797),new google.maps.LatLng(37.374889,-122.193825),new google.maps.LatLng(37.374648,-122.193737),new google.maps.LatLng(37.374459,-122.193606),new google.maps.LatLng(37.374259,-122.193485),new google.maps.LatLng(37.374170,-122.193409),new google.maps.LatLng(37.374059,-122.193288),new google.maps.LatLng(37.373869,-122.193110),new google.maps.LatLng(37.373607,-122.192974),new google.maps.LatLng(37.373508,-122.192742),new google.maps.LatLng(37.373457,-122.192568),new google.maps.LatLng(37.373373,-122.192421),new google.maps.LatLng(37.373254,-122.192177),new google.maps.LatLng(37.373132,-122.192073),new google.maps.LatLng(37.373067,-122.191925),new google.maps.LatLng(37.373047,-122.191868),new google.maps.LatLng(37.373075,-122.191650),new google.maps.LatLng(37.373070,-122.191321),new google.maps.LatLng(37.373038,-122.191209),new google.maps.LatLng(37.372824,-122.191216),new google.maps.LatLng(37.372620,-122.191207),new google.maps.LatLng(37.372449,-122.191096),new google.maps.LatLng(37.372314,-122.191089),new google.maps.LatLng(37.372226,-122.191185),new google.maps.LatLng(37.372143,-122.191296),new google.maps.LatLng(37.372132,-122.191286),new google.maps.LatLng(37.372096,-122.191319),new google.maps.LatLng(37.371969,-122.191226),new google.maps.LatLng(37.371925,-122.190958),new google.maps.LatLng(37.371934,-122.190763),new google.maps.LatLng(37.371880,-122.190553),new google.maps.LatLng(37.371751,-122.190351),new google.maps.LatLng(37.371694,-122.190154),new google.maps.LatLng(37.371745,-122.190032),new google.maps.LatLng(37.371882,-122.190072),new google.maps.LatLng(37.372075,-122.190149),new google.maps.LatLng(37.372201,-122.190213),new google.maps.LatLng(37.372382,-122.190106),new google.maps.LatLng(37.372560,-122.190008),new google.maps.LatLng(37.372689,-122.189922),new google.maps.LatLng(37.372784,-122.189818),new google.maps.LatLng(37.373013,-122.189864),new google.maps.LatLng(37.373155,-122.189928),new google.maps.LatLng(37.373231,-122.189681),new google.maps.LatLng(37.373342,-122.189341),new google.maps.LatLng(37.373388,-122.189089),new google.maps.LatLng(37.373456,-122.188875),new google.maps.LatLng(37.373521,-122.188618),new google.maps.LatLng(37.373582,-122.188477),new google.maps.LatLng(37.373701,-122.188322),new google.maps.LatLng(37.373754,-122.188348),new google.maps.LatLng(37.373938,-122.188309),new google.maps.LatLng(37.374069,-122.188266),new google.maps.LatLng(37.374231,-122.188131),new google.maps.LatLng(37.374452,-122.188014),new google.maps.LatLng(37.374666,-122.187859),new google.maps.LatLng(37.374733,-122.187744),new google.maps.LatLng(37.374879,-122.187643),new google.maps.LatLng(37.374952,-122.187626),new google.maps.LatLng(37.374948,-122.187622),new google.maps.LatLng(37.374941,-122.187622),new google.maps.LatLng(37.374950,-122.187649),new google.maps.LatLng(37.374968,-122.187673),new google.maps.LatLng(37.374823,-122.187695),new google.maps.LatLng(37.374664,-122.187832),new google.maps.LatLng(37.374485,-122.187943),new google.maps.LatLng(37.374297,-122.188032),new google.maps.LatLng(37.374066,-122.188083),new google.maps.LatLng(37.373894,-122.188112),new google.maps.LatLng(37.373777,-122.187934),new google.maps.LatLng(37.373841,-122.187802),new google.maps.LatLng(37.374105,-122.187614),new google.maps.LatLng(37.374340,-122.187205),new google.maps.LatLng(37.374501,-122.187024),new google.maps.LatLng(37.374772,-122.186729),new google.maps.LatLng(37.374972,-122.186453),new google.maps.LatLng(37.375134,-122.186225),new google.maps.LatLng(37.375362,-122.186066),new google.maps.LatLng(37.375530,-122.186012),new google.maps.LatLng(37.375665,-122.185973),new google.maps.LatLng(37.375854,-122.185823),new google.maps.LatLng(37.375920,-122.185709),new google.maps.LatLng(37.375960,-122.185525),new google.maps.LatLng(37.376024,-122.185399),new google.maps.LatLng(37.376169,-122.185348),new google.maps.LatLng(37.376364,-122.185279),new google.maps.LatLng(37.376593,-122.185320),new google.maps.LatLng(37.376724,-122.185621),new google.maps.LatLng(37.376766,-122.185828),new google.maps.LatLng(37.376876,-122.186031),new google.maps.LatLng(37.377014,-122.186133),new google.maps.LatLng(37.377217,-122.186067),new google.maps.LatLng(37.377312,-122.185787),new google.maps.LatLng(37.377356,-122.185601),new google.maps.LatLng(37.377482,-122.185369),new google.maps.LatLng(37.377648,-122.185221),new google.maps.LatLng(37.377798,-122.185171),new google.maps.LatLng(37.378027,-122.185156),new google.maps.LatLng(37.378184,-122.185199),new google.maps.LatLng(37.378356,-122.185164),new google.maps.LatLng(37.378473,-122.185015),new google.maps.LatLng(37.378522,-122.184766),new google.maps.LatLng(37.378595,-122.184586),new google.maps.LatLng(37.378773,-122.184362),new google.maps.LatLng(37.378622,-122.184063),new google.maps.LatLng(37.378455,-122.183839),new google.maps.LatLng(37.378414,-122.183565),new google.maps.LatLng(37.378272,-122.183407),new google.maps.LatLng(37.378162,-122.183232),new google.maps.LatLng(37.378030,-122.183015),new google.maps.LatLng(37.377987,-122.182925),new google.maps.LatLng(37.378084,-122.182760),new google.maps.LatLng(37.378173,-122.182406),new google.maps.LatLng(37.378330,-122.182228),new google.maps.LatLng(37.378479,-122.182267),new google.maps.LatLng(37.378618,-122.182291),new google.maps.LatLng(37.378712,-122.182275),new google.maps.LatLng(37.378827,-122.182179),new google.maps.LatLng(37.378898,-122.181980),new google.maps.LatLng(37.378909,-122.181648),new google.maps.LatLng(37.378926,-122.181420),new google.maps.LatLng(37.378970,-122.181073),new google.maps.LatLng(37.379027,-122.180738),new google.maps.LatLng(37.379087,-122.180479),new google.maps.LatLng(37.379130,-122.180191),new google.maps.LatLng(37.379235,-122.180126),new google.maps.LatLng(37.379474,-122.180063),new google.maps.LatLng(37.379686,-122.180000),new google.maps.LatLng(37.379926,-122.179939),new google.maps.LatLng(37.380160,-122.179880),new google.maps.LatLng(37.380407,-122.179838),new google.maps.LatLng(37.380572,-122.179750),new google.maps.LatLng(37.380670,-122.179678),new google.maps.LatLng(37.380999,-122.179528),new google.maps.LatLng(37.381225,-122.179433),new google.maps.LatLng(37.381406,-122.179409),new google.maps.LatLng(37.381632,-122.179413),new google.maps.LatLng(37.381870,-122.179476),new google.maps.LatLng(37.382076,-122.179523),new google.maps.LatLng(37.382187,-122.179522),new google.maps.LatLng(37.382352,-122.179479),new google.maps.LatLng(37.382640,-122.179432),new google.maps.LatLng(37.382906,-122.179377),new google.maps.LatLng(37.383113,-122.179285),new google.maps.LatLng(37.383334,-122.179148),new google.maps.LatLng(37.383492,-122.179033),new google.maps.LatLng(37.383649,-122.178895),new google.maps.LatLng(37.383861,-122.178714),new google.maps.LatLng(37.384080,-122.178529),new google.maps.LatLng(37.384259,-122.178368),new google.maps.LatLng(37.384408,-122.178175),new google.maps.LatLng(37.384519,-122.177953),new google.maps.LatLng(37.384596,-122.177764),new google.maps.LatLng(37.384713,-122.177403),new google.maps.LatLng(37.384800,-122.176977),new google.maps.LatLng(37.384797,-122.176924),new google.maps.LatLng(37.384673,-122.176985),new google.maps.LatLng(37.384535,-122.177040),new google.maps.LatLng(37.384364,-122.176892),new google.maps.LatLng(37.384178,-122.176607),new google.maps.LatLng(37.384059,-122.176369),new google.maps.LatLng(37.383911,-122.176131),new google.maps.LatLng(37.383811,-122.175887),new google.maps.LatLng(37.383689,-122.175866),new google.maps.LatLng(37.383658,-122.175879),new google.maps.LatLng(37.383569,-122.175848),new google.maps.LatLng(37.383708,-122.175675),new google.maps.LatLng(37.383856,-122.175598),new google.maps.LatLng(37.384001,-122.175621),new google.maps.LatLng(37.384112,-122.175698),new google.maps.LatLng(37.384206,-122.175662),new google.maps.LatLng(37.384204,-122.175500),new google.maps.LatLng(37.384236,-122.175327),new google.maps.LatLng(37.384282,-122.175111),new google.maps.LatLng(37.384366,-122.174921),new google.maps.LatLng(37.384444,-122.174765),new google.maps.LatLng(37.384535,-122.174605),new google.maps.LatLng(37.384649,-122.174382),new google.maps.LatLng(37.384686,-122.174227),new google.maps.LatLng(37.384755,-122.174099),new google.maps.LatLng(37.384868,-122.173898),new google.maps.LatLng(37.385015,-122.173539),new google.maps.LatLng(37.385153,-122.173233),new google.maps.LatLng(37.385215,-122.173169),new google.maps.LatLng(37.385337,-122.173134),new google.maps.LatLng(37.385488,-122.173123),new google.maps.LatLng(37.385697,-122.173048),new google.maps.LatLng(37.385807,-122.172978),new google.maps.LatLng(37.385904,-122.172862),new google.maps.LatLng(37.386020,-122.172619),new google.maps.LatLng(37.386210,-122.172459),new google.maps.LatLng(37.386316,-122.172368),new google.maps.LatLng(37.386485,-122.172353),new google.maps.LatLng(37.386539,-122.172603),new google.maps.LatLng(37.386585,-122.172754),new google.maps.LatLng(37.386669,-122.173043),new google.maps.LatLng(37.386772,-122.173425),new google.maps.LatLng(37.386951,-122.173713),new google.maps.LatLng(37.387051,-122.173925),new google.maps.LatLng(37.387104,-122.174093),new google.maps.LatLng(37.387124,-122.174375),new google.maps.LatLng(37.387135,-122.174574),new google.maps.LatLng(37.387165,-122.174612),
+    ];
+    
+    var bounds = new google.maps.LatLngBounds();
+    for (var i = 0; i < route_coordinates.length; ++i) {
+      bounds.extend(route_coordinates[i]);
+    }
+    map.fitBounds(bounds);
+    
+    var route = new google.maps.Polyline({
+      path: route_coordinates,
+      strokeColor: "#FF0000",
+      strokeOpacity: 1.0,
+      strokeWeight: 3
+    });
+    route.setMap(map);
+  }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://gurmeet.net/HighCharts/js/highcharts.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+  $(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'elevation_profile_container',
+                type: 'area',
+            },
+            colors: [
+            '#AA4643',
+            '#4572A7',
+            '#89A54E',
+            '#80699B',
+            '#3D96AE',
+            '#DB843D',
+            '#92A8CD',
+            '#A47D7C',
+            '#B5CA92'
+            ],
+            title: {
+                text: null,
+            },
+            xAxis: {
+                title: {
+                    text: 'Distance (miles)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value / 10.0 ;
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: 'Elevation (ft)'
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value;
+                    }
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return 'Distance: ' + this.x / 10.0 +' miles<br/>Elevation: ' + this.y + ' ft';
+                }
+            },
+            plotOptions: {
+                area: {
+                    pointStart: 0,
+                    marker: {
+                        enabled: false,
+                        symbol: 'circle',
+                        radius: 2,
+                        states: {
+                            hover: {
+                                enabled: true
+                            }
+                        }
+                    }
+                }
+            },
+            legend: {
+                enabled: false,
+            },
+            series: [{
+                name: 'Hike',
+                data: [ 307, 307, 293, 304, 344, 373, 396, 404, 397, 349, 374, 420, 462, 461, 491, 519, 515, 475, 506, 529, 563, 601, 608, 666, 698, 711, 693, 718, 744, 742, 747, 721, 720, 720, 701, 653, 617, 594, 569, 534, 540, 510, 473, 454, 443, 439, 416, 387, 345, 317, 297, 292, 300, 307 ],
+            }]
+        });
+    });
+    
+});
+</script>
+
+    
+    <script type="text/javascript" src="../includes/highslide/highslide/highslide-full.js"></script>
+<link rel="stylesheet" type="text/css" href="../includes/highslide/highslide/highslide.css" />
+<script type="text/javascript">
+    // override Highslide settings here instead of editing highslide.js
+
+    hs.graphicsDir = '../includes/highslide/highslide/graphics/';
+
+    hs.align = 'center';  // full image should be centered - needs 'Advanced Positioning' in configurator
+
+    hs.allowMultipleInstances = false;  // opened expanders will close when you click to open another, so only one popup can exist at any time
+
+    hs.blockRightClick = true;
+
+    hs.captionEval = 'this.thumb.alt';  // Captions shall be derived from ALT tags in IMG
+
+    hs.showCredits = false;  // Remove 'Powered by ...' from popups
+
+    hs.dimmingOpacity = 0.90;  // Dim the rest of the page when popup shows
+
+    hs.dynamicallyUpdateAnchors = false;  // This saves us a few ms when navigating between popups. If new thumbnails are introduced after page load, typically via an ajax operation, set this to true
+
+    //    hs.height = 1600;  // ???
+    //    hs.width = 1600;  // ???
+
+    hs.maxHeight = 2000;
+    hs.maxWidth = 2000;
+
+    // Image numbering 1 / 23
+    // First, we need to turn on the number display
+    hs.numberPosition = "caption";  // may be "heading" or "caption"
+    // Then, override the language object to suit your needs
+    hs.lang.number = "Photo %1 of %2";
+
+    hs.outlineType = 'rounded-white';
+    //    hs.outlineType = 'outer-glow';
+
+    hs.transitions = ["expand", "crossfade"];
+
+</script>
+<style type="text/css">
+.highslide-dimming {
+    background: black;
+}
+</style>
+
+
+<link href="https://fonts.googleapis.com/css?family=Architects+Daughter%7CKalam:400,700%7CRoboto:400,700" rel="stylesheet" /><link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" media="screen" href="https://gurmeet.net/includes/global.css" />
+<link rel="stylesheet" type="text/css" href="https://gurmeet.net/includes/hiking.css" />
+
+
+<!-- BEGIN Google Analytics -->
+  <script>
+  // Google Analytics    
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-238283-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+<!-- END Google Analytics -->
+<script src="https://gurmeet.net/includes/hiking.js"></script>
+
+</head>
+
+<body class="w3-content"
+                  style="max-width:750px; background-color: #f7fff7;">
+<div style="background-color: #fbfffb;"><div class="w3-pale-green w3-margin-left w3-margin-right w3-round-large"
+              style="font-size:12px; padding-bottom:4px; padding-left:4px; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:flex-start; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Gateways To Joy</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Bay Area Hikes</a></div>
+<div style="padding:4px 0px 4px 0px;">&#x203A;</div>
+<div class="w3-padding-small" style="margin-left:0px;"><a href="https://gurmeet.net/hiking/hikes/" style="text-decoration:underline; text-underline-position:under; text-decoration-style:dashed; text-decoration-color:grey; border-bottom:none;">Grand Loop in Arastradero</a></div>
+</div>
+
+    <div class="w3-bar" style="margin-top:8px; margin-bottom:8px;">
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net'"
+           style="margin-left:16px;">
+        <img src="https://gurmeet.net/Images/logo_joy_transparent_small_cropped.png" alt="Gateways To Joy" style="filter: drop-shadow(0px 0px 10px #ffe973);  /* midway between gold and white */">
+        <div class="nav_bar_button_text" style="">
+           Gateways To Joy
+        </div>
+      </div>
+    
+       
+      <div class="nav_bar_button w3-center w3-round-xlarge"
+           onclick="location.href='https://gurmeet.net/hiking/'"
+           style="margin-left:8px;">
+        <img src="https://gurmeet.net/Images/index_page/hiking8.gif" alt="Bay Area Hikes" style="">
+        <div class="nav_bar_button_text" style="text-transform:uppercase;">
+           Bay Area Hikes
+        </div>
+      </div>
+    
+    </div>
+    
+        <div class="w3-text-black w3-margin w3-bottombar w3-border-green"
+             style="font-family:'Kalam','Segoe UI',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-end;">
+             <div><div style="font-size:30px; ">Grand Loop in Arastradero</div><div style="font-size:20px;">5.0 miles &nbsp;&nbsp;&nbsp; 700 ft</div></div>
+             <div style="flex-basis:94px; font-size:16px; margin-left:40px;">23 Mar 2010</div>
+        </div>
+          
+    <div class="w3-row-padding">
+      <div class="w3-half w3-container">
+      <div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Summary
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        Nice loop through all major trails in Arastradero Preserve, going through forests and green rolling hills.
+<p>Location: <a href="https://gurmeet.net/hiking/parks/Pearson_Arastradero_Preserve.html">Pearson-Arastradero Preserve</a>
+
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Elevation Profile
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div id="elevation_profile_wrapper" style="position: relative; width: 100%; height: 200px;">
+        <div id="elevation_profile_container" style="position: absolute; width: 100%; height: 100%;"></div>
+        </div>
+        </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trip Planning
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <div class="park_info">
+      <a href="http://www.cityofpaloalto.org/depts/csd/parks_and_open_space/preserves_and_open_spaces/pearson_arastradero.asp">Park Website</a> &mdash; <a href="http://www.yelp.com/biz/pearson-arastradero-preserve-palo-alto">Yelp Reviews</a> &mdash; <a href="https://www.weather.com/weather/tenday/l/USCA0830">Weather</a>
+    </div>
+    <div class="mini_header">Trail Maps</div><p>&raquo; <a href="http://www.cityofpaloalto.org/civica/filebank/blobdload.asp?BlobID=6049">Official Trail Map</a>: Pretty good map showing various trails. Note the diamond shaped markers which show trails that have seasonal closures after heavy rains.</p>
+<p>&raquo; <a href="http://www.redwoodhikes.com/Store/BATM1.html">Redwoodhikes Trail Map</a>: 
+    Great map showing many parks like Purisima Creek, Huddart, Wunderlich, El Corte De Madera, Foothills, Hidden Villa and Rancho San Antonio. Trail maps for individual parks are available online for free. However, the RedwoodHikes map shows the big picture and is helpful for planning hikes that go through multiple parks.
+    </p>
+<div class="mini_header">Route</div>
+    <p>This 5-mile loop takes you through all the major trails in Arastradero: From the parking lot, follow Juan Bautista de Anza Trail &rarr; Wild Rye Trail &rarr; Paseo del Roble Trail &rarr; Juan Bautista de Anza Trail &rarr; Ohlone Trail &rarr; Bay Laurel Trail &rarr; Woodland Star Trail &rarr; Meadowlark Trail &rarr; Bowl Loop Trail &rarr; Meadowlark Trail &rarr; Juan Bautista de Anza Trail.</p>
+    <p>I visited Arastradero a couple of weeks after the last rains in 2010. There was lush green grass everywhere. Close to the 'Vista Point' (see map) off Meadowlark Trail, there was a picnic table and a bench to enjoy panoramic views.
+    
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+      <div class="w3-half w3-container">
+      <div onclick="location.href='https://gurmeet.net/hiking/hikes/Grand_Loop_In_Arastradero.GoogleMap.html';"  class="w3-margin-bottom w3-card w3-hover-shadow cursor-pointer">
+
+      <div class="w3-container w3-center w3-pale-green cursor-pointer"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; text-decoration: underline; text-underline-position: under; text-decoration-style: dashed; text-decoration-color: grey; padding:4px 8px 8px 8px;" onclick="location.href='https://gurmeet.net/hiking/hikes/Grand_Loop_In_Arastradero.GoogleMap.html';" >
+      GPS
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div>
+         <img alt=" " width="100%" src="https://maps.googleapis.com/maps/api/staticmap?scale=1&format=jpg&markers=size%3Anormal%7Ccolor%3Ared%7Clabel%3AT%7C37.387160%2C-122.174353&maptype=terrain&sensor=false&size=336x300&path=weight:2|color:0xFF0000FF|enc:wdecFtduhVBe@HYDi@Ad@M`@Fl@Eg@VyAp@}Az@iERG`@Rj@p@Xx@j@VbBXPWVq@l@[GM_@c@\B~A_@^C`AYj@ZXp@TlABnAIlA\hAzAkAtA}Ab@?L^`@dBLrADrAp@fA@lAsAtBUvBJtA`@f@fAvBl@j@^Jh@Ab@JR\@b@ObD?n@x@hBFrAW`BKfAF`ARpATf@RdAZl@\^XJ^Jv@Ld@b@B~@Mb@a@x@Ah@j@RZVFC?B?Ab@vAZx@ZfAPZ@`BThATh@Dn@UDUHCJNtAAb@Qt@HRLG?FEEJJAAEBFAK@JAA?HSBJYd@U`Ag@jA]pASf@Cf@RS\O`@c@d@OZDJj@Kj@Ep@QlDIp@IR?EEECA@D?HDITh@XZt@dABLdAxAlAX\NXTl@\XT^JXLPZA^t@dATV^?\S`@g@f@KXDn@QlAq@lAiAr@[Rm@Hc@f@mAVSPi@Ei@?aAFWpA?b@UXA`@h@@AFDXQFu@Ae@Ji@Vg@Jg@IW[F_AZ_By@SUm@H[Je@sBGs@[}AK[W]IB}@Oa@Yk@Wi@_@MU[SMCCHZB^Zb@Td@PnANVc@MYs@e@m@qAwA_BgAcBm@_@{@Qe@]MWGc@KYcAWm@HYz@Gf@Uh@[Rg@MSw@Gc@Yo@_@[]Im@C_@Fa@EW]Iq@Mc@c@k@\{@`@m@Fu@Z_@x@_BS_@QgA_@c@w@LSCUSMe@EoBIeA_@oDSMyAW}AWq@Ia@OSOmBo@c@Em@@wATU?oC]i@QkAq@wCeC]e@e@qAWgAQuA@Ir@V`@]d@y@Vo@Zm@Rq@XCD@PE[a@]O]DULQE?_@OmA_@eAg@kAG_@c@aAy@cCKMWE]Ai@OUMSUWq@y@q@a@AIp@o@bDc@x@Sh@I`@E~AEF"/>
+        </div>
+        
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+      <div class="w3-container w3-center w3-small">
+        <p>
+        <a href="https://gurmeet.net/hiking/hikes/Grand_Loop_In_Arastradero.GoogleMap.html"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Large-sized Google Map</a>
+      </div>
+      
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Photos
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        <p></p>
+<div class="photo_group">
+
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-LVGknoZPsB0/Twhxq2fERII/AAAAAAACcY8/Rdiq6p_VdYE/IMG_0787.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-LVGknoZPsB0/Twhxq2fERII/AAAAAAACcY8/Rdiq6p_VdYE/s144/IMG_0787.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh4.googleusercontent.com/-tD3VhoPrN8E/TwhxXGNHvzI/AAAAAAACcYo/SKOdEyz3ZK0/IMG_0781.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh4.googleusercontent.com/-tD3VhoPrN8E/TwhxXGNHvzI/AAAAAAACcYo/SKOdEyz3ZK0/s144/IMG_0781.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-yfHsCypjmIE/TwhyfbENpQI/AAAAAAACcZs/YYAwQ0NoSLo/IMG_0799.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-yfHsCypjmIE/TwhyfbENpQI/AAAAAAACcZs/YYAwQ0NoSLo/s144/IMG_0799.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    
+    <div class="picasaweb_thumbnail_144x108">
+    
+      <a href="https://lh3.googleusercontent.com/-OzoaJVneBpg/Twhx7SxtR_I/AAAAAAACcZM/zdYHW6UB0cI/IMG_0792.JPG?imgmax=1600" class="highslide" onclick="return hs.expand(this, { autoplay:true, slideshowGroup: 'group0' })">
+    
+      <img src="https://lh3.googleusercontent.com/-OzoaJVneBpg/Twhx7SxtR_I/AAAAAAACcZM/zdYHW6UB0cI/s144/IMG_0792.JPG" alt="" title="Click to enlarge" height="108" width="144" /></a>
+    </div>
+    <div style="clear:both;"></div></div>
+
+    <div class="w3-container w3-center w3-small">
+      <p>
+      <a href="http://gurmeet.net/photos/2010.03.23.Arastradero.Preserve/"><img src="https://gurmeet.net/hiking/Images/more-red.gif" style="margin-bottom:0px;"></img> Full photo album &mdash; 23 March 2010</a>
+      
+    </div>
+    
+        
+        </div>
+            </div>
+</div>
+<div  class="w3-margin-bottom ">
+
+      <div class="w3-container w3-center w3-pale-green w3-border-green"
+           style="margin-bottom:0px; font-family:'Kalam','Segoe UI',sans-serif; font-size:20px; padding:4px 8px 0px 8px; border-bottom-width:2px; border-bottom-style:solid;" >
+      Trailhead
+      </div>
+          <div style="background:linear-gradient(#f1fff1, white);">
+
+        <div class="w3-container" style="padding-bottom:8px;">
+        <p>
+        
+        
+    <p><b>Location</b>: <a href="http://g.co/maps/46qp7">
+    1530 Arastradero Rd, Palo Alto, CA 94304
+    </a>.  Parking area is visible in Google Maps if you zoom in sufficiently.</p>
+
+    <p><b>Directions</b>: 
+    From Highway 280, take Page Mill Road exit. Go south for 0.5 miles, turn right on Arastradero Road. Within 0.5 miles, the parking lot for Arastradero Preserve is on the right.
+    </p>
+<p><b>Google Maps</b>:
+<div style="margin-left:7px;">
+<form action="https://maps.google.com/maps" method="get" target="_blank">
+   <label for="saddr">Your location?</label>
+   <input type="text" name="saddr" />
+   <input type="hidden" name="daddr" value="
+    1530 Arastradero Rd, Palo Alto, CA 94304
+    " />
+   <input type="submit" value="Get directions" />
+</form>
+</div>
+    <p><b>Parking Fees</b>: None (last visited: March 2010)</p>
+<p><b>Capacity</b>: About 30 cars. In popular season, parking becomes tight.</p>
+<p><b>Latitude</b>: 37.386961 &nbsp;&nbsp;&nbsp;    <b>Longitude</b>: -122.174771</p>
+<div style="clear:both"></div>
+        
+        </div>
+            </div>
+</div>
+
+      </div>
+    </div>
+    
+    <div class="w3-margin-left w3-margin-right w3-pale-green w3-padding w3-margin-bottom w3-round-large"
+         style="font-family:'Kalam',sans-serif; display:flex; flex-direction:row; flex-wrap:nowrap; justify-content:space-between; align-items:flex-start; background:linear-gradient(#ddffdd, #ddffdd);">
+        <div>
+          &copy; Copyright 2008&mdash;2018, Gurmeet Manku.<br/>
+        </div>
+        <div class="w3-margin-left">
+          <a href="mailto:gurmeet@gmail.com">
+             <img src="https://gurmeet.net/Images/gmail_icon.ico"
+                  alt="icon"
+                  style="height:16px; vertical-align:top;">
+             gurmeet@gmail.com
+          </a>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
